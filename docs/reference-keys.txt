@@ -3,6 +3,6 @@ differences-between-two-groups
 notation
 t-test
 anova
-lm
+linear-model
 survival-analysis
 proportional-hazard-models
