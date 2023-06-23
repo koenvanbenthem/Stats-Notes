@@ -1,0 +1,44 @@
+# Survival analysis
+
+## Proportional hazard models
+
+In proportional hazard models, we assume that the hazard for one category is proportional to the hazard in another. The hazard ($h(t)$) here is basically the chance of dying for an individual. If $S(t)$ is the survival function, it is equal to:
+\begin{equation}
+h(t) = -\frac{S'(t)}{S(t)}
+\end{equation}
+which is the same as:
+
+\begin{equation}
+h(t) = -\frac{\text{d}\text{log}(S(t)}{\text{d}t}
+\end{equation}
+We can integrate both sides:
+\begin{equation}
+\int_0^T h(t)\text{d}t = -\int_0^T \frac{\text{d}\text{log}(S(t)}{\text{d}t}\text{d}t
+\end{equation}
+By realizing that $S(0)=1$, this can be rearranged to be:
+\begin{equation}
+S(T) = e^{-\int_0^T h(t)dt}
+\end{equation}
+What does this mean? Firstly, let's say there is no hazard:
+\begin{equation}
+S(T) = e^{-\int_0^T 0 dt} = 1,
+\end{equation}
+then everyone always survives. Let's assume there's a constant hazard, C: 
+\begin{equation}
+S(T) = e^{-\int_0^T C dt} = e^{-C\cdot T},
+\end{equation}
+now the surviving fraction declines exponentially.
+
+Under the proportional hazards model, the assumption is that the hazard function of one category is proportional to the hazard in another, e.g.:
+\begin{equation}
+h_2(t) = b\cdot h_1(t).
+\end{equation}
+If we assume the hazard rate to be constant and set:
+\begin{equation}
+h_1(t) = C,
+\end{equation}
+we can see how this plays out in the survival rate:
+\begin{align}
+S_1(t) &= e^{-C\cdot t}\\
+S_2(t) &= e^{-b\cdot C \cdot t} = \left(e^{-C \cdot t}\right)^b 
+\end{align}
