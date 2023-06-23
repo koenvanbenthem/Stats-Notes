@@ -71,4 +71,5 @@ F = \frac{(N-2)N_AN_B\left(\overline{y_A}-\overline{y_B}\right)^2}{N\left(\sum_{
 and hence $F=t^2$.
 
 ## lm
+under construction.
 
