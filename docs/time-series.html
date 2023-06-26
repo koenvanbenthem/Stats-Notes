@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Time series | Stats notes</title>
-  <meta name="description" content="3 Time series | Stats notes" />
+  <title>4 Time series | Stats notes</title>
+  <meta name="description" content="4 Time series | Stats notes" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Time series | Stats notes" />
+  <meta property="og:title" content="4 Time series | Stats notes" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Time series | Stats notes" />
+  <meta name="twitter:title" content="4 Time series | Stats notes" />
   
   
   
@@ -29,17 +29,17 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="differences-between-two-groups.html"/>
-<link rel="next" href="survival-analysis.html"/>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link rel="prev" href="survival-analysis.html"/>
+<link rel="next" href="bibliography.html"/>
+<script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -48,12 +48,34 @@
 
 
 
-<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
-<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 </head>
 
@@ -74,17 +96,18 @@
 <li class="chapter" data-level="2.1" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html#notation"><i class="fa fa-check"></i><b>2.1</b> Notation</a></li>
 <li class="chapter" data-level="2.2" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html#t-test"><i class="fa fa-check"></i><b>2.2</b> t-test</a></li>
 <li class="chapter" data-level="2.3" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html#anova"><i class="fa fa-check"></i><b>2.3</b> ANOVA</a></li>
-<li class="chapter" data-level="2.4" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html#lm"><i class="fa fa-check"></i><b>2.4</b> lm</a></li>
+<li class="chapter" data-level="2.4" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html#linear-model"><i class="fa fa-check"></i><b>2.4</b> linear model</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="time-series.html"><a href="time-series.html"><i class="fa fa-check"></i><b>3</b> Time series</a>
+<li class="chapter" data-level="3" data-path="survival-analysis.html"><a href="survival-analysis.html"><i class="fa fa-check"></i><b>3</b> Survival analysis</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="time-series.html"><a href="time-series.html#granger-causality"><i class="fa fa-check"></i><b>3.1</b> Granger causality</a></li>
-<li class="chapter" data-level="3.2" data-path="time-series.html"><a href="time-series.html#ccm"><i class="fa fa-check"></i><b>3.2</b> CCM</a></li>
+<li class="chapter" data-level="3.1" data-path="survival-analysis.html"><a href="survival-analysis.html#proportional-hazard-models"><i class="fa fa-check"></i><b>3.1</b> Proportional hazard models</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="survival-analysis.html"><a href="survival-analysis.html"><i class="fa fa-check"></i><b>4</b> Survival analysis</a>
+<li class="chapter" data-level="4" data-path="time-series.html"><a href="time-series.html"><i class="fa fa-check"></i><b>4</b> Time series</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="survival-analysis.html"><a href="survival-analysis.html#proportional-hazard-models"><i class="fa fa-check"></i><b>4.1</b> Proportional hazard models</a></li>
+<li class="chapter" data-level="4.1" data-path="time-series.html"><a href="time-series.html#granger-causality"><i class="fa fa-check"></i><b>4.1</b> Granger causality</a></li>
+<li class="chapter" data-level="4.2" data-path="time-series.html"><a href="time-series.html#ccm"><i class="fa fa-check"></i><b>4.2</b> CCM</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 </ul>
 
       </nav>
@@ -102,13 +125,13 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="time-series" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">3</span> Time series<a href="time-series.html#time-series" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="granger-causality" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> Granger causality<a href="time-series.html#granger-causality" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="time-series" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Time series<a href="time-series.html#time-series" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="granger-causality" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Granger causality<a href="time-series.html#granger-causality" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="ccm" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> CCM<a href="time-series.html#ccm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ccm" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> CCM<a href="time-series.html#ccm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
@@ -117,18 +140,18 @@
           </div>
         </div>
       </div>
-<a href="differences-between-two-groups.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="survival-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="survival-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bibliography.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -167,11 +190,28 @@ gitbook.start({
 },
 "toc": {
 "collapse": "subsection"
+},
+"toolbar": {
+"position": "static"
 }
 });
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
