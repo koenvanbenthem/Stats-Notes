@@ -191,7 +191,79 @@ F = \frac{(N-2)N_AN_B\left(\overline{y_A}-\overline{y_B}\right)^2}{N\left(\sum_{
 </div>
 <div id="linear-model" class="section level2 hasAnchor" number="2.4">
 <h2><span class="header-section-number">2.4</span> linear model<a href="differences-between-two-groups.html#linear-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>under construction.</p>
+<p>Using the formula in <span class="citation">Whitlock and Schluter (<a href="#ref-whitlock2015" role="doc-biblioref">2015</a>)</span> , we can determine the slope for the line between the points as:
+<span class="math display">\[\begin{equation}
+b=\frac{\sum_{i=1}^N (x_i-\overline{x})(y_i-\overline{y})}{\sum_{i=1}^N (x_i - \overline{x})^2}
+\end{equation}\]</span>
+with standard error:
+<span class="math display">\[\begin{equation}
+\text{SE}_b = \sqrt{\frac{\sum_{i=1}^N (y_i-\overline{y})^2-b\sum_{i=1}^N (x_i-\overline{x})(y_i - \overline{y})}{(N-2)\sum_{i=1}^N (x_i-\overline{x})^2}}
+\end{equation}\]</span>
+In order to simplify this for the specific case with only two possible values of x, we first focus on the following simpler expressions:
+<span class="math display">\[\begin{align}
+\overline{x} &amp;= \frac{N_A A + N_B B}{N}
+\end{align}\]</span>
+We can use this to write:
+<span class="math display">\[\begin{align}
+\sum_{i=1}^N (x_i-\overline{x})(y_i-\overline{y}) &amp;= \sum_{i=1}^{N_A} (A - \frac{N_A A + N_B B}{N})(y_i - \overline{y}) + \sum_{i=N_A+1}^{N} (B - \frac{N_A A + N_B B}{N})(y_i - \overline{y})  \\
+&amp;= \sum_{i=1}^{N_A} (\frac{NA}{N} - \frac{N_A A + N_B B}{N})(y_i - \overline{y}) + \sum_{i=N_A+1}^{N} (\frac{NB}{N} - \frac{N_A A + N_B B}{N})(y_i - \overline{y})  \\
+&amp;= \frac{1}{N}\left(\sum_{i=1}^{N_A} N_B (A - B)(y_i - \overline{y}) + \sum_{i=N_A+1}^{N} N_A (B - A)(y_i - \overline{y})\right)  \\
+&amp;= \frac{(A - B)}{N}\left(\sum_{i=1}^{N_A} N_B (y_i - \overline{y}) - \sum_{i=N_A+1}^{N} N_A (y_i - \overline{y})\right)  \\
+&amp;= \frac{(A - B)}{N}\left(N_B \sum_{i=1}^{N_A} y_i - N_BN_A\overline{y} - N_A \sum_{i=N_A+1}^{N} y_i + N_AN_B \overline{y}\right)  \\
+&amp;= \frac{(A - B)}{N}\left(N_B \sum_{i=1}^{N_A} y_i  - N_A \sum_{i=N_A+1}^{N} y_i \right)  \\
+&amp;= \frac{(A - B)}{N}\left(N_BN_A \overline{y_A}  - N_A N_B \overline{y_B}\right)  \\
+&amp;= \frac{(A - B)N_AN_B}{N}\left( \overline{y_A}  -  \overline{y_B}\right)  \\
+\end{align}\]</span>
+Similarly, we attempt to simplify the term:
+<span class="math display">\[\begin{align}
+\sum_{i=1}^N (x_i - \overline{x})^2 &amp;= \sum_{i=1}^N (x_i - \frac{N_A A + N_B B}{N})^2 \\
+&amp;= \sum_{i=1}^{N_A} (A - \frac{N_A A + N_B B}{N})^2 + \sum_{i=N_A+1}^N (B - \frac{N_A A + N_B B}{N})^2 \\
+&amp;= \sum_{i=1}^{N_A} (\frac{NA}{N} - \frac{N_A A + N_B B}{N})^2 + \sum_{i=N_A+1}^N (\frac{NB}{N} - \frac{N_A A + N_B B}{N})^2 \\
+&amp;= \sum_{i=1}^{N_A} (\frac{N_B (A - B)}{N})^2 + \sum_{i=N_A+1}^N (\frac{N_A (B-A)}{N})^2 \\
+&amp;= N_A (\frac{N_B (A - B)}{N})^2 + N_B (\frac{N_A (B-A)}{N})^2 \\
+&amp;= (A-B)^2\left(N_A \frac{N_B^2 }{N^2} + N_B \frac{N_A^2 }{N^2}\right) \\
+&amp;= (A-B)^2\left( \frac{N_AN_B^2 + N_B N_A^2 }{(N_A+N_B)^2}\right) \\
+&amp;= (A-B)^2\left( \frac{N_AN_B (N_A + N_B)}{(N_A+N_B)^2}\right) \\
+&amp;= (A-B)^2 \frac{N_AN_B }{N} \\
+\end{align}\]</span>
+After a lot of rewriting, we can now use these expressions to find a much expected answer:
+<span class="math display">\[\begin{align}
+b&amp;=\frac{\sum_{i=1}^N (x_i-\overline{x})(y_i-\overline{y})}{\sum_{i=1}^N (x_i - \overline{x})^2}\\
+&amp;=\frac{\overline{y_A}-\overline{y_B}}{A-B}
+\end{align}\]</span>
+in other words: when we have only two distinct values for the <span class="math inline">\(x\)</span>-variable, the slope is equal to the difference in the means in <span class="math inline">\(y\)</span> between these to groups and the difference between the <span class="math inline">\(x\)</span>-values. This result was of course completely to be expected, and we could have obtained it through reasoning alone, without the need to rewrite these equations at length.</p>
+<p>The next step is to rewrite the standard error for the slope:
+<span class="math display">\[\begin{align}
+\text{SE}_b &amp;= \sqrt{\frac{\sum_{i=1}^N (y_i-\overline{y})^2-b\sum_{i=1}^N (x_i-\overline{x})(y_i - \overline{y})}{(N-2)\sum_{i=1}^N (x_i-\overline{x})^2}} \\
+&amp;= \sqrt{\frac{\sum_{i=1}^N (y_i-\overline{y})^2-\frac{\overline{y_A}-\overline{y_B}}{A-B}\frac{(A - B)N_AN_B}{N}\left( \overline{y_A}  -  \overline{y_B}\right)}{(N-2)(A-B)^2 \frac{N_AN_B}{N}}} \\
+&amp;= \frac{1}{A-B}\sqrt{\frac{\sum_{i=1}^N (y_i-\overline{y})^2-\frac{N_AN_B}{N}\left( \overline{y_A}  -  \overline{y_B}\right)^2}{(N-2) \frac{N_AN_B}{N}}}
+\end{align}\]</span>
+Now, the test statistic for testing whether <span class="math inline">\(b\)</span> is equal to zero is (<span class="math inline">\(t_b\)</span>):
+<span class="math display">\[\begin{align}
+t_b &amp;= \frac{b}{\text{SE}_b}\\
+&amp;= \sqrt{\frac{(N-2) \frac{N_AN_B}{N}(\overline{y_A}-\overline{y_B})^2}{\sum_{i=1}^N (y_i-\overline{y})^2-\frac{N_AN_B}{N}\left( \overline{y_A}  -  \overline{y_B}\right)^2}} \\
+&amp;= \sqrt{\frac{(N-2) N_AN_B(\overline{y_A}-\overline{y_B})^2}{N\sum_{i=1}^N (y_i-\overline{y})^2-N_AN_B\left( \overline{y_A}  -  \overline{y_B}\right)^2}}
+\end{align}\]</span>
+Let’s first rewrite the following:
+<span class="math display">\[\begin{align}
+N&amp;\sum_{i=1}^N (y_i-\overline{y})^2-N_AN_B\left( \overline{y_A}  -  \overline{y_B}\right)^2  = N\sum_{i=1}^N (y_i^2-2y_i\overline{y} + \overline{y}^2)-N_AN_B\left( \overline{y_A}  -  \overline{y_B}\right)^2\\
+&amp;= N\sum_{i=1}^N y_i^2-2N^2\overline{y}^2 + N^2\overline{y}^2-N_AN_B\left( \overline{y_A}  -  \overline{y_B}\right)^2\\
+&amp;= N\sum_{i=1}^N y_i^2-(N\overline{y})^2-N_AN_B\left( \overline{y_A}  -  \overline{y_B}\right)^2\\
+&amp;= N\sum_{i=1}^{N}   y_i^2  -(N_A\overline{y_A}+N_B\overline{y_B})^2-N_AN_B\left( \overline{y_A}  -  \overline{y_B}\right)^2\\
+&amp;= N\sum_{i=1}^{N}   y_i^2  -N_A^2\overline{y_A}^2-N_B^2\overline{y_B}^2-2N_AN_B\overline{y_A}\overline{y_B}-N_AN_B\overline{y_A}^2 - N_AN_B\overline{y_B}^2 + 2N_AN_B\overline{y_A}\overline{y_B}\\
+&amp;= N\sum_{i=1}^{N}   y_i^2  -N_A(N_A+N_B)\overline{y_A}^2-N_B(N_B+N_A)\overline{y_B}^2 \\
+&amp;= N\left(\sum_{i=1}^{N}   y_i^2  -N_A\overline{y_A}^2-N_B\overline{y_B}^2\right) \\
+&amp;= N\left(\sum_{i=1}^{N}   y_i^2  -2N_A\overline{y_A}^2+N_A\overline{y_A}^2-2N_B\overline{y_B}^2+N_B\overline{y_B}^2\right) \\
+&amp;= N\left(\sum_{i=1}^{N}   y_i^2  -\sum_{i=1}^{N_A} 2\overline{y_A}y_i+\sum_{i=1}^{N_A}\overline{y_A}^2-2\sum_{i=N_A+1}^N\overline{y_B}y_i+\sum_{i=N_B+1}^N\overline{y_B}^2\right) \\
+&amp;= N\left(\sum_{i=1}^{N_A}   y_i^2 + \sum_{i=N_A+1}^{N}   y_i^2  -\sum_{i=1}^{N_A} 2\overline{y_A}y_i+\sum_{i=1}^{N_A}\overline{y_A}^2-2\sum_{i=N_A+1}^N\overline{y_B}y_i+\sum_{i=N_B+1}^N\overline{y_B}^2\right) \\
+&amp;= N\left(\sum_{i=1}^{N_A}   \left(y_i^2 - 2\overline{y_A}y_i+ \overline{y_A}^2 \right) + \sum_{i=N_A+1}^{N}   \left(y_i^2 -2\overline{y_B}y_i+\overline{y_B}^2 \right)\right) \\
+&amp;= N\left(\sum_{i=1}^{N_A}   \left(y_i - \overline{y_A} \right)^2 + \sum_{i=N_A+1}^{N}   \left(y_i -\overline{y_B}\right)^2\right) \\
+\end{align}\]</span>
+By using this simplification, we can rewrite the value of the <span class="math inline">\(t\)</span>-statistic as:
+<span class="math display">\[\begin{equation}
+t_b = \sqrt{\frac{(N-2) N_AN_B(\overline{y_A}-\overline{y_B})^2}{ N\left(\sum_{i=1}^{N_A}   \left(y_i - \overline{y_A} \right)^2 + \sum_{i=N_A+1}^{N}   \left(y_i -\overline{y_B}\right)^2\right)}} = t = \sqrt{F}
+\end{equation}\]</span>
+and hence we conclude that <span class="math inline">\(t=t_b\)</span>.</p>
 
 </div>
 </div>
