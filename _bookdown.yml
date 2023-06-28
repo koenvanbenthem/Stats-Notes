@@ -8,5 +8,6 @@ rmd_files:
     "anovattestlm.Rmd",
     "survival.Rmd",
     "timeseries.Rmd",
+    "pca.Rmd",
     "bibliography.Rmd",
 ]

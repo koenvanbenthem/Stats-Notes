@@ -1,0 +1,50 @@
+# When not to use a PCA
+The following is a brief example of when using a PCA to replace variables in your dataset might not be ideal. 
+
+Firstly, let's create some dummy explanatory data. We will generate four predictors, with negative correlations between the first and second and between the third and fourth:
+```{r}
+set.seed(3)
+library(mvtnorm)
+x <- rmvnorm(50,mean=rep(0,4),
+        sigma=matrix(c(1,-0.8,0,0,
+                       -0.8,1,0,0,
+                       0,0,1,-0.8,
+                       0,0,-0.8,1),
+                     nrow=4,byrow=TRUE))
+```
+When we now try to calculate the principal components, we find;
+```{r}
+pcs <- prcomp(x)
+summary(pcs)
+```
+Hence, the first two axes together already explain over 90% of the data. We could thus decide in a predictive model to only use these two axes. 
+```{r}
+newx <- predict(pcs)
+```
+Let's next make a response variable, which is equal to the sum of the 4 explanatory variable with some added noise on top:
+```{r,warning=FALSE}
+y <- apply(x,1,sum) + rnorm(nrow(x),0,0.5)
+d <- as.data.frame(cbind(y=y,newx))
+head(d)
+```
+We can use dredge (should we?) to compare all models:
+```{r}
+library(MuMIn)
+m.1 <- lm(y~.,data=d,na.action="na.fail")
+modSel <- as.data.frame(dredge(m.1))
+options(digits=3)
+#best models
+head(modSel,3)
+# worst models
+tail(modSel,3)
+```
+This is an interesting finding: the model that performs best is the model that contains the two axes that explain the least amount of variation, while the model that explains worst is the model that contains the two axes that explain the most variation. We can look at this sligthly more indepth:
+```{r}
+m.12 <- lm(y~PC1+PC2,data=d)
+summary(m.12)
+
+
+m.34 <- lm(y~PC3+PC4,data=d)
+summary(m.34)
+``` 
+Hence, we might conclude that at least in this case using a PCA to reduce variables and then fit would not be ideal. That is not to say that it is never a useful approach, I just think that one should be cautious.
