@@ -7,5 +7,6 @@ rmd_files:
     "Introduction.Rmd",
     "anovattestlm.Rmd",
     "survival.Rmd",
+    "pca.Rmd",
     "bibliography.Rmd",
 ]
