@@ -8,5 +8,6 @@ rmd_files:
     "anovattestlm.Rmd",
     "survival.Rmd",
     "pca.Rmd",
+    "brmslogistic.Rmd",
     "bibliography.Rmd",
 ]

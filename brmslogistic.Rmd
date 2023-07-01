@@ -1,0 +1,44 @@
+# Posterior samples from a logistic model
+
+```{r}
+library(brms)
+set.seed(456)
+N <- 50
+Ni <- 10
+x <- rnorm(N)
+id <- sample(Ni,N,replace=TRUE)
+id.f <- factor(id)
+id.vals <- rnorm(Ni)
+lin.y <- x + id.vals[id]
+p.y <- plogis(lin.y)
+y <- rbinom(N,1,p.y)
+d <- data.frame(x=x,y=y,id=id.f)
+# 1. A model without random effect
+m1 <- brm(y~x,family=bernoulli,
+    warmup=1000,
+    iter=2000,
+    data=d,
+    backend="cmdstanr")
+m1.fit.lin <- fitted(m1,summary=FALSE,newdata=data.frame(x=0.3),scale = 'linear')
+
+m1.fit.resp <- fitted(m1,summary=FALSE,newdata=data.frame(x=0.3),scale = 'response')
+
+summary(plogis(m1.fit.lin)-m1.fit.resp)
+
+# 2. A model with random effect
+m2 <- brm(y~s(x)+(1|id),family=bernoulli,
+    warmup=1000,
+    iter=2000,
+    data=d,
+    backend="cmdstanr")
+
+m2.fit.lin <- fitted(m2,summary=FALSE,newdata=data.frame(x=c(0.3),id='1'),scale = 'linear',re_formula=NA)
+
+m2.fit.resp <- fitted(m2,summary=FALSE,newdata=data.frame(x=c(0.3),id='1'),scale = 'response',re_formula=NA)
+
+summary(plogis(m2.fit.lin)-m2.fit.resp)
+quantile(plogis(m2.fit.lin),probs=c(0.025,0.975))
+plogis(quantile(m2.fit.lin,probs=c(0.025,0.975)))
+fitted(m2,summary=TRUE,newdata=data.frame(x=c(0.3),id='1'),scale = 'response',re_formula=NA)
+
+```
