@@ -60,10 +60,9 @@ fitted(m1,summary=TRUE,newdata=newdat,scale = 'response',re_formula=NA)
 Fortunately, we see that both methods give identical estimates.
 
 ## Beta zero one inflated model
-We now move to a slightly more complicated model: a beta regression with zero-one inflation. Assume we have a 40% chance of having inflation, which in turn in 80% of the cases implies a 0 and in 20% of the cases a 1.
+We now move to a slightly more complicated model: a beta regression with zero-one inflation. Assume we have a 40% chance of having inflation, which in turn in 80% of the cases implies a 0 and in 20% of the cases a 1.The following code simply simulates some data for our model to fit on:
 
 ```r
-library(brms)
 set.seed(456)
 N <- 50
 Ni <- 10
@@ -86,7 +85,11 @@ y.std <- rbeta(N,1,shape.1,shape.2)
 # now add zero-one inflation:
 y <- ifelse(runif(N)<0.4,as.numeric(runif(N)>0.8),y.std)
 d <- data.frame(x=x,y=y,id=id.f)
+
+plot(x,y)
 ```
+
+<img src="brmslogistic_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 Now we move to the analysis, first we are naive and we simply try the logistic transformation of the predictions:
 
 ```r
