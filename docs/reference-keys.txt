@@ -7,7 +7,6 @@ linear-model
 survival-analysis
 proportional-hazard-models
 when-not-to-use-a-pca
-posterior-samples-from-a-logistic-model
 transforming-posterior-samples
 binomial-model
 beta-zero-one-inflated-model
