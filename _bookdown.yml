@@ -6,6 +6,7 @@ rmd_files:
     "index.Rmd",
     "Introduction.Rmd",
     "anovattestlm.Rmd",
+    "correlationtest.Rmd",
     "survival.Rmd",
     "pca.Rmd",
     "brmslogistic.Rmd",

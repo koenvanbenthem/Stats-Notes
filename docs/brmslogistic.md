@@ -86,6 +86,7 @@ y.std <- rbeta(N,1,shape.1,shape.2)
 y <- ifelse(runif(N)<0.4,as.numeric(runif(N)>0.8),y.std)
 d <- data.frame(x=x,y=y,id=id.f)
 
+# not too involved plot
 plot(x,y)
 ```
 

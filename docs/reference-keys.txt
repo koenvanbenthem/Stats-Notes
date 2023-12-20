@@ -10,3 +10,10 @@ when-not-to-use-a-pca
 transforming-posterior-samples
 binomial-model
 beta-zero-one-inflated-model
+differences-between-two-groups-1
+notation-1
+t-test-1
+anova-1
+linear-model-1
+correlation-test-and-t-test
+correlation-test

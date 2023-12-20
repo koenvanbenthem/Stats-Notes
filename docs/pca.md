@@ -53,13 +53,6 @@ We can use dredge (should we?) to compare all models:
 
 ```r
 library(MuMIn)
-```
-
-```
-## Warning: package 'MuMIn' was built under R version 4.2.3
-```
-
-```r
 m.1 <- lm(y~.,data=d,na.action="na.fail")
 modSel <- as.data.frame(dredge(m.1))
 ```
