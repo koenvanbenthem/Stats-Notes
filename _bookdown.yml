@@ -10,5 +10,6 @@ rmd_files:
     "survival.Rmd",
     "pca.Rmd",
     "brmslogistic.Rmd",
+    "errorprop.Rmd",
     "bibliography.Rmd",
 ]

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 Error propagation | Stats notes</title>
+  <meta name="description" content="7 Error propagation | Stats notes" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 Error propagation | Stats notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 Error propagation | Stats notes" />
+  
+  
+  
+
+<meta name="author" content="Koen van Benthem" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="transforming-posterior-samples.html"/>
+<link rel="next" href="bibliography.html"/>
+<script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Ramblings</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html"><i class="fa fa-check"></i><b>2</b> Differences between two groups</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html#notation"><i class="fa fa-check"></i><b>2.1</b> Notation</a></li>
+<li class="chapter" data-level="2.2" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html#t-test"><i class="fa fa-check"></i><b>2.2</b> t-test</a></li>
+<li class="chapter" data-level="2.3" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html#anova"><i class="fa fa-check"></i><b>2.3</b> ANOVA</a></li>
+<li class="chapter" data-level="2.4" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html#linear-model"><i class="fa fa-check"></i><b>2.4</b> linear model</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="correlation-test-and-t-test.html"><a href="correlation-test-and-t-test.html"><i class="fa fa-check"></i><b>3</b> Correlation test and t-test</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="correlation-test-and-t-test.html"><a href="correlation-test-and-t-test.html#notation-1"><i class="fa fa-check"></i><b>3.1</b> Notation</a></li>
+<li class="chapter" data-level="3.2" data-path="correlation-test-and-t-test.html"><a href="correlation-test-and-t-test.html#linear-model-1"><i class="fa fa-check"></i><b>3.2</b> Linear model</a></li>
+<li class="chapter" data-level="3.3" data-path="correlation-test-and-t-test.html"><a href="correlation-test-and-t-test.html#correlation-test"><i class="fa fa-check"></i><b>3.3</b> Correlation test</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="survival-analysis.html"><a href="survival-analysis.html"><i class="fa fa-check"></i><b>4</b> Survival analysis</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="survival-analysis.html"><a href="survival-analysis.html#proportional-hazard-models"><i class="fa fa-check"></i><b>4.1</b> Proportional hazard models</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="when-not-to-use-a-pca.html"><a href="when-not-to-use-a-pca.html"><i class="fa fa-check"></i><b>5</b> When not to use a PCA</a></li>
+<li class="chapter" data-level="6" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html"><i class="fa fa-check"></i><b>6</b> Transforming posterior samples</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html#binomial-model"><i class="fa fa-check"></i><b>6.1</b> Binomial model</a></li>
+<li class="chapter" data-level="6.2" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html#beta-zero-one-inflated-model"><i class="fa fa-check"></i><b>6.2</b> Beta zero one inflated model</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="error-propagation.html"><a href="error-propagation.html"><i class="fa fa-check"></i><b>7</b> Error propagation</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="error-propagation.html"><a href="error-propagation.html#data-simulation"><i class="fa fa-check"></i><b>7.1</b> Data simulation</a></li>
+<li class="chapter" data-level="7.2" data-path="error-propagation.html"><a href="error-propagation.html#problem-statement"><i class="fa fa-check"></i><b>7.2</b> Problem statement</a></li>
+<li class="chapter" data-level="7.3" data-path="error-propagation.html"><a href="error-propagation.html#point-estimates"><i class="fa fa-check"></i><b>7.3</b> Point estimates</a></li>
+<li class="chapter" data-level="7.4" data-path="error-propagation.html"><a href="error-propagation.html#uncertainty-using-sampling"><i class="fa fa-check"></i><b>7.4</b> Uncertainty using sampling</a></li>
+<li class="chapter" data-level="7.5" data-path="error-propagation.html"><a href="error-propagation.html#uncertainty-using-delta-method"><i class="fa fa-check"></i><b>7.5</b> Uncertainty using delta method</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Stats notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="error-propagation" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> Error propagation<a href="error-propagation.html#error-propagation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="data-simulation" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Data simulation<a href="error-propagation.html#data-simulation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For this page, I will simulate some data. The data describes the number of visitors in one of two food trucks (A and B) over time.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="error-propagation.html#cb1-1" tabindex="-1"></a>timepoints <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">24</span></span>
+<span id="cb1-2"><a href="error-propagation.html#cb1-2" tabindex="-1"></a>trucks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;A&#39;</span>,<span class="st">&#39;B&#39;</span>)</span>
+<span id="cb1-3"><a href="error-propagation.html#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="error-propagation.html#cb1-4" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">time=</span>timepoints,<span class="at">truck=</span>trucks)</span>
+<span id="cb1-5"><a href="error-propagation.html#cb1-5" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="error-propagation.html#cb1-6" tabindex="-1"></a>df<span class="sc">$</span>expected.visitors <span class="ot">&lt;-</span> <span class="fu">with</span>(df,<span class="fu">ifelse</span>(truck<span class="sc">==</span><span class="st">&#39;A&#39;</span>,<span class="fu">exp</span>(<span class="dv">3</span><span class="fl">-0.1</span><span class="sc">*</span>(time<span class="dv">-12</span>)<span class="sc">^</span><span class="dv">2</span>),<span class="fu">exp</span>(<span class="fl">3.2-0.07</span><span class="sc">*</span>(time<span class="dv">-18</span>)<span class="sc">^</span><span class="dv">2</span>)))</span></code></pre></div>
+<p>We now have expected values for each truck at each time point.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="error-propagation.html#cb2-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.2.3</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="error-propagation.html#cb4-1" tabindex="-1"></a><span class="fu">ggplot</span>(df,<span class="fu">aes</span>(<span class="at">x=</span>time,<span class="at">y=</span>expected.visitors,<span class="at">col=</span>truck)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">expand=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)) <span class="sc">+</span><span class="fu">theme_classic</span>()</span></code></pre></div>
+<p><img src="errorprop_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+From this we can simulate data, by drawing from a poisson distribution. The final data that we will work with, looks like this:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="error-propagation.html#cb5-1" tabindex="-1"></a>df<span class="sc">$</span>visitors <span class="ot">&lt;-</span> <span class="fu">rpois</span>(<span class="fu">nrow</span>(df),df<span class="sc">$</span>expected.visitors)</span>
+<span id="cb5-2"><a href="error-propagation.html#cb5-2" tabindex="-1"></a><span class="fu">ggplot</span>(df,<span class="fu">aes</span>(<span class="at">x=</span>time,<span class="at">y=</span>visitors,<span class="at">col=</span>truck)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">expand=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)) <span class="sc">+</span><span class="fu">theme_classic</span>()</span></code></pre></div>
+<p><img src="errorprop_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="problem-statement" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Problem statement<a href="error-propagation.html#problem-statement" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We proceed with a relatively simple quadratic model fit, to describe the patterns in the data:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="error-propagation.html#cb6-1" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(visitors<span class="sc">~</span>truck<span class="sc">*</span>time<span class="sc">+</span>truck<span class="sc">*</span><span class="fu">I</span>(time<span class="sc">^</span><span class="dv">2</span>),<span class="at">data=</span>df,<span class="at">family=</span>poisson)</span>
+<span id="cb6-2"><a href="error-propagation.html#cb6-2" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = visitors ~ truck * time + truck * I(time^2), family = poisson, 
+##     data = df)
+## 
+## Deviance Residuals: 
+##      Min        1Q    Median        3Q       Max  
+## -2.78413  -0.22926  -0.01001   0.14095   2.11727  
+## 
+## Coefficients:
+##                   Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)      -17.11303    2.72374  -6.283 3.32e-10 ***
+## truckB            -3.56256    3.92317  -0.908  0.36384    
+## time               3.38900    0.45771   7.404 1.32e-13 ***
+## I(time^2)         -0.14163    0.01901  -7.450 9.35e-14 ***
+## truckB:time       -0.73282    0.55759  -1.314  0.18876    
+## truckB:I(time^2)   0.06789    0.02099   3.235  0.00122 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for poisson family taken to be 1)
+## 
+##     Null deviance: 597.287  on 49  degrees of freedom
+## Residual deviance:  37.559  on 44  degrees of freedom
+## AIC: 143.97
+## 
+## Number of Fisher Scoring iterations: 7</code></pre>
+<p>For this model, we are interested in the following:
+1. What is the maximum number of visitors at each truck at any hour.
+2. When does the maximum number of visitors arrive?
+3. How are these quantities different for the two trucks
+4. What is the uncertainty in each of the estimates 1–3.</p>
+</div>
+<div id="point-estimates" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Point estimates<a href="error-propagation.html#point-estimates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Our model prediction (<span class="math inline">\(y\)</span>) for a specific truck <span class="math inline">\(i\)</span> at a specific time <span class="math inline">\(t\)</span> is (notation consistent with R):
+<span class="math display">\[\begin{equation}
+y = e^{\beta_{\text{Intercept}} + \beta_{\text{truckB}} \delta_{i,B} + \beta_{\text{time}}t + \beta_{\text{I(time^2)}}t^2 + \beta_{\text{truckB:time}}\delta_{i,B}t +  \beta_{\text{truckB:I(time^2)}}\delta_{i,B}t^2}
+\end{equation}\]</span>
+Here, <span class="math inline">\(\delta_{i,B}\)</span> is equal to 0 when we want to make an estimate for truck A (<span class="math inline">\(i=A\)</span>) and 1 when we want to make an estimate for truck B (<span class="math inline">\(i=B\)</span>). We now derive expressions for the maximum value and when this occurs. Note that because log transformations are monotonic, we can determine these points on the log scale. Or in other words, we can define a new quantity, <span class="math inline">\(\eta\)</span> which equals <span class="math inline">\(\log{y}\)</span>:
+<span class="math display">\[\begin{equation}
+\eta = \log{y} = {\beta_{\text{Intercept}} + \beta_{\text{truckB}} \delta_{i,B} + \beta_{\text{time}}t + \beta_{\text{I(time^2)}}t^2 + \beta_{\text{truckB:time}}\delta_{i,B}t +  \beta_{\text{truckB:I(time^2)}}\delta_{i,B}t^2}
+\end{equation}\]</span>
+whenever <span class="math inline">\(\eta\)</span> is at it’s highest possible value, so is <span class="math inline">\(y\)</span>. This occurs when <span class="math inline">\(\frac{\text{d}\eta}{\text{d}t}=0\)</span>. Hence, when:
+<span class="math display">\[\begin{equation}
+\frac{\text{d}\eta}{\text{d}t} =  \beta_{\text{time}} + 2\beta_{\text{I(time^2)}}t + \beta_{\text{truckB:time}}\delta_{i,B} +  2\beta_{\text{truckB:I(time^2)}}\delta_{i,B}t=0
+\end{equation}\]</span>
+Which can be solved for <span class="math inline">\(t\)</span> relatively easily:
+<span class="math display">\[\begin{equation}
+t_\text{max} = - \frac{\beta_{\text{time}}+ \beta_{\text{truckB:time}}\delta_{i,B}}{2(\beta_{\text{I(time^2)}} + \beta_{\text{truckB:I(time^2)}}\delta_{i,B})}
+\end{equation}\]</span>
+And for specific trucks, in this model we thus find:
+<span class="math display">\[\begin{align}
+t_\text{max,A} &amp;= - \frac{\beta_{\text{time}}}{2\beta_{\text{I(time^2)}}}\\
+t_\text{max,B} &amp;= - \frac{\beta_{\text{time}}+ \beta_{\text{truckB:time}}}{2(\beta_{\text{I(time^2)}} + \beta_{\text{truckB:I(time^2)}})}
+\end{align}\]</span>
+The difference in maximum values is thus:
+<span class="math display">\[\begin{equation}
+\Delta t_\text{max} = \frac{\beta_{\text{time}}+ \beta_{\text{truckB:time}}}{2(\beta_{\text{I(time^2)}} + \beta_{\text{truckB:I(time^2)}})} - \frac{\beta_{\text{time}}}{2\beta_{\text{I(time^2)}}}
+\end{equation}\]</span>
+The corresponding maximum values of <span class="math inline">\(\eta\)</span> are then:
+<span class="math display">\[\begin{align}
+\eta_\text{max,A} &amp;= \beta_{\text{Intercept}} + \beta_{\text{time}} t_\text{max,A} + \beta_{\text{I(time^2)}}t_\text{max,A}^2 \\
+\eta_\text{max,B} &amp;= \beta_{\text{Intercept}} + \beta_{\text{truckB}}  + (\beta_{\text{time}}+\beta_{\text{truckB:time}})t_\text{max,B} + (\beta_{\text{I(time^2)}}+\beta_{\text{truckB:I(time^2)}})t_\text{max,B}^2
+\end{align}\]</span>
+And the difference is thus:
+<span class="math display">\[\begin{equation}
+\Delta \eta_\text{max} = \beta_{\text{time}} (t_\text{max,A} - t_\text{max,B})+ \beta_{\text{I(time^2)}}(t_\text{max,A}^2 - t_\text{max,B}^2) -  \beta_{\text{truckB:time}}t_\text{max,B} - \beta_{\text{truckB:I(time^2)}}t_\text{max,B}^2
+\end{equation}\]</span>
+For the specific model fit, we end up with (for the time points):</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="error-propagation.html#cb8-1" tabindex="-1"></a>tmax.a <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">coef</span>(m1)[<span class="dv">3</span>]<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span><span class="fu">coef</span>(m1)[<span class="dv">4</span>])</span>
+<span id="cb8-2"><a href="error-propagation.html#cb8-2" tabindex="-1"></a>tmax.b <span class="ot">&lt;-</span> <span class="sc">-</span>(<span class="fu">coef</span>(m1)[<span class="dv">3</span>]<span class="sc">+</span><span class="fu">coef</span>(m1)[<span class="dv">5</span>])<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>(<span class="fu">coef</span>(m1)[<span class="dv">4</span>]<span class="sc">+</span><span class="fu">coef</span>(m1)[<span class="dv">6</span>]))</span>
+<span id="cb8-3"><a href="error-propagation.html#cb8-3" tabindex="-1"></a>Delta.time <span class="ot">&lt;-</span> tmax.a<span class="sc">-</span>tmax.b</span>
+<span id="cb8-4"><a href="error-propagation.html#cb8-4" tabindex="-1"></a>tmax.a</span></code></pre></div>
+<pre><code>##     time 
+## 11.96396</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="error-propagation.html#cb10-1" tabindex="-1"></a>tmax.b</span></code></pre></div>
+<pre><code>##     time 
+## 18.00912</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="error-propagation.html#cb12-1" tabindex="-1"></a>tmax.a<span class="sc">-</span>tmax.b</span></code></pre></div>
+<pre><code>##      time 
+## -6.045152</code></pre>
+<p>These values are close to the time points at which the maximum occurs in the two graphs! The difference between them is negative due to the maximum occurring later for truck B.</p>
+<p>The corresponding maxima are then (on the log scale):</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="error-propagation.html#cb14-1" tabindex="-1"></a>eta.max.a <span class="ot">&lt;-</span> <span class="fu">coef</span>(m1) <span class="sc">%*%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,tmax.a,tmax.a<span class="sc">^</span><span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">0</span>)</span>
+<span id="cb14-2"><a href="error-propagation.html#cb14-2" tabindex="-1"></a>eta.max.b <span class="ot">&lt;-</span> <span class="fu">coef</span>(m1) <span class="sc">%*%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,tmax.b,tmax.b<span class="sc">^</span><span class="dv">2</span>,tmax.b,tmax.b<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb14-3"><a href="error-propagation.html#cb14-3" tabindex="-1"></a>delta.eta.max <span class="ot">&lt;-</span> eta.max.a <span class="sc">-</span> eta.max.b</span></code></pre></div>
+<p>And on the response scale, that becomes:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="error-propagation.html#cb15-1" tabindex="-1"></a><span class="fu">exp</span>(eta.max.a)</span></code></pre></div>
+<pre><code>##          [,1]
+## [1,] 23.56847</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="error-propagation.html#cb17-1" tabindex="-1"></a><span class="fu">exp</span>(eta.max.b)</span></code></pre></div>
+<pre><code>##          [,1]
+## [1,] 25.58845</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="error-propagation.html#cb19-1" tabindex="-1"></a><span class="fu">exp</span>(delta.eta.max)</span></code></pre></div>
+<pre><code>##          [,1]
+## [1,] 0.921059</code></pre>
+<p>Note here that the last number corresponds to the ratio between the first two.</p>
+</div>
+<div id="uncertainty-using-sampling" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Uncertainty using sampling<a href="error-propagation.html#uncertainty-using-sampling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Probably the easiest way to get some view of the uncertainty, is by sampling parameters.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="error-propagation.html#cb21-1" tabindex="-1"></a><span class="fu">library</span>(mvtnorm)</span>
+<span id="cb21-2"><a href="error-propagation.html#cb21-2" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">rmvnorm</span>(<span class="fl">1e5</span>,<span class="fu">coef</span>(m1),<span class="fu">vcov</span>(m1)) <span class="co"># we draw 1e6 different parameter combinations</span></span>
+<span id="cb21-3"><a href="error-propagation.html#cb21-3" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="error-propagation.html#cb21-4" tabindex="-1"></a><span class="co"># for each combination we calculate tmax values:</span></span>
+<span id="cb21-5"><a href="error-propagation.html#cb21-5" tabindex="-1"></a>tmax.as <span class="ot">&lt;-</span> <span class="sc">-</span>samples[,<span class="dv">3</span>]<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>samples[,<span class="dv">4</span>])</span>
+<span id="cb21-6"><a href="error-propagation.html#cb21-6" tabindex="-1"></a>tmax.bs <span class="ot">&lt;-</span> <span class="sc">-</span>(samples[,<span class="dv">3</span>]<span class="sc">+</span>samples[,<span class="dv">5</span>])<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>(samples[,<span class="dv">4</span>]<span class="sc">+</span>samples[,<span class="dv">6</span>]))</span>
+<span id="cb21-7"><a href="error-propagation.html#cb21-7" tabindex="-1"></a>delta.tmaxs <span class="ot">&lt;-</span> tmax.as <span class="sc">-</span> tmax.bs</span>
+<span id="cb21-8"><a href="error-propagation.html#cb21-8" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="error-propagation.html#cb21-9" tabindex="-1"></a><span class="co"># confints:</span></span>
+<span id="cb21-10"><a href="error-propagation.html#cb21-10" tabindex="-1"></a><span class="fu">quantile</span>(tmax.as,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
+<pre><code>##     2.5%    97.5% 
+## 11.60128 12.32642</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="error-propagation.html#cb23-1" tabindex="-1"></a><span class="fu">quantile</span>(tmax.bs,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
+<pre><code>##     2.5%    97.5% 
+## 17.59941 18.44028</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="error-propagation.html#cb25-1" tabindex="-1"></a><span class="fu">quantile</span>(delta.tmaxs,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
+<pre><code>##      2.5%     97.5% 
+## -6.603466 -5.501105</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="error-propagation.html#cb27-1" tabindex="-1"></a><span class="co"># we can do the same for eta max:</span></span>
+<span id="cb27-2"><a href="error-propagation.html#cb27-2" tabindex="-1"></a>eta.max.as <span class="ot">&lt;-</span> samples[,<span class="dv">1</span>] <span class="sc">+</span> samples[,<span class="dv">3</span>] <span class="sc">*</span> tmax.as <span class="sc">+</span> samples[,<span class="dv">4</span>] <span class="sc">*</span> tmax.as<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb27-3"><a href="error-propagation.html#cb27-3" tabindex="-1"></a>eta.max.bs <span class="ot">&lt;-</span> samples[,<span class="dv">1</span>] <span class="sc">+</span> samples[,<span class="dv">2</span>] <span class="sc">+</span> (samples[,<span class="dv">3</span>]<span class="sc">+</span>samples[,<span class="dv">5</span>]) <span class="sc">*</span> tmax.as <span class="sc">+</span> (samples[,<span class="dv">4</span>]<span class="sc">+</span>samples[,<span class="dv">6</span>]) <span class="sc">*</span> tmax.as<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb27-4"><a href="error-propagation.html#cb27-4" tabindex="-1"></a>delta.maxs <span class="ot">&lt;-</span> eta.max.as <span class="sc">-</span> eta.max.bs</span>
+<span id="cb27-5"><a href="error-propagation.html#cb27-5" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="error-propagation.html#cb27-6" tabindex="-1"></a><span class="co"># confints:</span></span>
+<span id="cb27-7"><a href="error-propagation.html#cb27-7" tabindex="-1"></a><span class="fu">quantile</span>(eta.max.as,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
+<pre><code>##     2.5%    97.5% 
+## 2.935919 3.392729</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="error-propagation.html#cb29-1" tabindex="-1"></a><span class="fu">quantile</span>(eta.max.bs,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
+<pre><code>##       2.5%      97.5% 
+## -0.1790268  1.2224574</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="error-propagation.html#cb31-1" tabindex="-1"></a><span class="fu">quantile</span>(delta.maxs,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
+<pre><code>##     2.5%    97.5% 
+## 1.897380 3.376007</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="error-propagation.html#cb33-1" tabindex="-1"></a><span class="co"># on the response scale:</span></span>
+<span id="cb33-2"><a href="error-propagation.html#cb33-2" tabindex="-1"></a><span class="fu">quantile</span>(<span class="fu">exp</span>(eta.max.as),<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
+<pre><code>##     2.5%    97.5% 
+## 18.83881 29.74703</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="error-propagation.html#cb35-1" tabindex="-1"></a><span class="fu">quantile</span>(<span class="fu">exp</span>(eta.max.bs),<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
+<pre><code>##      2.5%     97.5% 
+## 0.8360835 3.3955215</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="error-propagation.html#cb37-1" tabindex="-1"></a><span class="fu">quantile</span>(<span class="fu">exp</span>(delta.maxs),<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
+<pre><code>##     2.5%    97.5% 
+##  6.66840 29.25373</code></pre>
+</div>
+<div id="uncertainty-using-delta-method" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Uncertainty using delta method<a href="error-propagation.html#uncertainty-using-delta-method" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now, we will approximate the 95% CIs using the delta method. This method is very nicely described by <span class="citation">Cooch and White (<a href="#ref-deltamethod">2024</a>)</span> . Recall the expression for the time at which the maximum occurs for truck A:
+<span class="math display">\[\begin{equation}
+\hat{t_\text{max,A}} = - \frac{\beta_{\text{time}}}{2\beta_{\text{I(time^2)}}}
+\end{equation}\]</span>
+For the delta method, we need to find the set of partial derivatives of <span class="math inline">\(\hat{t_\text{max,A}}\)</span> with respect to each of the model parameters:
+<span class="math display">\[\begin{align}
+\frac{\partial \hat{t_\text{max,A}}}{\partial \beta_{\text{Intercept}}} &amp;= 0\\
+\frac{\partial \hat{t_\text{max,A}}}{\partial \beta_{\text{truckB}}} &amp;= 0\\
+\frac{\partial \hat{t_\text{max,A}}}{\partial \beta_{\text{time}}} &amp;=  - \frac{1}{2\beta_{\text{I(time^2)}}}\\
+\frac{\partial \hat{t_\text{max,A}}}{\partial \beta_{\text{I(time^2)}}} &amp;= \frac{\beta_{\text{time}}}{2\beta_{\text{I(time^2)}}^2}\\
+\frac{\partial \hat{t_\text{max,A}}}{\partial \beta_{\text{truckB:time}}} &amp;= 0\\
+
+\frac{\partial \hat{t_\text{max,A}}}{\partial \beta_{\text{truckB:I(time^2)}}} &amp;= 0\\
+
+
+\end{align}\]</span>
+In slightly shorter notation, we can write:
+<span class="math display">\[\begin{equation}
+\nabla \hat{t_\text{max,A}} = \begin{bmatrix} 0 \\ 0 \\ - \frac{1}{2\beta_{\text{I(time^2)}}} \\  \frac{\beta_{\text{time}}}{2\beta_{\text{I(time^2)}}^2} \\ 0 \\ 0 \end{bmatrix}
+\end{equation}\]</span>
+We can get to the uncertainty using this expression together with the variance covariance matrix (<span class="math inline">\(\Sigma\)</span>):
+<span class="math display">\[\begin{equation}
+\text{Var}(\hat{t_\text{max,A}}) = \nabla \hat{t_\text{max,A}}^\text{T} \cdot \Sigma \cdot \nabla \hat{t_\text{max,A}}
+\end{equation}\]</span>
+We can take the square root of this variance to obtain the standard error, and then approximate the 95% CI using this standard error. In R notation:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="error-propagation.html#cb39-1" tabindex="-1"></a>vcv <span class="ot">&lt;-</span> <span class="fu">vcov</span>(m1) <span class="co"># get vcv</span></span>
+<span id="cb39-2"><a href="error-propagation.html#cb39-2" tabindex="-1"></a>derivs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span><span class="fu">coef</span>(m1)[<span class="dv">4</span>]), <span class="fu">coef</span>(m1)[<span class="dv">3</span>]<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span><span class="fu">coef</span>(m1)[<span class="dv">4</span>]<span class="sc">^</span><span class="dv">2</span>),<span class="dv">0</span>,<span class="dv">0</span>) <span class="co"># gradient</span></span>
+<span id="cb39-3"><a href="error-propagation.html#cb39-3" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="error-propagation.html#cb39-4" tabindex="-1"></a><span class="co"># uncertainty (variance):</span></span>
+<span id="cb39-5"><a href="error-propagation.html#cb39-5" tabindex="-1"></a>var.tmax.a <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(derivs<span class="sc">%*%</span> vcv <span class="sc">%*%</span> derivs)</span>
+<span id="cb39-6"><a href="error-propagation.html#cb39-6" tabindex="-1"></a>se.tmax.a <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(var.tmax.a)</span>
+<span id="cb39-7"><a href="error-propagation.html#cb39-7" tabindex="-1"></a></span>
+<span id="cb39-8"><a href="error-propagation.html#cb39-8" tabindex="-1"></a><span class="co"># 95% CI:</span></span>
+<span id="cb39-9"><a href="error-propagation.html#cb39-9" tabindex="-1"></a>tmax.a <span class="sc">+</span> <span class="fu">qnorm</span>(<span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))<span class="sc">*</span>se.tmax.a</span></code></pre></div>
+<pre><code>## [1] 11.61443 12.31350</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="error-propagation.html#cb41-1" tabindex="-1"></a><span class="co"># compare to the sampling 95% CI:</span></span>
+<span id="cb41-2"><a href="error-propagation.html#cb41-2" tabindex="-1"></a><span class="fu">quantile</span>(tmax.as,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
+<pre><code>##     2.5%    97.5% 
+## 11.60128 12.32642</code></pre>
+
+</div>
+</div>
+<h3>Bibliography<a href="bibliography.html#bibliography" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-deltamethod" class="csl-entry">
+Cooch, E., and G. White, eds. 2024. <span>“Appendix b – the <span>‘Delta Method’</span> ...”</span> In <em>Program MARK – a Gentle Introduction</em>. <a href="http://www.phidot.org/software/mark/docs/book/" class="uri">http://www.phidot.org/software/mark/docs/book/</a>.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="transforming-posterior-samples.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bibliography.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "static"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Differences between two groups | Stats notes</title>
   <meta name="description" content="2 Differences between two groups | Stats notes" />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Differences between two groups | Stats notes" />
   <meta property="og:type" content="book" />
@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="introduction.html"/>
-<link rel="next" href="survival-analysis.html"/>
+<link rel="next" href="correlation-test-and-t-test.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -53,76 +53,17 @@
 <script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -162,15 +103,29 @@ div.csl-indent {
 <li class="chapter" data-level="2.3" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html#anova"><i class="fa fa-check"></i><b>2.3</b> ANOVA</a></li>
 <li class="chapter" data-level="2.4" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html#linear-model"><i class="fa fa-check"></i><b>2.4</b> linear model</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="survival-analysis.html"><a href="survival-analysis.html"><i class="fa fa-check"></i><b>3</b> Survival analysis</a>
+<li class="chapter" data-level="3" data-path="correlation-test-and-t-test.html"><a href="correlation-test-and-t-test.html"><i class="fa fa-check"></i><b>3</b> Correlation test and t-test</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="survival-analysis.html"><a href="survival-analysis.html#proportional-hazard-models"><i class="fa fa-check"></i><b>3.1</b> Proportional hazard models</a></li>
+<li class="chapter" data-level="3.1" data-path="correlation-test-and-t-test.html"><a href="correlation-test-and-t-test.html#notation-1"><i class="fa fa-check"></i><b>3.1</b> Notation</a></li>
+<li class="chapter" data-level="3.2" data-path="correlation-test-and-t-test.html"><a href="correlation-test-and-t-test.html#linear-model-1"><i class="fa fa-check"></i><b>3.2</b> Linear model</a></li>
+<li class="chapter" data-level="3.3" data-path="correlation-test-and-t-test.html"><a href="correlation-test-and-t-test.html#correlation-test"><i class="fa fa-check"></i><b>3.3</b> Correlation test</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="when-not-to-use-a-pca.html"><a href="when-not-to-use-a-pca.html"><i class="fa fa-check"></i><b>4</b> When not to use a PCA</a></li>
-<li class="chapter" data-level="5" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html"><i class="fa fa-check"></i><b>5</b> Transforming posterior samples</a>
+<li class="chapter" data-level="4" data-path="survival-analysis.html"><a href="survival-analysis.html"><i class="fa fa-check"></i><b>4</b> Survival analysis</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html#binomial-model"><i class="fa fa-check"></i><b>5.1</b> Binomial model</a></li>
-<li class="chapter" data-level="5.2" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html#beta-zero-one-inflated-model"><i class="fa fa-check"></i><b>5.2</b> Beta zero one inflated model</a></li>
+<li class="chapter" data-level="4.1" data-path="survival-analysis.html"><a href="survival-analysis.html#proportional-hazard-models"><i class="fa fa-check"></i><b>4.1</b> Proportional hazard models</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="when-not-to-use-a-pca.html"><a href="when-not-to-use-a-pca.html"><i class="fa fa-check"></i><b>5</b> When not to use a PCA</a></li>
+<li class="chapter" data-level="6" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html"><i class="fa fa-check"></i><b>6</b> Transforming posterior samples</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html#binomial-model"><i class="fa fa-check"></i><b>6.1</b> Binomial model</a></li>
+<li class="chapter" data-level="6.2" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html#beta-zero-one-inflated-model"><i class="fa fa-check"></i><b>6.2</b> Beta zero one inflated model</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="error-propagation.html"><a href="error-propagation.html"><i class="fa fa-check"></i><b>7</b> Error propagation</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="error-propagation.html"><a href="error-propagation.html#data-simulation"><i class="fa fa-check"></i><b>7.1</b> Data simulation</a></li>
+<li class="chapter" data-level="7.2" data-path="error-propagation.html"><a href="error-propagation.html#problem-statement"><i class="fa fa-check"></i><b>7.2</b> Problem statement</a></li>
+<li class="chapter" data-level="7.3" data-path="error-propagation.html"><a href="error-propagation.html#point-estimates"><i class="fa fa-check"></i><b>7.3</b> Point estimates</a></li>
+<li class="chapter" data-level="7.4" data-path="error-propagation.html"><a href="error-propagation.html#uncertainty-using-sampling"><i class="fa fa-check"></i><b>7.4</b> Uncertainty using sampling</a></li>
+<li class="chapter" data-level="7.5" data-path="error-propagation.html"><a href="error-propagation.html#uncertainty-using-delta-method"><i class="fa fa-check"></i><b>7.5</b> Uncertainty using delta method</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 </ul>
@@ -192,7 +147,7 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="differences-between-two-groups" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">2</span> Differences between two groups<a href="differences-between-two-groups.html#differences-between-two-groups" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Here, I try to show that ANOVA, two sample t-test and lm return the same result when the data only consist of two groups. The recipes for ANOVA, t-test and lm were taken from <span class="citation">Whitlock and Schluter (<a href="#ref-whitlock2015" role="doc-biblioref">2015</a>)</span> .</p>
+<p>Here, I try to show that ANOVA, two sample t-test and lm return the same result when the data only consist of two groups. The recipes for ANOVA, t-test and lm were taken from <span class="citation">Whitlock and Schluter (<a href="#ref-whitlock2015">2015</a>)</span> .</p>
 <div id="notation" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Notation<a href="differences-between-two-groups.html#notation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Assume we have an explanatory variable <span class="math inline">\(x\)</span> that was only measured at two specific values: <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> (e.g. <span class="math inline">\(x\)</span> was temperature and only two different values, e.g. <span class="math inline">\(A=18^\circ C\)</span> and <span class="math inline">\(B=21^\circ C\)</span>). In order to simplify the notation, the datapoints have been ordered, such that the first <span class="math inline">\(N_A\)</span> datapoints have <span class="math inline">\(x=A\)</span> and the last <span class="math inline">\(N_B\)</span> have <span class="math inline">\(x=B\)</span>, with a total number of data points <span class="math inline">\(N=N_A+N_B\)</span>. We assume the response variable <span class="math inline">\(y\)</span> to be normally distributed. It may for example represent body size.</p>
@@ -262,7 +217,7 @@ F = \frac{(N-2)N_AN_B\left(\overline{y_A}-\overline{y_B}\right)^2}{N\left(\sum_{
 </div>
 <div id="linear-model" class="section level2 hasAnchor" number="2.4">
 <h2><span class="header-section-number">2.4</span> linear model<a href="differences-between-two-groups.html#linear-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Using the formula in <span class="citation">Whitlock and Schluter (<a href="#ref-whitlock2015" role="doc-biblioref">2015</a>)</span> , we can determine the slope for the line between the points as:
+<p>Using the formula in <span class="citation">Whitlock and Schluter (<a href="#ref-whitlock2015">2015</a>)</span> , we can determine the slope for the line between the points as:
 <span class="math display">\[\begin{equation}
 b=\frac{\sum_{i=1}^N (x_i-\overline{x})(y_i-\overline{y})}{\sum_{i=1}^N (x_i - \overline{x})^2}
 \end{equation}\]</span>
@@ -339,7 +294,7 @@ and hence we conclude that <span class="math inline">\(t=t_b\)</span>.</p>
 </div>
 </div>
 <h3>Bibliography<a href="bibliography.html#bibliography" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-whitlock2015" class="csl-entry">
 Whitlock, Michael, and Dolph Schluter. 2015. <em>The Analysis of Biological Data</em>. Vol. 768. Roberts Publishers Greenwood Village, Colorado.
 </div>
@@ -350,7 +305,7 @@ Whitlock, Michael, and Dolph Schluter. 2015. <em>The Analysis of Biological Data
         </div>
       </div>
 <a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="survival-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="correlation-test-and-t-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 When not to use a PCA | Stats notes</title>
-  <meta name="description" content="4 When not to use a PCA | Stats notes" />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <title>5 When not to use a PCA | Stats notes</title>
+  <meta name="description" content="5 When not to use a PCA | Stats notes" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 When not to use a PCA | Stats notes" />
+  <meta property="og:title" content="5 When not to use a PCA | Stats notes" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 When not to use a PCA | Stats notes" />
+  <meta name="twitter:title" content="5 When not to use a PCA | Stats notes" />
   
   
   
@@ -55,7 +55,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -119,26 +119,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
 
 </head>
@@ -162,15 +144,29 @@ div.csl-indent {
 <li class="chapter" data-level="2.3" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html#anova"><i class="fa fa-check"></i><b>2.3</b> ANOVA</a></li>
 <li class="chapter" data-level="2.4" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html#linear-model"><i class="fa fa-check"></i><b>2.4</b> linear model</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="survival-analysis.html"><a href="survival-analysis.html"><i class="fa fa-check"></i><b>3</b> Survival analysis</a>
+<li class="chapter" data-level="3" data-path="correlation-test-and-t-test.html"><a href="correlation-test-and-t-test.html"><i class="fa fa-check"></i><b>3</b> Correlation test and t-test</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="survival-analysis.html"><a href="survival-analysis.html#proportional-hazard-models"><i class="fa fa-check"></i><b>3.1</b> Proportional hazard models</a></li>
+<li class="chapter" data-level="3.1" data-path="correlation-test-and-t-test.html"><a href="correlation-test-and-t-test.html#notation-1"><i class="fa fa-check"></i><b>3.1</b> Notation</a></li>
+<li class="chapter" data-level="3.2" data-path="correlation-test-and-t-test.html"><a href="correlation-test-and-t-test.html#linear-model-1"><i class="fa fa-check"></i><b>3.2</b> Linear model</a></li>
+<li class="chapter" data-level="3.3" data-path="correlation-test-and-t-test.html"><a href="correlation-test-and-t-test.html#correlation-test"><i class="fa fa-check"></i><b>3.3</b> Correlation test</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="when-not-to-use-a-pca.html"><a href="when-not-to-use-a-pca.html"><i class="fa fa-check"></i><b>4</b> When not to use a PCA</a></li>
-<li class="chapter" data-level="5" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html"><i class="fa fa-check"></i><b>5</b> Transforming posterior samples</a>
+<li class="chapter" data-level="4" data-path="survival-analysis.html"><a href="survival-analysis.html"><i class="fa fa-check"></i><b>4</b> Survival analysis</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html#binomial-model"><i class="fa fa-check"></i><b>5.1</b> Binomial model</a></li>
-<li class="chapter" data-level="5.2" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html#beta-zero-one-inflated-model"><i class="fa fa-check"></i><b>5.2</b> Beta zero one inflated model</a></li>
+<li class="chapter" data-level="4.1" data-path="survival-analysis.html"><a href="survival-analysis.html#proportional-hazard-models"><i class="fa fa-check"></i><b>4.1</b> Proportional hazard models</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="when-not-to-use-a-pca.html"><a href="when-not-to-use-a-pca.html"><i class="fa fa-check"></i><b>5</b> When not to use a PCA</a></li>
+<li class="chapter" data-level="6" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html"><i class="fa fa-check"></i><b>6</b> Transforming posterior samples</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html#binomial-model"><i class="fa fa-check"></i><b>6.1</b> Binomial model</a></li>
+<li class="chapter" data-level="6.2" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html#beta-zero-one-inflated-model"><i class="fa fa-check"></i><b>6.2</b> Beta zero one inflated model</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="error-propagation.html"><a href="error-propagation.html"><i class="fa fa-check"></i><b>7</b> Error propagation</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="error-propagation.html"><a href="error-propagation.html#data-simulation"><i class="fa fa-check"></i><b>7.1</b> Data simulation</a></li>
+<li class="chapter" data-level="7.2" data-path="error-propagation.html"><a href="error-propagation.html#problem-statement"><i class="fa fa-check"></i><b>7.2</b> Problem statement</a></li>
+<li class="chapter" data-level="7.3" data-path="error-propagation.html"><a href="error-propagation.html#point-estimates"><i class="fa fa-check"></i><b>7.3</b> Point estimates</a></li>
+<li class="chapter" data-level="7.4" data-path="error-propagation.html"><a href="error-propagation.html#uncertainty-using-sampling"><i class="fa fa-check"></i><b>7.4</b> Uncertainty using sampling</a></li>
+<li class="chapter" data-level="7.5" data-path="error-propagation.html"><a href="error-propagation.html#uncertainty-using-delta-method"><i class="fa fa-check"></i><b>7.5</b> Uncertainty using delta method</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 </ul>
@@ -190,32 +186,32 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="when-not-to-use-a-pca" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">4</span> When not to use a PCA<a href="when-not-to-use-a-pca.html#when-not-to-use-a-pca" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="when-not-to-use-a-pca" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> When not to use a PCA<a href="when-not-to-use-a-pca.html#when-not-to-use-a-pca" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>The following is a brief example of when using a PCA to replace variables in your dataset might not be ideal.</p>
 <p>Firstly, let’s create some dummy explanatory data. We will generate four predictors, with negative correlations between the first and second and between the third and fourth:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="when-not-to-use-a-pca.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3</span>)</span>
-<span id="cb1-2"><a href="when-not-to-use-a-pca.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mvtnorm)</span>
-<span id="cb1-3"><a href="when-not-to-use-a-pca.html#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rmvnorm</span>(<span class="dv">50</span>,<span class="at">mean=</span><span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">4</span>),</span>
-<span id="cb1-4"><a href="when-not-to-use-a-pca.html#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">sigma=</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="fl">0.8</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb1-5"><a href="when-not-to-use-a-pca.html#cb1-5" aria-hidden="true" tabindex="-1"></a>                       <span class="sc">-</span><span class="fl">0.8</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb1-6"><a href="when-not-to-use-a-pca.html#cb1-6" aria-hidden="true" tabindex="-1"></a>                       <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="fl">0.8</span>,</span>
-<span id="cb1-7"><a href="when-not-to-use-a-pca.html#cb1-7" aria-hidden="true" tabindex="-1"></a>                       <span class="dv">0</span>,<span class="dv">0</span>,<span class="sc">-</span><span class="fl">0.8</span>,<span class="dv">1</span>),</span>
-<span id="cb1-8"><a href="when-not-to-use-a-pca.html#cb1-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">nrow=</span><span class="dv">4</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="when-not-to-use-a-pca.html#cb1-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3</span>)</span>
+<span id="cb1-2"><a href="when-not-to-use-a-pca.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(mvtnorm)</span>
+<span id="cb1-3"><a href="when-not-to-use-a-pca.html#cb1-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rmvnorm</span>(<span class="dv">50</span>,<span class="at">mean=</span><span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">4</span>),</span>
+<span id="cb1-4"><a href="when-not-to-use-a-pca.html#cb1-4" tabindex="-1"></a>        <span class="at">sigma=</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="fl">0.8</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
+<span id="cb1-5"><a href="when-not-to-use-a-pca.html#cb1-5" tabindex="-1"></a>                       <span class="sc">-</span><span class="fl">0.8</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
+<span id="cb1-6"><a href="when-not-to-use-a-pca.html#cb1-6" tabindex="-1"></a>                       <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="fl">0.8</span>,</span>
+<span id="cb1-7"><a href="when-not-to-use-a-pca.html#cb1-7" tabindex="-1"></a>                       <span class="dv">0</span>,<span class="dv">0</span>,<span class="sc">-</span><span class="fl">0.8</span>,<span class="dv">1</span>),</span>
+<span id="cb1-8"><a href="when-not-to-use-a-pca.html#cb1-8" tabindex="-1"></a>                     <span class="at">nrow=</span><span class="dv">4</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>))</span></code></pre></div>
 <p>When we now try to calculate the principal components, we find;</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="when-not-to-use-a-pca.html#cb2-1" aria-hidden="true" tabindex="-1"></a>pcs <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(x)</span>
-<span id="cb2-2"><a href="when-not-to-use-a-pca.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pcs)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="when-not-to-use-a-pca.html#cb2-1" tabindex="-1"></a>pcs <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(x)</span>
+<span id="cb2-2"><a href="when-not-to-use-a-pca.html#cb2-2" tabindex="-1"></a><span class="fu">summary</span>(pcs)</span></code></pre></div>
 <pre><code>## Importance of components:
 ##                           PC1    PC2     PC3     PC4
 ## Standard deviation     1.5386 1.2615 0.41082 0.38645
 ## Proportion of Variance 0.5535 0.3721 0.03946 0.03492
 ## Cumulative Proportion  0.5535 0.9256 0.96508 1.00000</code></pre>
 <p>Hence, the first two axes together already explain over 90% of the data. We could thus decide in a predictive model to only use these two axes.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="when-not-to-use-a-pca.html#cb4-1" aria-hidden="true" tabindex="-1"></a>newx <span class="ot">&lt;-</span> <span class="fu">predict</span>(pcs)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="when-not-to-use-a-pca.html#cb4-1" tabindex="-1"></a>newx <span class="ot">&lt;-</span> <span class="fu">predict</span>(pcs)</span></code></pre></div>
 <p>Let’s next make a response variable, which is equal to the sum of the 4 explanatory variable with some added noise on top:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="when-not-to-use-a-pca.html#cb5-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">apply</span>(x,<span class="dv">1</span>,sum) <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="fu">nrow</span>(x),<span class="dv">0</span>,<span class="fl">0.5</span>)</span>
-<span id="cb5-2"><a href="when-not-to-use-a-pca.html#cb5-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(<span class="at">y=</span>y,newx))</span>
-<span id="cb5-3"><a href="when-not-to-use-a-pca.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(d)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="when-not-to-use-a-pca.html#cb5-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">apply</span>(x,<span class="dv">1</span>,sum) <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="fu">nrow</span>(x),<span class="dv">0</span>,<span class="fl">0.5</span>)</span>
+<span id="cb5-2"><a href="when-not-to-use-a-pca.html#cb5-2" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(<span class="at">y=</span>y,newx))</span>
+<span id="cb5-3"><a href="when-not-to-use-a-pca.html#cb5-3" tabindex="-1"></a><span class="fu">head</span>(d)</span></code></pre></div>
 <pre><code>##            y        PC1        PC2        PC3         PC4
 ## 1 -1.6267028 -1.5775951 -0.2800516 -0.3727663 -0.35502422
 ## 2  0.7772536  0.5864081  0.8836272  0.3464420 -0.04036141
@@ -224,27 +220,27 @@ div.csl-indent {
 ## 5 -0.3078073 -1.0937142 -0.1890704  0.3171644 -0.64608988
 ## 6 -0.7859098 -0.8988454 -1.0151972 -0.6220823 -0.40436840</code></pre>
 <p>We can use dredge (should we?) to compare all models:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="when-not-to-use-a-pca.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MuMIn)</span></code></pre></div>
-<pre><code>## Warning: package &#39;MuMIn&#39; was built under R version 4.2.3</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="when-not-to-use-a-pca.html#cb9-1" aria-hidden="true" tabindex="-1"></a>m<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span>.,<span class="at">data=</span>d,<span class="at">na.action=</span><span class="st">&quot;na.fail&quot;</span>)</span>
-<span id="cb9-2"><a href="when-not-to-use-a-pca.html#cb9-2" aria-hidden="true" tabindex="-1"></a>modSel <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">dredge</span>(m<span class="fl">.1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="when-not-to-use-a-pca.html#cb7-1" tabindex="-1"></a><span class="fu">library</span>(MuMIn)</span></code></pre></div>
+<pre><code>## Warning: package &#39;MuMIn&#39; was built under R version 4.2.1</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="when-not-to-use-a-pca.html#cb9-1" tabindex="-1"></a>m<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span>.,<span class="at">data=</span>d,<span class="at">na.action=</span><span class="st">&quot;na.fail&quot;</span>)</span>
+<span id="cb9-2"><a href="when-not-to-use-a-pca.html#cb9-2" tabindex="-1"></a>modSel <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">dredge</span>(m<span class="fl">.1</span>))</span></code></pre></div>
 <pre><code>## Fixed term is &quot;(Intercept)&quot;</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="when-not-to-use-a-pca.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits=</span><span class="dv">3</span>)</span>
-<span id="cb11-2"><a href="when-not-to-use-a-pca.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#best models</span></span>
-<span id="cb11-3"><a href="when-not-to-use-a-pca.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(modSel,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="when-not-to-use-a-pca.html#cb11-1" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits=</span><span class="dv">3</span>)</span>
+<span id="cb11-2"><a href="when-not-to-use-a-pca.html#cb11-2" tabindex="-1"></a><span class="co">#best models</span></span>
+<span id="cb11-3"><a href="when-not-to-use-a-pca.html#cb11-3" tabindex="-1"></a><span class="fu">head</span>(modSel,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##    (Intercept)     PC1    PC2  PC3  PC4 df logLik AICc delta weight
 ## 13      0.0899      NA     NA 1.74 1.14  4  -40.3 89.4 0.000  0.355
 ## 15      0.0899      NA 0.0816 1.74 1.14  5  -39.4 90.1 0.670  0.254
 ## 14      0.0899 -0.0634     NA 1.74 1.14  5  -39.5 90.3 0.856  0.231</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="when-not-to-use-a-pca.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># worst models</span></span>
-<span id="cb13-2"><a href="when-not-to-use-a-pca.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(modSel,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="when-not-to-use-a-pca.html#cb13-1" tabindex="-1"></a><span class="co"># worst models</span></span>
+<span id="cb13-2"><a href="when-not-to-use-a-pca.html#cb13-2" tabindex="-1"></a><span class="fu">tail</span>(modSel,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##   (Intercept)     PC1    PC2 PC3 PC4 df logLik AICc delta   weight
 ## 3      0.0899      NA 0.0816  NA  NA  3  -70.4  147  57.8 9.88e-14
 ## 2      0.0899 -0.0634     NA  NA  NA  3  -70.4  147  57.9 9.62e-14
 ## 4      0.0899 -0.0634 0.0816  NA  NA  4  -70.1  149  59.7 3.85e-14</code></pre>
 <p>This is an interesting finding: the model that performs best is the model that contains the two axes that explain the least amount of variation, while the model that explains worst is the model that contains the two axes that explain the most variation. We can look at this sligthly more indepth:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="when-not-to-use-a-pca.html#cb15-1" aria-hidden="true" tabindex="-1"></a>m<span class="fl">.12</span> <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span>PC1<span class="sc">+</span>PC2,<span class="at">data=</span>d)</span>
-<span id="cb15-2"><a href="when-not-to-use-a-pca.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m<span class="fl">.12</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="when-not-to-use-a-pca.html#cb15-1" tabindex="-1"></a>m<span class="fl">.12</span> <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span>PC1<span class="sc">+</span>PC2,<span class="at">data=</span>d)</span>
+<span id="cb15-2"><a href="when-not-to-use-a-pca.html#cb15-2" tabindex="-1"></a><span class="fu">summary</span>(m<span class="fl">.12</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ PC1 + PC2, data = d)
@@ -262,8 +258,8 @@ div.csl-indent {
 ## Residual standard error: 1.01 on 47 degrees of freedom
 ## Multiple R-squared:  0.02,   Adjusted R-squared:  -0.0217 
 ## F-statistic: 0.479 on 2 and 47 DF,  p-value: 0.622</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="when-not-to-use-a-pca.html#cb17-1" aria-hidden="true" tabindex="-1"></a>m<span class="fl">.34</span> <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span>PC3<span class="sc">+</span>PC4,<span class="at">data=</span>d)</span>
-<span id="cb17-2"><a href="when-not-to-use-a-pca.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m<span class="fl">.34</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="when-not-to-use-a-pca.html#cb17-1" tabindex="-1"></a>m<span class="fl">.34</span> <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span>PC3<span class="sc">+</span>PC4,<span class="at">data=</span>d)</span>
+<span id="cb17-2"><a href="when-not-to-use-a-pca.html#cb17-2" tabindex="-1"></a><span class="fu">summary</span>(m<span class="fl">.34</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ PC3 + PC4, data = d)
@@ -349,20 +345,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

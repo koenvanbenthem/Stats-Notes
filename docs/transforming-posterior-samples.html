@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Transforming posterior samples | Stats notes</title>
-  <meta name="description" content="5 Transforming posterior samples | Stats notes" />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <title>6 Transforming posterior samples | Stats notes</title>
+  <meta name="description" content="6 Transforming posterior samples | Stats notes" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Transforming posterior samples | Stats notes" />
+  <meta property="og:title" content="6 Transforming posterior samples | Stats notes" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Transforming posterior samples | Stats notes" />
+  <meta name="twitter:title" content="6 Transforming posterior samples | Stats notes" />
   
   
   
@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="when-not-to-use-a-pca.html"/>
-<link rel="next" href="bibliography.html"/>
+<link rel="next" href="error-propagation.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -55,7 +55,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -118,6 +118,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 </head>
 
@@ -140,15 +144,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html#anova"><i class="fa fa-check"></i><b>2.3</b> ANOVA</a></li>
 <li class="chapter" data-level="2.4" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html#linear-model"><i class="fa fa-check"></i><b>2.4</b> linear model</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="survival-analysis.html"><a href="survival-analysis.html"><i class="fa fa-check"></i><b>3</b> Survival analysis</a>
+<li class="chapter" data-level="3" data-path="correlation-test-and-t-test.html"><a href="correlation-test-and-t-test.html"><i class="fa fa-check"></i><b>3</b> Correlation test and t-test</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="survival-analysis.html"><a href="survival-analysis.html#proportional-hazard-models"><i class="fa fa-check"></i><b>3.1</b> Proportional hazard models</a></li>
+<li class="chapter" data-level="3.1" data-path="correlation-test-and-t-test.html"><a href="correlation-test-and-t-test.html#notation-1"><i class="fa fa-check"></i><b>3.1</b> Notation</a></li>
+<li class="chapter" data-level="3.2" data-path="correlation-test-and-t-test.html"><a href="correlation-test-and-t-test.html#linear-model-1"><i class="fa fa-check"></i><b>3.2</b> Linear model</a></li>
+<li class="chapter" data-level="3.3" data-path="correlation-test-and-t-test.html"><a href="correlation-test-and-t-test.html#correlation-test"><i class="fa fa-check"></i><b>3.3</b> Correlation test</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="when-not-to-use-a-pca.html"><a href="when-not-to-use-a-pca.html"><i class="fa fa-check"></i><b>4</b> When not to use a PCA</a></li>
-<li class="chapter" data-level="5" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html"><i class="fa fa-check"></i><b>5</b> Transforming posterior samples</a>
+<li class="chapter" data-level="4" data-path="survival-analysis.html"><a href="survival-analysis.html"><i class="fa fa-check"></i><b>4</b> Survival analysis</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html#binomial-model"><i class="fa fa-check"></i><b>5.1</b> Binomial model</a></li>
-<li class="chapter" data-level="5.2" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html#beta-zero-one-inflated-model"><i class="fa fa-check"></i><b>5.2</b> Beta zero one inflated model</a></li>
+<li class="chapter" data-level="4.1" data-path="survival-analysis.html"><a href="survival-analysis.html#proportional-hazard-models"><i class="fa fa-check"></i><b>4.1</b> Proportional hazard models</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="when-not-to-use-a-pca.html"><a href="when-not-to-use-a-pca.html"><i class="fa fa-check"></i><b>5</b> When not to use a PCA</a></li>
+<li class="chapter" data-level="6" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html"><i class="fa fa-check"></i><b>6</b> Transforming posterior samples</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html#binomial-model"><i class="fa fa-check"></i><b>6.1</b> Binomial model</a></li>
+<li class="chapter" data-level="6.2" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html#beta-zero-one-inflated-model"><i class="fa fa-check"></i><b>6.2</b> Beta zero one inflated model</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="error-propagation.html"><a href="error-propagation.html"><i class="fa fa-check"></i><b>7</b> Error propagation</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="error-propagation.html"><a href="error-propagation.html#data-simulation"><i class="fa fa-check"></i><b>7.1</b> Data simulation</a></li>
+<li class="chapter" data-level="7.2" data-path="error-propagation.html"><a href="error-propagation.html#problem-statement"><i class="fa fa-check"></i><b>7.2</b> Problem statement</a></li>
+<li class="chapter" data-level="7.3" data-path="error-propagation.html"><a href="error-propagation.html#point-estimates"><i class="fa fa-check"></i><b>7.3</b> Point estimates</a></li>
+<li class="chapter" data-level="7.4" data-path="error-propagation.html"><a href="error-propagation.html#uncertainty-using-sampling"><i class="fa fa-check"></i><b>7.4</b> Uncertainty using sampling</a></li>
+<li class="chapter" data-level="7.5" data-path="error-propagation.html"><a href="error-propagation.html#uncertainty-using-delta-method"><i class="fa fa-check"></i><b>7.5</b> Uncertainty using delta method</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 </ul>
@@ -168,127 +186,128 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="transforming-posterior-samples" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">5</span> Transforming posterior samples<a href="transforming-posterior-samples.html#transforming-posterior-samples" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="binomial-model" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Binomial model<a href="transforming-posterior-samples.html#binomial-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="transforming-posterior-samples" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> Transforming posterior samples<a href="transforming-posterior-samples.html#transforming-posterior-samples" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="binomial-model" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Binomial model<a href="transforming-posterior-samples.html#binomial-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s first try something relatively easy: a binomial model with one random effect. We first generate data:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="transforming-posterior-samples.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
-<span id="cb1-2"><a href="transforming-posterior-samples.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">456</span>)</span>
-<span id="cb1-3"><a href="transforming-posterior-samples.html#cb1-3" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb1-4"><a href="transforming-posterior-samples.html#cb1-4" aria-hidden="true" tabindex="-1"></a>Ni <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb1-5"><a href="transforming-posterior-samples.html#cb1-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N)</span>
-<span id="cb1-6"><a href="transforming-posterior-samples.html#cb1-6" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="fu">sample</span>(Ni,N,<span class="at">replace=</span><span class="cn">TRUE</span>)</span>
-<span id="cb1-7"><a href="transforming-posterior-samples.html#cb1-7" aria-hidden="true" tabindex="-1"></a>id.f <span class="ot">&lt;-</span> <span class="fu">factor</span>(id)</span>
-<span id="cb1-8"><a href="transforming-posterior-samples.html#cb1-8" aria-hidden="true" tabindex="-1"></a>id.vals <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(Ni)</span>
-<span id="cb1-9"><a href="transforming-posterior-samples.html#cb1-9" aria-hidden="true" tabindex="-1"></a>lin.y <span class="ot">&lt;-</span> x <span class="sc">+</span> id.vals[id]</span>
-<span id="cb1-10"><a href="transforming-posterior-samples.html#cb1-10" aria-hidden="true" tabindex="-1"></a>p.y <span class="ot">&lt;-</span> <span class="fu">plogis</span>(lin.y)</span>
-<span id="cb1-11"><a href="transforming-posterior-samples.html#cb1-11" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(N,<span class="dv">1</span>,p.y)</span>
-<span id="cb1-12"><a href="transforming-posterior-samples.html#cb1-12" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span>x,<span class="at">y=</span>y,<span class="at">id=</span>id.f)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="transforming-posterior-samples.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb1-2"><a href="transforming-posterior-samples.html#cb1-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">456</span>)</span>
+<span id="cb1-3"><a href="transforming-posterior-samples.html#cb1-3" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb1-4"><a href="transforming-posterior-samples.html#cb1-4" tabindex="-1"></a>Ni <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb1-5"><a href="transforming-posterior-samples.html#cb1-5" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N)</span>
+<span id="cb1-6"><a href="transforming-posterior-samples.html#cb1-6" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="fu">sample</span>(Ni,N,<span class="at">replace=</span><span class="cn">TRUE</span>)</span>
+<span id="cb1-7"><a href="transforming-posterior-samples.html#cb1-7" tabindex="-1"></a>id.f <span class="ot">&lt;-</span> <span class="fu">factor</span>(id)</span>
+<span id="cb1-8"><a href="transforming-posterior-samples.html#cb1-8" tabindex="-1"></a>id.vals <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(Ni)</span>
+<span id="cb1-9"><a href="transforming-posterior-samples.html#cb1-9" tabindex="-1"></a>lin.y <span class="ot">&lt;-</span> x <span class="sc">+</span> id.vals[id]</span>
+<span id="cb1-10"><a href="transforming-posterior-samples.html#cb1-10" tabindex="-1"></a>p.y <span class="ot">&lt;-</span> <span class="fu">plogis</span>(lin.y)</span>
+<span id="cb1-11"><a href="transforming-posterior-samples.html#cb1-11" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(N,<span class="dv">1</span>,p.y)</span>
+<span id="cb1-12"><a href="transforming-posterior-samples.html#cb1-12" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span>x,<span class="at">y=</span>y,<span class="at">id=</span>id.f)</span></code></pre></div>
 <p>And then proceed with the analysis:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="transforming-posterior-samples.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. A bernoulli model with random effect</span></span>
-<span id="cb2-2"><a href="transforming-posterior-samples.html#cb2-2" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">brm</span>(y<span class="sc">~</span>x<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>id),<span class="at">family=</span>bernoulli,</span>
-<span id="cb2-3"><a href="transforming-posterior-samples.html#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">warmup=</span><span class="dv">1000</span>,</span>
-<span id="cb2-4"><a href="transforming-posterior-samples.html#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">iter=</span><span class="dv">2000</span>,</span>
-<span id="cb2-5"><a href="transforming-posterior-samples.html#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>d,</span>
-<span id="cb2-6"><a href="transforming-posterior-samples.html#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">backend=</span><span class="st">&quot;cmdstanr&quot;</span>,</span>
-<span id="cb2-7"><a href="transforming-posterior-samples.html#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">file=</span><span class="st">&quot;BRMS_bernoulli&quot;</span>)</span>
-<span id="cb2-8"><a href="transforming-posterior-samples.html#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="transforming-posterior-samples.html#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># data points for which we want predictions:</span></span>
-<span id="cb2-10"><a href="transforming-posterior-samples.html#cb2-10" aria-hidden="true" tabindex="-1"></a>newdat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="fl">0.3</span>,<span class="fl">0.4</span>),<span class="at">id=</span><span class="st">&#39;1&#39;</span>)</span>
-<span id="cb2-11"><a href="transforming-posterior-samples.html#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="transforming-posterior-samples.html#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># predictions on linear scale</span></span>
-<span id="cb2-13"><a href="transforming-posterior-samples.html#cb2-13" aria-hidden="true" tabindex="-1"></a>m1.fit.lin <span class="ot">&lt;-</span> <span class="fu">fitted</span>(m1,<span class="at">summary=</span><span class="cn">FALSE</span>,<span class="at">newdata=</span>newdat,<span class="at">scale =</span> <span class="st">&#39;linear&#39;</span>,<span class="at">re_formula=</span><span class="cn">NA</span>)</span>
-<span id="cb2-14"><a href="transforming-posterior-samples.html#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="transforming-posterior-samples.html#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#  define a function for getting estimate, se and 95% CI</span></span>
-<span id="cb2-16"><a href="transforming-posterior-samples.html#cb2-16" aria-hidden="true" tabindex="-1"></a>sum.fun <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="at">mu=</span><span class="fu">mean</span>(x),<span class="at">sd=</span><span class="fu">sd</span>(x),<span class="fu">quantile</span>(x,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>)))</span>
-<span id="cb2-17"><a href="transforming-posterior-samples.html#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="transforming-posterior-samples.html#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># apply function for each row in newdat</span></span>
-<span id="cb2-19"><a href="transforming-posterior-samples.html#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(<span class="fu">apply</span>(<span class="fu">plogis</span>(m1.fit.lin),<span class="dv">2</span>,sum.fun))</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="transforming-posterior-samples.html#cb2-1" tabindex="-1"></a><span class="co"># 1. A bernoulli model with random effect</span></span>
+<span id="cb2-2"><a href="transforming-posterior-samples.html#cb2-2" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">brm</span>(y<span class="sc">~</span>x<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>id),<span class="at">family=</span>bernoulli,</span>
+<span id="cb2-3"><a href="transforming-posterior-samples.html#cb2-3" tabindex="-1"></a>    <span class="at">warmup=</span><span class="dv">1000</span>,</span>
+<span id="cb2-4"><a href="transforming-posterior-samples.html#cb2-4" tabindex="-1"></a>    <span class="at">iter=</span><span class="dv">2000</span>,</span>
+<span id="cb2-5"><a href="transforming-posterior-samples.html#cb2-5" tabindex="-1"></a>    <span class="at">data=</span>d,</span>
+<span id="cb2-6"><a href="transforming-posterior-samples.html#cb2-6" tabindex="-1"></a>    <span class="at">backend=</span><span class="st">&quot;cmdstanr&quot;</span>,</span>
+<span id="cb2-7"><a href="transforming-posterior-samples.html#cb2-7" tabindex="-1"></a>    <span class="at">file=</span><span class="st">&quot;BRMS_bernoulli&quot;</span>)</span>
+<span id="cb2-8"><a href="transforming-posterior-samples.html#cb2-8" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="transforming-posterior-samples.html#cb2-9" tabindex="-1"></a><span class="co"># data points for which we want predictions:</span></span>
+<span id="cb2-10"><a href="transforming-posterior-samples.html#cb2-10" tabindex="-1"></a>newdat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="fl">0.3</span>,<span class="fl">0.4</span>),<span class="at">id=</span><span class="st">&#39;1&#39;</span>)</span>
+<span id="cb2-11"><a href="transforming-posterior-samples.html#cb2-11" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="transforming-posterior-samples.html#cb2-12" tabindex="-1"></a><span class="co"># predictions on linear scale</span></span>
+<span id="cb2-13"><a href="transforming-posterior-samples.html#cb2-13" tabindex="-1"></a>m1.fit.lin <span class="ot">&lt;-</span> <span class="fu">fitted</span>(m1,<span class="at">summary=</span><span class="cn">FALSE</span>,<span class="at">newdata=</span>newdat,<span class="at">scale =</span> <span class="st">&#39;linear&#39;</span>,<span class="at">re_formula=</span><span class="cn">NA</span>)</span>
+<span id="cb2-14"><a href="transforming-posterior-samples.html#cb2-14" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="transforming-posterior-samples.html#cb2-15" tabindex="-1"></a><span class="co">#  define a function for getting estimate, se and 95% CI</span></span>
+<span id="cb2-16"><a href="transforming-posterior-samples.html#cb2-16" tabindex="-1"></a>sum.fun <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="at">mu=</span><span class="fu">mean</span>(x),<span class="at">sd=</span><span class="fu">sd</span>(x),<span class="fu">quantile</span>(x,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>)))</span>
+<span id="cb2-17"><a href="transforming-posterior-samples.html#cb2-17" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="transforming-posterior-samples.html#cb2-18" tabindex="-1"></a><span class="co"># apply function for each row in newdat</span></span>
+<span id="cb2-19"><a href="transforming-posterior-samples.html#cb2-19" tabindex="-1"></a><span class="fu">t</span>(<span class="fu">apply</span>(<span class="fu">plogis</span>(m1.fit.lin),<span class="dv">2</span>,sum.fun))</span></code></pre></div>
 <pre><code>##             mu        sd      2.5%     97.5%
 ## [1,] 0.5661154 0.1563952 0.2212366 0.8396047
 ## [2,] 0.5958201 0.1562524 0.2413899 0.8598464</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="transforming-posterior-samples.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># taking them directly from brms</span></span>
-<span id="cb4-2"><a href="transforming-posterior-samples.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fitted</span>(m1,<span class="at">summary=</span><span class="cn">TRUE</span>,<span class="at">newdata=</span>newdat,<span class="at">scale =</span> <span class="st">&#39;response&#39;</span>,<span class="at">re_formula=</span><span class="cn">NA</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="transforming-posterior-samples.html#cb4-1" tabindex="-1"></a><span class="co"># taking them directly from brms</span></span>
+<span id="cb4-2"><a href="transforming-posterior-samples.html#cb4-2" tabindex="-1"></a><span class="fu">fitted</span>(m1,<span class="at">summary=</span><span class="cn">TRUE</span>,<span class="at">newdata=</span>newdat,<span class="at">scale =</span> <span class="st">&#39;response&#39;</span>,<span class="at">re_formula=</span><span class="cn">NA</span>)</span></code></pre></div>
 <pre><code>##       Estimate Est.Error      Q2.5     Q97.5
 ## [1,] 0.5661154 0.1563952 0.2212366 0.8396047
 ## [2,] 0.5958201 0.1562524 0.2413899 0.8598464</code></pre>
 <p>Fortunately, we see that both methods give identical estimates.</p>
 </div>
-<div id="beta-zero-one-inflated-model" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Beta zero one inflated model<a href="transforming-posterior-samples.html#beta-zero-one-inflated-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="beta-zero-one-inflated-model" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Beta zero one inflated model<a href="transforming-posterior-samples.html#beta-zero-one-inflated-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We now move to a slightly more complicated model: a beta regression with zero-one inflation. Assume we have a 40% chance of having inflation, which in turn in 80% of the cases implies a 0 and in 20% of the cases a 1.The following code simply simulates some data for our model to fit on:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="transforming-posterior-samples.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">456</span>)</span>
-<span id="cb6-2"><a href="transforming-posterior-samples.html#cb6-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb6-3"><a href="transforming-posterior-samples.html#cb6-3" aria-hidden="true" tabindex="-1"></a>Ni <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb6-4"><a href="transforming-posterior-samples.html#cb6-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N)</span>
-<span id="cb6-5"><a href="transforming-posterior-samples.html#cb6-5" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="fu">sample</span>(Ni,N,<span class="at">replace=</span><span class="cn">TRUE</span>)</span>
-<span id="cb6-6"><a href="transforming-posterior-samples.html#cb6-6" aria-hidden="true" tabindex="-1"></a>id.f <span class="ot">&lt;-</span> <span class="fu">factor</span>(id)</span>
-<span id="cb6-7"><a href="transforming-posterior-samples.html#cb6-7" aria-hidden="true" tabindex="-1"></a>id.vals <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(Ni)</span>
-<span id="cb6-8"><a href="transforming-posterior-samples.html#cb6-8" aria-hidden="true" tabindex="-1"></a>lin.y <span class="ot">&lt;-</span> x <span class="sc">+</span> id.vals[id]</span>
-<span id="cb6-9"><a href="transforming-posterior-samples.html#cb6-9" aria-hidden="true" tabindex="-1"></a>p.y <span class="ot">&lt;-</span> <span class="fu">plogis</span>(lin.y)</span>
-<span id="cb6-10"><a href="transforming-posterior-samples.html#cb6-10" aria-hidden="true" tabindex="-1"></a>beta.var <span class="ot">&lt;-</span> <span class="fl">0.04</span></span>
-<span id="cb6-11"><a href="transforming-posterior-samples.html#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="transforming-posterior-samples.html#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># convert according to wikipedia</span></span>
-<span id="cb6-13"><a href="transforming-posterior-samples.html#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># maybe not the most professional source</span></span>
-<span id="cb6-14"><a href="transforming-posterior-samples.html#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># but didn&#39;t have time to rederive right now</span></span>
-<span id="cb6-15"><a href="transforming-posterior-samples.html#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># (nor to look up a better source)</span></span>
-<span id="cb6-16"><a href="transforming-posterior-samples.html#cb6-16" aria-hidden="true" tabindex="-1"></a>shape<span class="fl">.1</span> <span class="ot">&lt;-</span> p.y<span class="sc">*</span>(p.y<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p.y)<span class="sc">/</span>beta.var <span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb6-17"><a href="transforming-posterior-samples.html#cb6-17" aria-hidden="true" tabindex="-1"></a>shape<span class="fl">.2</span> <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">-</span>p.y)<span class="sc">*</span>(p.y<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p.y)<span class="sc">/</span>beta.var <span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb6-18"><a href="transforming-posterior-samples.html#cb6-18" aria-hidden="true" tabindex="-1"></a>y.std <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(N,<span class="dv">1</span>,shape<span class="fl">.1</span>,shape<span class="fl">.2</span>) </span>
-<span id="cb6-19"><a href="transforming-posterior-samples.html#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-20"><a href="transforming-posterior-samples.html#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># now add zero-one inflation:</span></span>
-<span id="cb6-21"><a href="transforming-posterior-samples.html#cb6-21" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">runif</span>(N)<span class="sc">&lt;</span><span class="fl">0.4</span>,<span class="fu">as.numeric</span>(<span class="fu">runif</span>(N)<span class="sc">&gt;</span><span class="fl">0.8</span>),y.std)</span>
-<span id="cb6-22"><a href="transforming-posterior-samples.html#cb6-22" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span>x,<span class="at">y=</span>y,<span class="at">id=</span>id.f)</span>
-<span id="cb6-23"><a href="transforming-posterior-samples.html#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-24"><a href="transforming-posterior-samples.html#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="transforming-posterior-samples.html#cb6-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">456</span>)</span>
+<span id="cb6-2"><a href="transforming-posterior-samples.html#cb6-2" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb6-3"><a href="transforming-posterior-samples.html#cb6-3" tabindex="-1"></a>Ni <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb6-4"><a href="transforming-posterior-samples.html#cb6-4" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N)</span>
+<span id="cb6-5"><a href="transforming-posterior-samples.html#cb6-5" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="fu">sample</span>(Ni,N,<span class="at">replace=</span><span class="cn">TRUE</span>)</span>
+<span id="cb6-6"><a href="transforming-posterior-samples.html#cb6-6" tabindex="-1"></a>id.f <span class="ot">&lt;-</span> <span class="fu">factor</span>(id)</span>
+<span id="cb6-7"><a href="transforming-posterior-samples.html#cb6-7" tabindex="-1"></a>id.vals <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(Ni)</span>
+<span id="cb6-8"><a href="transforming-posterior-samples.html#cb6-8" tabindex="-1"></a>lin.y <span class="ot">&lt;-</span> x <span class="sc">+</span> id.vals[id]</span>
+<span id="cb6-9"><a href="transforming-posterior-samples.html#cb6-9" tabindex="-1"></a>p.y <span class="ot">&lt;-</span> <span class="fu">plogis</span>(lin.y)</span>
+<span id="cb6-10"><a href="transforming-posterior-samples.html#cb6-10" tabindex="-1"></a>beta.var <span class="ot">&lt;-</span> <span class="fl">0.04</span></span>
+<span id="cb6-11"><a href="transforming-posterior-samples.html#cb6-11" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="transforming-posterior-samples.html#cb6-12" tabindex="-1"></a><span class="co"># convert according to wikipedia</span></span>
+<span id="cb6-13"><a href="transforming-posterior-samples.html#cb6-13" tabindex="-1"></a><span class="co"># maybe not the most professional source</span></span>
+<span id="cb6-14"><a href="transforming-posterior-samples.html#cb6-14" tabindex="-1"></a><span class="co"># but didn&#39;t have time to rederive right now</span></span>
+<span id="cb6-15"><a href="transforming-posterior-samples.html#cb6-15" tabindex="-1"></a><span class="co"># (nor to look up a better source)</span></span>
+<span id="cb6-16"><a href="transforming-posterior-samples.html#cb6-16" tabindex="-1"></a>shape<span class="fl">.1</span> <span class="ot">&lt;-</span> p.y<span class="sc">*</span>(p.y<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p.y)<span class="sc">/</span>beta.var <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb6-17"><a href="transforming-posterior-samples.html#cb6-17" tabindex="-1"></a>shape<span class="fl">.2</span> <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">-</span>p.y)<span class="sc">*</span>(p.y<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p.y)<span class="sc">/</span>beta.var <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb6-18"><a href="transforming-posterior-samples.html#cb6-18" tabindex="-1"></a>y.std <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(N,<span class="dv">1</span>,shape<span class="fl">.1</span>,shape<span class="fl">.2</span>) </span>
+<span id="cb6-19"><a href="transforming-posterior-samples.html#cb6-19" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="transforming-posterior-samples.html#cb6-20" tabindex="-1"></a><span class="co"># now add zero-one inflation:</span></span>
+<span id="cb6-21"><a href="transforming-posterior-samples.html#cb6-21" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">runif</span>(N)<span class="sc">&lt;</span><span class="fl">0.4</span>,<span class="fu">as.numeric</span>(<span class="fu">runif</span>(N)<span class="sc">&gt;</span><span class="fl">0.8</span>),y.std)</span>
+<span id="cb6-22"><a href="transforming-posterior-samples.html#cb6-22" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span>x,<span class="at">y=</span>y,<span class="at">id=</span>id.f)</span>
+<span id="cb6-23"><a href="transforming-posterior-samples.html#cb6-23" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="transforming-posterior-samples.html#cb6-24" tabindex="-1"></a><span class="co"># not too involved plot</span></span>
+<span id="cb6-25"><a href="transforming-posterior-samples.html#cb6-25" tabindex="-1"></a><span class="fu">plot</span>(x,y)</span></code></pre></div>
 <p><img src="brmslogistic_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 Now we move to the analysis, first we are naive and we simply try the logistic transformation of the predictions:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="transforming-posterior-samples.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. A beta zero one inflated model with random effect</span></span>
-<span id="cb7-2"><a href="transforming-posterior-samples.html#cb7-2" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">brm</span>(y<span class="sc">~</span>x<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>id),<span class="at">family=</span>zero_one_inflated_beta,</span>
-<span id="cb7-3"><a href="transforming-posterior-samples.html#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">warmup=</span><span class="dv">1000</span>,</span>
-<span id="cb7-4"><a href="transforming-posterior-samples.html#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">iter=</span><span class="dv">2000</span>,</span>
-<span id="cb7-5"><a href="transforming-posterior-samples.html#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>d,</span>
-<span id="cb7-6"><a href="transforming-posterior-samples.html#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">backend=</span><span class="st">&quot;cmdstanr&quot;</span>,</span>
-<span id="cb7-7"><a href="transforming-posterior-samples.html#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">file=</span><span class="st">&quot;BRMS_beta_zero_one&quot;</span>)</span>
-<span id="cb7-8"><a href="transforming-posterior-samples.html#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="transforming-posterior-samples.html#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># data points for which we want predictions:</span></span>
-<span id="cb7-10"><a href="transforming-posterior-samples.html#cb7-10" aria-hidden="true" tabindex="-1"></a>newdat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="fl">0.3</span>,<span class="fl">0.4</span>),<span class="at">id=</span><span class="st">&#39;1&#39;</span>)</span>
-<span id="cb7-11"><a href="transforming-posterior-samples.html#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="transforming-posterior-samples.html#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># predictions on linear scale</span></span>
-<span id="cb7-13"><a href="transforming-posterior-samples.html#cb7-13" aria-hidden="true" tabindex="-1"></a>m2.fit.lin <span class="ot">&lt;-</span> <span class="fu">fitted</span>(m2,<span class="at">summary=</span><span class="cn">FALSE</span>,<span class="at">newdata=</span>newdat,<span class="at">scale =</span> <span class="st">&#39;linear&#39;</span>,<span class="at">re_formula=</span><span class="cn">NA</span>)</span>
-<span id="cb7-14"><a href="transforming-posterior-samples.html#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="transforming-posterior-samples.html#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">#  define a function for getting estimate, se and 95% CI</span></span>
-<span id="cb7-16"><a href="transforming-posterior-samples.html#cb7-16" aria-hidden="true" tabindex="-1"></a>sum.fun <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="at">mu=</span><span class="fu">mean</span>(x),<span class="at">sd=</span><span class="fu">sd</span>(x),<span class="fu">quantile</span>(x,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>)))</span>
-<span id="cb7-17"><a href="transforming-posterior-samples.html#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-18"><a href="transforming-posterior-samples.html#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># apply function for each row in newdat</span></span>
-<span id="cb7-19"><a href="transforming-posterior-samples.html#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(<span class="fu">apply</span>(<span class="fu">plogis</span>(m2.fit.lin),<span class="dv">2</span>,sum.fun))</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="transforming-posterior-samples.html#cb7-1" tabindex="-1"></a><span class="co"># 2. A beta zero one inflated model with random effect</span></span>
+<span id="cb7-2"><a href="transforming-posterior-samples.html#cb7-2" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">brm</span>(y<span class="sc">~</span>x<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>id),<span class="at">family=</span>zero_one_inflated_beta,</span>
+<span id="cb7-3"><a href="transforming-posterior-samples.html#cb7-3" tabindex="-1"></a>    <span class="at">warmup=</span><span class="dv">1000</span>,</span>
+<span id="cb7-4"><a href="transforming-posterior-samples.html#cb7-4" tabindex="-1"></a>    <span class="at">iter=</span><span class="dv">2000</span>,</span>
+<span id="cb7-5"><a href="transforming-posterior-samples.html#cb7-5" tabindex="-1"></a>    <span class="at">data=</span>d,</span>
+<span id="cb7-6"><a href="transforming-posterior-samples.html#cb7-6" tabindex="-1"></a>    <span class="at">backend=</span><span class="st">&quot;cmdstanr&quot;</span>,</span>
+<span id="cb7-7"><a href="transforming-posterior-samples.html#cb7-7" tabindex="-1"></a>    <span class="at">file=</span><span class="st">&quot;BRMS_beta_zero_one&quot;</span>)</span>
+<span id="cb7-8"><a href="transforming-posterior-samples.html#cb7-8" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="transforming-posterior-samples.html#cb7-9" tabindex="-1"></a><span class="co"># data points for which we want predictions:</span></span>
+<span id="cb7-10"><a href="transforming-posterior-samples.html#cb7-10" tabindex="-1"></a>newdat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="fl">0.3</span>,<span class="fl">0.4</span>),<span class="at">id=</span><span class="st">&#39;1&#39;</span>)</span>
+<span id="cb7-11"><a href="transforming-posterior-samples.html#cb7-11" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="transforming-posterior-samples.html#cb7-12" tabindex="-1"></a><span class="co"># predictions on linear scale</span></span>
+<span id="cb7-13"><a href="transforming-posterior-samples.html#cb7-13" tabindex="-1"></a>m2.fit.lin <span class="ot">&lt;-</span> <span class="fu">fitted</span>(m2,<span class="at">summary=</span><span class="cn">FALSE</span>,<span class="at">newdata=</span>newdat,<span class="at">scale =</span> <span class="st">&#39;linear&#39;</span>,<span class="at">re_formula=</span><span class="cn">NA</span>)</span>
+<span id="cb7-14"><a href="transforming-posterior-samples.html#cb7-14" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="transforming-posterior-samples.html#cb7-15" tabindex="-1"></a><span class="co">#  define a function for getting estimate, se and 95% CI</span></span>
+<span id="cb7-16"><a href="transforming-posterior-samples.html#cb7-16" tabindex="-1"></a>sum.fun <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="at">mu=</span><span class="fu">mean</span>(x),<span class="at">sd=</span><span class="fu">sd</span>(x),<span class="fu">quantile</span>(x,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>)))</span>
+<span id="cb7-17"><a href="transforming-posterior-samples.html#cb7-17" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="transforming-posterior-samples.html#cb7-18" tabindex="-1"></a><span class="co"># apply function for each row in newdat</span></span>
+<span id="cb7-19"><a href="transforming-posterior-samples.html#cb7-19" tabindex="-1"></a><span class="fu">t</span>(<span class="fu">apply</span>(<span class="fu">plogis</span>(m2.fit.lin),<span class="dv">2</span>,sum.fun))</span></code></pre></div>
 <pre><code>##             mu         sd      2.5%     97.5%
 ## [1,] 0.5763428 0.08192093 0.4108652 0.7336134
 ## [2,] 0.5653001 0.08322229 0.3990678 0.7266214</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="transforming-posterior-samples.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># taking them directly from brms</span></span>
-<span id="cb9-2"><a href="transforming-posterior-samples.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fitted</span>(m2,<span class="at">summary=</span><span class="cn">TRUE</span>,<span class="at">newdata=</span>newdat,<span class="at">scale =</span> <span class="st">&#39;response&#39;</span>,<span class="at">re_formula=</span><span class="cn">NA</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="transforming-posterior-samples.html#cb9-1" tabindex="-1"></a><span class="co"># taking them directly from brms</span></span>
+<span id="cb9-2"><a href="transforming-posterior-samples.html#cb9-2" tabindex="-1"></a><span class="fu">fitted</span>(m2,<span class="at">summary=</span><span class="cn">TRUE</span>,<span class="at">newdata=</span>newdat,<span class="at">scale =</span> <span class="st">&#39;response&#39;</span>,<span class="at">re_formula=</span><span class="cn">NA</span>)</span></code></pre></div>
 <pre><code>##       Estimate  Est.Error      Q2.5     Q97.5
 ## [1,] 0.4103261 0.06361266 0.2858994 0.5397669
 ## [2,] 0.4035142 0.06396549 0.2802933 0.5333942</code></pre>
 <p>Now, the two are different, simply because we have not applied the zero one inflation. Let us now try to extract these values:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="transforming-posterior-samples.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extract chances of zero one inflation and conditional chance of one from the model:</span></span>
-<span id="cb11-2"><a href="transforming-posterior-samples.html#cb11-2" aria-hidden="true" tabindex="-1"></a>p.zoi <span class="ot">&lt;-</span> <span class="fu">as_draws_array</span>(m2,<span class="at">variable =</span> <span class="fu">c</span>(<span class="st">&#39;zoi&#39;</span>))</span>
-<span id="cb11-3"><a href="transforming-posterior-samples.html#cb11-3" aria-hidden="true" tabindex="-1"></a>p.coi <span class="ot">&lt;-</span> <span class="fu">as_draws_array</span>(m2,<span class="at">variable =</span> <span class="fu">c</span>(<span class="st">&#39;coi&#39;</span>))</span>
-<span id="cb11-4"><a href="transforming-posterior-samples.html#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="transforming-posterior-samples.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#  define a function for getting estimate, se and 95% CI</span></span>
-<span id="cb11-6"><a href="transforming-posterior-samples.html#cb11-6" aria-hidden="true" tabindex="-1"></a>sum.fun.zoi <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb11-7"><a href="transforming-posterior-samples.html#cb11-7" aria-hidden="true" tabindex="-1"></a>  x.corrected <span class="ot">&lt;-</span> x<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p.zoi) <span class="sc">+</span> p.zoi<span class="sc">*</span>p.coi </span>
-<span id="cb11-8"><a href="transforming-posterior-samples.html#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="at">mu=</span><span class="fu">mean</span>(x.corrected),<span class="at">sd=</span><span class="fu">sd</span>(x.corrected),<span class="fu">quantile</span>(x.corrected,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>)))</span>
-<span id="cb11-9"><a href="transforming-posterior-samples.html#cb11-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb11-10"><a href="transforming-posterior-samples.html#cb11-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-11"><a href="transforming-posterior-samples.html#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co"># apply function for each row in newdat</span></span>
-<span id="cb11-12"><a href="transforming-posterior-samples.html#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(<span class="fu">apply</span>(<span class="fu">plogis</span>(m2.fit.lin),<span class="dv">2</span>,sum.fun.zoi))</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="transforming-posterior-samples.html#cb11-1" tabindex="-1"></a><span class="co"># extract chances of zero one inflation and conditional chance of one from the model:</span></span>
+<span id="cb11-2"><a href="transforming-posterior-samples.html#cb11-2" tabindex="-1"></a>p.zoi <span class="ot">&lt;-</span> <span class="fu">as_draws_array</span>(m2,<span class="at">variable =</span> <span class="fu">c</span>(<span class="st">&#39;zoi&#39;</span>))</span>
+<span id="cb11-3"><a href="transforming-posterior-samples.html#cb11-3" tabindex="-1"></a>p.coi <span class="ot">&lt;-</span> <span class="fu">as_draws_array</span>(m2,<span class="at">variable =</span> <span class="fu">c</span>(<span class="st">&#39;coi&#39;</span>))</span>
+<span id="cb11-4"><a href="transforming-posterior-samples.html#cb11-4" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="transforming-posterior-samples.html#cb11-5" tabindex="-1"></a><span class="co">#  define a function for getting estimate, se and 95% CI</span></span>
+<span id="cb11-6"><a href="transforming-posterior-samples.html#cb11-6" tabindex="-1"></a>sum.fun.zoi <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb11-7"><a href="transforming-posterior-samples.html#cb11-7" tabindex="-1"></a>  x.corrected <span class="ot">&lt;-</span> x<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p.zoi) <span class="sc">+</span> p.zoi<span class="sc">*</span>p.coi </span>
+<span id="cb11-8"><a href="transforming-posterior-samples.html#cb11-8" tabindex="-1"></a>  <span class="fu">c</span>(<span class="at">mu=</span><span class="fu">mean</span>(x.corrected),<span class="at">sd=</span><span class="fu">sd</span>(x.corrected),<span class="fu">quantile</span>(x.corrected,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>)))</span>
+<span id="cb11-9"><a href="transforming-posterior-samples.html#cb11-9" tabindex="-1"></a>}</span>
+<span id="cb11-10"><a href="transforming-posterior-samples.html#cb11-10" tabindex="-1"></a>  </span>
+<span id="cb11-11"><a href="transforming-posterior-samples.html#cb11-11" tabindex="-1"></a><span class="co"># apply function for each row in newdat</span></span>
+<span id="cb11-12"><a href="transforming-posterior-samples.html#cb11-12" tabindex="-1"></a><span class="fu">t</span>(<span class="fu">apply</span>(<span class="fu">plogis</span>(m2.fit.lin),<span class="dv">2</span>,sum.fun.zoi))</span></code></pre></div>
 <pre><code>##             mu         sd      2.5%     97.5%
 ## [1,] 0.4103261 0.06361266 0.2858994 0.5397669
 ## [2,] 0.4035142 0.06396549 0.2802933 0.5333942</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="transforming-posterior-samples.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># taking them directly from brms</span></span>
-<span id="cb13-2"><a href="transforming-posterior-samples.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fitted</span>(m2,<span class="at">summary=</span><span class="cn">TRUE</span>,<span class="at">newdata=</span>newdat,<span class="at">scale =</span> <span class="st">&#39;response&#39;</span>,<span class="at">re_formula=</span><span class="cn">NA</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="transforming-posterior-samples.html#cb13-1" tabindex="-1"></a><span class="co"># taking them directly from brms</span></span>
+<span id="cb13-2"><a href="transforming-posterior-samples.html#cb13-2" tabindex="-1"></a><span class="fu">fitted</span>(m2,<span class="at">summary=</span><span class="cn">TRUE</span>,<span class="at">newdata=</span>newdat,<span class="at">scale =</span> <span class="st">&#39;response&#39;</span>,<span class="at">re_formula=</span><span class="cn">NA</span>)</span></code></pre></div>
 <pre><code>##       Estimate  Est.Error      Q2.5     Q97.5
 ## [1,] 0.4103261 0.06361266 0.2858994 0.5397669
 ## [2,] 0.4035142 0.06396549 0.2802933 0.5333942</code></pre>
@@ -302,7 +321,7 @@ Now we move to the analysis, first we are naive and we simply try the logistic t
         </div>
       </div>
 <a href="when-not-to-use-a-pca.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bibliography.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="error-propagation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

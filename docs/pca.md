@@ -3,7 +3,7 @@ The following is a brief example of when using a PCA to replace variables in you
 
 Firstly, let's create some dummy explanatory data. We will generate four predictors, with negative correlations between the first and second and between the third and fourth:
 
-```r
+``` r
 set.seed(3)
 library(mvtnorm)
 x <- rmvnorm(50,mean=rep(0,4),
@@ -15,7 +15,7 @@ x <- rmvnorm(50,mean=rep(0,4),
 ```
 When we now try to calculate the principal components, we find;
 
-```r
+``` r
 pcs <- prcomp(x)
 summary(pcs)
 ```
@@ -29,12 +29,12 @@ summary(pcs)
 ```
 Hence, the first two axes together already explain over 90% of the data. We could thus decide in a predictive model to only use these two axes. 
 
-```r
+``` r
 newx <- predict(pcs)
 ```
 Let's next make a response variable, which is equal to the sum of the 4 explanatory variable with some added noise on top:
 
-```r
+``` r
 y <- apply(x,1,sum) + rnorm(nrow(x),0,0.5)
 d <- as.data.frame(cbind(y=y,newx))
 head(d)
@@ -51,8 +51,15 @@ head(d)
 ```
 We can use dredge (should we?) to compare all models:
 
-```r
+``` r
 library(MuMIn)
+```
+
+```
+## Warning: package 'MuMIn' was built under R version 4.2.1
+```
+
+``` r
 m.1 <- lm(y~.,data=d,na.action="na.fail")
 modSel <- as.data.frame(dredge(m.1))
 ```
@@ -61,7 +68,7 @@ modSel <- as.data.frame(dredge(m.1))
 ## Fixed term is "(Intercept)"
 ```
 
-```r
+``` r
 options(digits=3)
 #best models
 head(modSel,3)
@@ -74,7 +81,7 @@ head(modSel,3)
 ## 14      0.0899 -0.0634     NA 1.74 1.14  5  -39.5 90.3 0.856  0.231
 ```
 
-```r
+``` r
 # worst models
 tail(modSel,3)
 ```
@@ -87,7 +94,7 @@ tail(modSel,3)
 ```
 This is an interesting finding: the model that performs best is the model that contains the two axes that explain the least amount of variation, while the model that explains worst is the model that contains the two axes that explain the most variation. We can look at this sligthly more indepth:
 
-```r
+``` r
 m.12 <- lm(y~PC1+PC2,data=d)
 summary(m.12)
 ```
@@ -112,7 +119,7 @@ summary(m.12)
 ## F-statistic: 0.479 on 2 and 47 DF,  p-value: 0.622
 ```
 
-```r
+``` r
 m.34 <- lm(y~PC3+PC4,data=d)
 summary(m.34)
 ```
