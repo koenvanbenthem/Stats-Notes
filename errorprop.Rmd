@@ -29,10 +29,10 @@ m1 <- glm(visitors~truck*time+truck*I(time^2),data=df,family=poisson)
 summary(m1)
 ```
 For this model, we are interested in the following:
-1. What is the maximum number of visitors at each truck at any hour.
-2. When does the maximum number of visitors arrive?
-3. How are these quantities different for the two trucks
-4. What is the uncertainty in each of the estimates 1--3.
+- What is the maximum number of visitors at each truck at any hour.
+- When does the maximum number of visitors arrive?
+- How are these quantities different for the two trucks
+- What is the uncertainty in each of the estimates 1--3.
 
 ## Point estimates
 Our model prediction ($y$) for a specific truck $i$ at a specific time $t$ is (notation consistent with R):
@@ -113,7 +113,7 @@ quantile(delta.tmaxs,probs=c(0.025,0.975))
 
 # we can do the same for eta max:
 eta.max.as <- samples[,1] + samples[,3] * tmax.as + samples[,4] * tmax.as^2
-eta.max.bs <- samples[,1] + samples[,2] + (samples[,3]+samples[,5]) * tmax.as + (samples[,4]+samples[,6]) * tmax.as^2
+eta.max.bs <- samples[,1] + samples[,2] + (samples[,3]+samples[,5]) * tmax.bs + (samples[,4]+samples[,6]) * tmax.bs^2
 delta.maxs <- eta.max.as - eta.max.bs
 
 # confints:
@@ -161,8 +161,130 @@ var.tmax.a <- as.numeric(derivs%*% vcv %*% derivs)
 se.tmax.a <- sqrt(var.tmax.a)
 
 # 95% CI:
-tmax.a + qnorm(c(0.025,0.975))*se.tmax.a
-
+tmax.a.CI <- tmax.a + qnorm(c(0.025,0.975))*se.tmax.a
+tmax.a.CI
 # compare to the sampling 95% CI:
 quantile(tmax.as,probs=c(0.025,0.975))
 ```
+We can calculate the CI for $t_\text{max,B}$ anaogously:
+\begin{equation}
+\nabla \hat{t_\text{max,B}} = \begin{bmatrix} 0 \\ 0 \\ 
+- \frac{1}{2(\beta_{\text{I(time^2)}}+\beta_{\text{truckB:I(time^2)}})} \\  
+\frac{\beta_{\text{time}}+\beta_{\text{truckB:time}}}{2(\beta_{\text{I(time^2)}}+\beta_{\text{truckB:I(time^2)}})^2} \\ - \frac{1}{2(\beta_{\text{I(time^2)}}+\beta_{\text{truckB:I(time^2)}})} \\ \frac{\beta_{\text{time}}+\beta_{\text{truckB:time}}}{2(\beta_{\text{I(time^2)}}+\beta_{\text{truckB:I(time^2)}})^2}
+\end{bmatrix}
+\end{equation}
+and:
+\begin{equation}
+\text{Var}(\hat{t_\text{max,B}}) = \nabla \hat{t_\text{max,B}}^\text{T} \cdot \Sigma \cdot \nabla \hat{t_\text{max,B}}
+\end{equation}
+From here it is then straightforward to calculate the standard error and 95% CI.
+```{r}
+vcv <- vcov(m1) # get vcv
+derivs <- c(0,0,-1/(2*(coef(m1)[4]+coef(m1)[6])), (coef(m1)[3]+coef(m1)[5])/(2*(coef(m1)[4]+coef(m1)[6])^2),-1/(2*(coef(m1)[4]+coef(m1)[6])),(coef(m1)[3]+coef(m1)[5])/(2*(coef(m1)[4]+coef(m1)[6])^2)) # gradient
+
+# uncertainty (variance):
+var.tmax.b <- as.numeric(derivs%*% vcv %*% derivs)
+se.tmax.b <- sqrt(var.tmax.b)
+
+# 95% CI:
+tmax.b.CI <- tmax.b + qnorm(c(0.025,0.975))*se.tmax.b
+tmax.b.CI
+# compare to the sampling 95% CI:
+quantile(tmax.bs,probs=c(0.025,0.975))
+```
+Next, we can do the same for the difference in time. We take a shortcut now, in the sense that we let R calculate the derivatives for us, using the Deriv library.
+```{r}
+library(Deriv)
+# we define a function that calculates delta t max:
+delta.t.max.fun <- function(beta.0,beta.B,beta.time,beta.Bxtime,beta.time2,beta.Bxtime2){
+  (beta.time + beta.Bxtime)/(2*(beta.time2+beta.Bxtime2)) - beta.time/(2*beta.time2)
+}
+# below, for each of the coefficients, a function for the derivative is dermined and that function is evaluated:
+derivs <- sapply(c("beta.0","beta.B","beta.time","beta.time2","beta.Bxtime","beta.Bxtime2"), FUN = function(x){ 
+  derfun <- Deriv(delta.t.max.fun,x)
+  derfun(beta.0=coef(m1)[1],beta.B=coef(m1)[2],
+         beta.time=coef(m1)[3],beta.time2=coef(m1)[4],
+         beta.Bxtime=coef(m1)[5],beta.Bxtime2=coef(m1)[6])
+  })
+Deriv(delta.t.max.fun,"beta.time")
+# In a similar fashion as before, we can no proceed and calculate the 95% CI:
+# uncertainty (variance):
+var.delta.tmax <- as.numeric(derivs%*% vcv %*% derivs)
+se.delta.tmax <- sqrt(var.delta.tmax)
+
+# 95% CI:
+tmax.delta.CI <- (tmax.a-tmax.b) + qnorm(c(0.025,0.975))*se.delta.tmax
+tmax.delta.CI
+# compare to the sampling 95% CI:
+quantile(delta.tmaxs,probs=c(0.025,0.975))
+```
+Again close enough!
+
+We proceed in a similar fashion for the maximum values, first defining appropriate functions and then using the machinery from above to calculate CIs:
+```{r}
+eta.max.a.fun <- function(beta.0,beta.B,beta.time,beta.Bxtime,beta.time2,beta.Bxtime2){
+  tmax.a <- - beta.time/(2*beta.time2)
+  beta.0 + beta.time*tmax.a + beta.time2*tmax.a^2
+}
+
+eta.max.b.fun <- function(beta.0,beta.B,beta.time,beta.Bxtime,beta.time2,beta.Bxtime2){
+  tmax.b <- - (beta.time+beta.Bxtime)/(2*(beta.time2+beta.Bxtime2))
+  beta.0 + beta.B + (beta.time+beta.Bxtime)*tmax.b + (beta.time2+beta.Bxtime2)*tmax.b^2
+}
+
+delta.eta.max.fun <- function(beta.0,beta.B,beta.time,beta.Bxtime,beta.time2,beta.Bxtime2){
+  tmax.a <- - beta.time/(2*beta.time2)
+  tmax.b <- - (beta.time+beta.Bxtime)/(2*(beta.time2+beta.Bxtime2))
+  eta.max.a <- beta.0 + beta.time*tmax.a + beta.time2*tmax.a^2
+  eta.max.b <- beta.0 + beta.B + (beta.time+beta.Bxtime)*tmax.b + (beta.time2+beta.Bxtime2)*tmax.b^2
+  eta.max.a - eta.max.b
+}
+
+calc.CI <- function(mod,func){
+  expval <- func(beta.0=coef(mod)[1],beta.B=coef(mod)[2],
+         beta.time=coef(mod)[3],beta.time2=coef(mod)[4],
+         beta.Bxtime=coef(mod)[5],beta.Bxtime2=coef(mod)[6])
+
+  terms <- c("beta.0","beta.B","beta.time","beta.time2","beta.Bxtime","beta.Bxtime2")
+  derivs <- rep(0,length(terms))
+  for(i in 1:length(terms)){
+  derfun <- Deriv(func,terms[i])
+  derivs[i] <- derfun(beta.0=coef(mod)[1],beta.B=coef(mod)[2],
+         beta.time=coef(mod)[3],beta.time2=coef(mod)[4],
+         beta.Bxtime=coef(mod)[5],beta.Bxtime2=coef(mod)[6])
+  }
+  vcv <- vcov(mod)
+  var.val <- as.numeric(derivs%*% vcv %*% derivs)
+  se.val <- sqrt(var.val)
+
+# 95% CI:
+  expval + qnorm(c(0.025,0.975))*se.val
+}
+
+# CI for eta.max.a:
+calc.CI(m1,eta.max.a.fun)
+# compare to the sampling 95% CI:
+quantile(eta.max.as,probs=c(0.025,0.975))
+
+# CI for eta.max.b:
+calc.CI(m1,eta.max.b.fun)
+# compare to the sampling 95% CI:
+quantile(eta.max.bs,probs=c(0.025,0.975))
+
+## CI for the difference:
+# CI for eta.max.b:
+calc.CI(m1,delta.eta.max.fun)
+# compare to the sampling 95% CI:
+quantile(delta.maxs,probs=c(0.025,0.975))
+
+```
+```
+
+## Conclusion
+
+The sampling and delta method gave near identical results. We conclude that for the fitted model, the maximum number of visitors at truck A occurs at `r round(tmax.a,1)` with a 95% CI of [`r round(tmax.a.CI,2)`] and for truck B at time `r round(tmax.b,1)` with a 95% CI of [`r round(tmax.b.CI,2)`]. The difference in timing of the maxima between the two trucks is `r round(tmax.a-tmax.b,1)` with a 95% CI of [`r round(tmax.delta.CI,2)`]. Here, negative numbers indicate that the maximum occurred first in truck A.
+
+The maximum values themselves on the log scale were for truck A `r round(eta.max.a,2)` with a 95% CI of [`r round(calc.CI(m1,eta.max.a.fun),2)`] and for truck B  `r round(eta.max.b,2)` with a 95% CI of [`r round(calc.CI(m1,eta.max.b.fun),2)`]. The difference in between maxima between the two trucks is `r round(eta.max.a-eta.max.b,2)` with a 95% CI of [`r round(calc.CI(m1,delta.eta.max.fun),2)`]. Here, negative values would indicate that truck B has a higher maximum than truck A.
+
+On the observable scale (i.e. actual counts), the highest number of visitors at truck A was `r round(exp(eta.max.a),2)` with a 95% CI of [`r round(exp(calc.CI(m1,eta.max.a.fun)),2)`] and for truck B `r round(exp(eta.max.b),2)` with a 95% CI of [`r round(exp(calc.CI(m1,eta.max.b.fun)),2)`]. The relative difference between the maximum number of visitors between the two trucks was `r round(exp(eta.max.a-eta.max.b),2)` with a 95% CI of [`r round(exp(calc.CI(m1,delta.eta.max.fun)),2)`]. This means that the maximum number of visitors for truck A was `r round(exp(eta.max.a-eta.max.b),2)` x the maximum number of visitors for truck B.
+
