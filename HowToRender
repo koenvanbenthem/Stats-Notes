@@ -1,0 +1,3 @@
+Run:
+bookdown::render_book()
+in R
