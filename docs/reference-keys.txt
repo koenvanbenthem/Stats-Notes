@@ -20,4 +20,7 @@ problem-statement
 point-estimates
 uncertainty-using-sampling
 uncertainty-using-delta-method
-conclusion
+adapting-the-mean-to-find-a-given-proportion-of-negative-values
+adapting-the-standard-deviation
+simplified
+matching-an-empirical-distribution

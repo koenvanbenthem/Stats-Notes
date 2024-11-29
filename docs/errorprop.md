@@ -51,24 +51,24 @@ summary(m1)
 ## 
 ## Deviance Residuals: 
 ##      Min        1Q    Median        3Q       Max  
-## -1.51860  -0.37898  -0.04296   0.14487   1.74209  
+## -2.29733  -0.37057  -0.01456   0.13654   1.90084  
 ## 
 ## Coefficients:
-##                    Estimate Std. Error z value Pr(>|z|)    
-## (Intercept)       -9.011477   1.595209  -5.649 1.61e-08 ***
-## truckB           -13.068856   3.560809  -3.670 0.000242 ***
-## time               1.972469   0.266353   7.405 1.31e-13 ***
-## I(time^2)         -0.081700   0.010918  -7.483 7.28e-14 ***
-## truckB:time        0.788540   0.443230   1.779 0.075227 .  
-## truckB:I(time^2)   0.006137   0.014645   0.419 0.675183    
+##                   Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)      -12.35204    2.21266  -5.582 2.37e-08 ***
+## truckB            -7.22573    3.45915  -2.089   0.0367 *  
+## time               2.57594    0.37681   6.836 8.13e-12 ***
+## I(time^2)         -0.10896    0.01581  -6.892 5.50e-12 ***
+## truckB:time       -0.02852    0.48260  -0.059   0.9529    
+## truckB:I(time^2)   0.03790    0.01793   2.114   0.0345 *  
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## (Dispersion parameter for poisson family taken to be 1)
 ## 
-##     Null deviance: 490.708  on 49  degrees of freedom
-## Residual deviance:  22.575  on 44  degrees of freedom
-## AIC: 136.08
+##     Null deviance: 539.387  on 49  degrees of freedom
+## Residual deviance:  28.283  on 44  degrees of freedom
+## AIC: 136.18
 ## 
 ## Number of Fisher Scoring iterations: 6
 ```
@@ -124,7 +124,7 @@ tmax.a
 
 ```
 ##     time 
-## 12.07143
+## 11.82105
 ```
 
 ``` r
@@ -133,7 +133,7 @@ tmax.b
 
 ```
 ##     time 
-## 18.26956
+## 17.92504
 ```
 
 ``` r
@@ -142,7 +142,7 @@ tmax.a-tmax.b
 
 ```
 ##      time 
-## -6.198132
+## -6.103991
 ```
 These values are close to the time points at which the maximum occurs in the two graphs! The difference between them is negative due to the maximum occurring later for truck B.
 
@@ -161,7 +161,7 @@ exp(eta.max.a)
 
 ```
 ##          [,1]
-## [1,] 18.06151
+## [1,] 17.69185
 ```
 
 ``` r
@@ -170,7 +170,7 @@ exp(eta.max.b)
 
 ```
 ##          [,1]
-## [1,] 23.12415
+## [1,] 25.88108
 ```
 
 ``` r
@@ -179,7 +179,7 @@ exp(delta.eta.max)
 
 ```
 ##           [,1]
-## [1,] 0.7810669
+## [1,] 0.6835823
 ```
 Note here that the last number corresponds to the ratio between the first two.
 
@@ -202,7 +202,7 @@ quantile(tmax.as,probs=c(0.025,0.975))
 
 ```
 ##     2.5%    97.5% 
-## 11.59691 12.54606
+## 11.37168 12.27021
 ```
 
 ``` r
@@ -211,7 +211,7 @@ quantile(tmax.bs,probs=c(0.025,0.975))
 
 ```
 ##     2.5%    97.5% 
-## 17.84223 18.72235
+## 17.51305 18.35625
 ```
 
 ``` r
@@ -220,7 +220,7 @@ quantile(delta.tmaxs,probs=c(0.025,0.975))
 
 ```
 ##      2.5%     97.5% 
-## -6.850810 -5.562397
+## -6.725551 -5.497609
 ```
 
 ``` r
@@ -235,7 +235,7 @@ quantile(eta.max.as,probs=c(0.025,0.975))
 
 ```
 ##     2.5%    97.5% 
-## 2.671837 3.124145
+## 2.632775 3.124366
 ```
 
 ``` r
@@ -244,7 +244,7 @@ quantile(eta.max.bs,probs=c(0.025,0.975))
 
 ```
 ##     2.5%    97.5% 
-## 2.943406 3.345159
+## 3.068536 3.443036
 ```
 
 ``` r
@@ -252,8 +252,8 @@ quantile(delta.maxs,probs=c(0.025,0.975))
 ```
 
 ```
-##        2.5%       97.5% 
-## -0.54893785  0.05755216
+##       2.5%      97.5% 
+## -0.6872014 -0.0704490
 ```
 
 ``` r
@@ -263,7 +263,7 @@ quantile(exp(eta.max.as),probs=c(0.025,0.975))
 
 ```
 ##     2.5%    97.5% 
-## 14.46653 22.74044
+## 13.91233 22.74546
 ```
 
 ``` r
@@ -272,7 +272,7 @@ quantile(exp(eta.max.bs),probs=c(0.025,0.975))
 
 ```
 ##     2.5%    97.5% 
-## 18.98038 28.36507
+## 21.51038 31.28178
 ```
 
 ``` r
@@ -281,7 +281,7 @@ quantile(exp(delta.maxs),probs=c(0.025,0.975))
 
 ```
 ##      2.5%     97.5% 
-## 0.5775629 1.0592405
+## 0.5029818 0.9319753
 ```
 ## Uncertainty using delta method
 Now, we will approximate the 95% CIs using the delta method. This method is very nicely described by @deltamethod . Recall the expression for the time at which the maximum occurs for truck A:
@@ -324,7 +324,7 @@ tmax.a.CI
 ```
 
 ```
-## [1] 11.61327 12.52959
+## [1] 11.39028 12.25182
 ```
 
 ``` r
@@ -334,7 +334,7 @@ quantile(tmax.as,probs=c(0.025,0.975))
 
 ```
 ##     2.5%    97.5% 
-## 11.59691 12.54606
+## 11.37168 12.27021
 ```
 We can calculate the CI for $t_\text{max,B}$ anaogously:
 \begin{equation}
@@ -363,7 +363,7 @@ tmax.b.CI
 ```
 
 ```
-## [1] 17.84113 18.69799
+## [1] 17.51583 18.33425
 ```
 
 ``` r
@@ -373,7 +373,7 @@ quantile(tmax.bs,probs=c(0.025,0.975))
 
 ```
 ##     2.5%    97.5% 
-## 17.84223 18.72235
+## 17.51305 18.35625
 ```
 Next, we can do the same for the difference in time. We take a shortcut now, in the sense that we let R calculate the derivatives for us, using the Deriv library.
 
@@ -418,7 +418,7 @@ tmax.delta.CI
 ```
 
 ```
-## [1] -6.825394 -5.570869
+## [1] -6.698143 -5.509839
 ```
 
 ``` r
@@ -428,7 +428,7 @@ quantile(delta.tmaxs,probs=c(0.025,0.975))
 
 ```
 ##      2.5%     97.5% 
-## -6.850810 -5.562397
+## -6.725551 -5.497609
 ```
 Again close enough!
 
@@ -479,7 +479,7 @@ calc.CI(m1,eta.max.a.fun)
 ```
 
 ```
-## [1] 2.666957 3.120609
+## [1] 2.626822 3.119385
 ```
 
 ``` r
@@ -489,7 +489,7 @@ quantile(eta.max.as,probs=c(0.025,0.975))
 
 ```
 ##     2.5%    97.5% 
-## 2.671837 3.124145
+## 2.632775 3.124366
 ```
 
 ``` r
@@ -498,7 +498,7 @@ calc.CI(m1,eta.max.b.fun)
 ```
 
 ```
-## [1] 2.940117 3.341638
+## [1] 3.066943 3.440081
 ```
 
 ``` r
@@ -508,7 +508,7 @@ quantile(eta.max.bs,probs=c(0.025,0.975))
 
 ```
 ##     2.5%    97.5% 
-## 2.943406 3.345159
+## 3.068536 3.443036
 ```
 
 ``` r
@@ -518,7 +518,7 @@ calc.CI(m1,delta.eta.max.fun)
 ```
 
 ```
-## [1] -0.55000518  0.05581633
+## [1] -0.68937835 -0.07143819
 ```
 
 ``` r
@@ -527,16 +527,16 @@ quantile(delta.maxs,probs=c(0.025,0.975))
 ```
 
 ```
-##        2.5%       97.5% 
-## -0.54893785  0.05755216
+##       2.5%      97.5% 
+## -0.6872014 -0.0704490
 ```
 ```
 
 ## Conclusion
 
-The sampling and delta method gave near identical results. We conclude that for the fitted model, the maximum number of visitors at truck A occurs at 12.1 with a 95% CI of [11.61, 12.53] and for truck B at time 18.3 with a 95% CI of [17.84, 18.7]. The difference in timing of the maxima between the two trucks is -6.2 with a 95% CI of [-6.83, -5.57]. Here, negative numbers indicate that the maximum occurred first in truck A.
+The sampling and delta method gave near identical results. We conclude that for the fitted model, the maximum number of visitors at truck A occurs at 11.8 with a 95% CI of [11.39, 12.25] and for truck B at time 17.9 with a 95% CI of [17.52, 18.33]. The difference in timing of the maxima between the two trucks is -6.1 with a 95% CI of [-6.7, -5.51]. Here, negative numbers indicate that the maximum occurred first in truck A.
 
-The maximum values themselves on the log scale were for truck A 2.89 with a 95% CI of [2.67, 3.12] and for truck B  3.14 with a 95% CI of [2.94, 3.34]. The difference in between maxima between the two trucks is -0.25 with a 95% CI of [-0.55, 0.06]. Here, negative values would indicate that truck B has a higher maximum than truck A.
+The maximum values themselves on the log scale were for truck A 2.87 with a 95% CI of [2.63, 3.12] and for truck B  3.25 with a 95% CI of [3.07, 3.44]. The difference in between maxima between the two trucks is -0.38 with a 95% CI of [-0.69, -0.07]. Here, negative values would indicate that truck B has a higher maximum than truck A.
 
-On the observable scale (i.e. actual counts), the highest number of visitors at truck A was 18.06 with a 95% CI of [14.4, 22.66] and for truck B 23.12 with a 95% CI of [18.92, 28.27]. The relative difference between the maximum number of visitors between the two trucks was 0.78 with a 95% CI of [0.58, 1.06]. This means that the maximum number of visitors for truck A was 0.78 x the maximum number of visitors for truck B.
+On the observable scale (i.e. actual counts), the highest number of visitors at truck A was 17.69 with a 95% CI of [13.83, 22.63] and for truck B 25.88 with a 95% CI of [21.48, 31.19]. The relative difference between the maximum number of visitors between the two trucks was 0.68 with a 95% CI of [0.5, 0.93]. This means that the maximum number of visitors for truck A was 0.68 x the maximum number of visitors for truck B.
 

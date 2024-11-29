@@ -11,5 +11,6 @@ rmd_files:
     "pca.Rmd",
     "brmslogistic.Rmd",
     "errorprop.Rmd",
-    "bibliography.Rmd",
+    "propzeroes.Rmd",
+    "bibliography.Rmd"
 ]
