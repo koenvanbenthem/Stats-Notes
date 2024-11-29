@@ -177,7 +177,7 @@ sd(x)
 ```
 
 ```
-## [1] 0.6529252
+## [1] 0.6519494
 ```
 
 ``` r
@@ -185,7 +185,7 @@ mean(x)
 ```
 
 ```
-## [1] 0.6262136
+## [1] 0.6108659
 ```
 
 ``` r
@@ -200,7 +200,7 @@ p_0
 ```
 
 ```
-## [1] 0.272
+## [1] 0.317
 ```
 
 ``` r
@@ -212,7 +212,7 @@ mu_approx
 ```
 
 ```
-## [1] 0.4636028
+## [1] 0.4358268
 ```
 
 ``` r
@@ -223,6 +223,6 @@ sd_approx # a very fair approximation of the standard deviation!
 ```
 
 ```
-## [1] 0.7640435
+## [1] 0.9154018
 ```
 There must be better ways to achieve this, if you know a good method, please let me know!

@@ -278,7 +278,7 @@ calc.CI(m1,delta.eta.max.fun)
 quantile(delta.maxs,probs=c(0.025,0.975))
 
 ```
-```
+
 
 ## Conclusion
 

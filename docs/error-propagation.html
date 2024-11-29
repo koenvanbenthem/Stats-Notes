@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="transforming-posterior-samples.html"/>
-<link rel="next" href="bibliography.html"/>
+<link rel="next" href="proportion-of-negative-values-from-a-normal-distribution.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -190,10 +190,15 @@ div.csl-indent {
 <li class="chapter" data-level="7.3" data-path="error-propagation.html"><a href="error-propagation.html#point-estimates"><i class="fa fa-check"></i><b>7.3</b> Point estimates</a></li>
 <li class="chapter" data-level="7.4" data-path="error-propagation.html"><a href="error-propagation.html#uncertainty-using-sampling"><i class="fa fa-check"></i><b>7.4</b> Uncertainty using sampling</a></li>
 <li class="chapter" data-level="7.5" data-path="error-propagation.html"><a href="error-propagation.html#uncertainty-using-delta-method"><i class="fa fa-check"></i><b>7.5</b> Uncertainty using delta method</a></li>
-<li class="chapter" data-level="7.6" data-path="error-propagation.html"><a href="error-propagation.html#adapting-the-mean-to-find-a-given-proportion-of-negative-values"><i class="fa fa-check"></i><b>7.6</b> Adapting the mean to find a given proportion of negative values</a></li>
-<li class="chapter" data-level="7.7" data-path="error-propagation.html"><a href="error-propagation.html#adapting-the-standard-deviation"><i class="fa fa-check"></i><b>7.7</b> Adapting the standard deviation</a></li>
-<li class="chapter" data-level="7.8" data-path="error-propagation.html"><a href="error-propagation.html#simplified"><i class="fa fa-check"></i><b>7.8</b> Simplified</a></li>
-<li class="chapter" data-level="7.9" data-path="error-propagation.html"><a href="error-propagation.html#matching-an-empirical-distribution"><i class="fa fa-check"></i><b>7.9</b> Matching an empirical distribution</a></li>
+<li class="chapter" data-level="7.6" data-path="error-propagation.html"><a href="error-propagation.html#conclusion"><i class="fa fa-check"></i><b>7.6</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="proportion-of-negative-values-from-a-normal-distribution.html"><a href="proportion-of-negative-values-from-a-normal-distribution.html"><i class="fa fa-check"></i><b>8</b> Proportion of negative values from a normal distribution</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="proportion-of-negative-values-from-a-normal-distribution.html"><a href="proportion-of-negative-values-from-a-normal-distribution.html#invariability-of-the-proportion-of-negative-values"><i class="fa fa-check"></i><b>8.1</b> Invariability of the proportion of negative values</a></li>
+<li class="chapter" data-level="8.2" data-path="proportion-of-negative-values-from-a-normal-distribution.html"><a href="proportion-of-negative-values-from-a-normal-distribution.html#adapting-the-mean-to-find-a-given-proportion-of-negative-values"><i class="fa fa-check"></i><b>8.2</b> Adapting the mean to find a given proportion of negative values</a></li>
+<li class="chapter" data-level="8.3" data-path="proportion-of-negative-values-from-a-normal-distribution.html"><a href="proportion-of-negative-values-from-a-normal-distribution.html#adapting-the-standard-deviation"><i class="fa fa-check"></i><b>8.3</b> Adapting the standard deviation</a></li>
+<li class="chapter" data-level="8.4" data-path="proportion-of-negative-values-from-a-normal-distribution.html"><a href="proportion-of-negative-values-from-a-normal-distribution.html#simplified"><i class="fa fa-check"></i><b>8.4</b> Simplified</a></li>
+<li class="chapter" data-level="8.5" data-path="proportion-of-negative-values-from-a-normal-distribution.html"><a href="proportion-of-negative-values-from-a-normal-distribution.html#matching-an-empirical-distribution"><i class="fa fa-check"></i><b>8.5</b> Matching an empirical distribution</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 </ul>
@@ -246,24 +251,24 @@ From this we can simulate data, by drawing from a poisson distribution. The fina
 ## 
 ## Deviance Residuals: 
 ##      Min        1Q    Median        3Q       Max  
-## -2.29733  -0.37057  -0.01456   0.13654   1.90084  
+## -2.00881  -0.35587  -0.03822   0.08243   1.40711  
 ## 
 ## Coefficients:
 ##                   Estimate Std. Error z value Pr(&gt;|z|)    
-## (Intercept)      -12.35204    2.21266  -5.582 2.37e-08 ***
-## truckB            -7.22573    3.45915  -2.089   0.0367 *  
-## time               2.57594    0.37681   6.836 8.13e-12 ***
-## I(time^2)         -0.10896    0.01581  -6.892 5.50e-12 ***
-## truckB:time       -0.02852    0.48260  -0.059   0.9529    
-## truckB:I(time^2)   0.03790    0.01793   2.114   0.0345 *  
+## (Intercept)       -9.47111    1.50421  -6.296 3.05e-10 ***
+## truckB           -10.41114    3.20696  -3.246  0.00117 ** 
+## time               2.12115    0.25422   8.344  &lt; 2e-16 ***
+## I(time^2)         -0.08896    0.01056  -8.426  &lt; 2e-16 ***
+## truckB:time        0.41778    0.40698   1.027  0.30464    
+## truckB:I(time^2)   0.01904    0.01376   1.384  0.16630    
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## (Dispersion parameter for poisson family taken to be 1)
 ## 
-##     Null deviance: 539.387  on 49  degrees of freedom
-## Residual deviance:  28.283  on 44  degrees of freedom
-## AIC: 136.18
+##     Null deviance: 561.312  on 49  degrees of freedom
+## Residual deviance:  24.872  on 44  degrees of freedom
+## AIC: 139.89
 ## 
 ## Number of Fisher Scoring iterations: 6</code></pre>
 <p>For this model, we are interested in the following:
@@ -314,13 +319,13 @@ For the specific model fit, we end up with (for the time points):</p>
 <span id="cb40-3"><a href="error-propagation.html#cb40-3" tabindex="-1"></a>Delta.time <span class="ot">&lt;-</span> tmax.a<span class="sc">-</span>tmax.b</span>
 <span id="cb40-4"><a href="error-propagation.html#cb40-4" tabindex="-1"></a>tmax.a</span></code></pre></div>
 <pre><code>##     time 
-## 11.82105</code></pre>
+## 11.92253</code></pre>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="error-propagation.html#cb42-1" tabindex="-1"></a>tmax.b</span></code></pre></div>
 <pre><code>##     time 
-## 17.92504</code></pre>
+## 18.15784</code></pre>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="error-propagation.html#cb44-1" tabindex="-1"></a>tmax.a<span class="sc">-</span>tmax.b</span></code></pre></div>
-<pre><code>##      time 
-## -6.103991</code></pre>
+<pre><code>##     time 
+## -6.23531</code></pre>
 <p>These values are close to the time points at which the maximum occurs in the two graphs! The difference between them is negative due to the maximum occurring later for truck B.</p>
 <p>The corresponding maxima are then (on the log scale):</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="error-propagation.html#cb46-1" tabindex="-1"></a>eta.max.a <span class="ot">&lt;-</span> <span class="fu">coef</span>(m1) <span class="sc">%*%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,tmax.a,tmax.a<span class="sc">^</span><span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">0</span>)</span>
@@ -329,13 +334,13 @@ For the specific model fit, we end up with (for the time points):</p>
 <p>And on the response scale, that becomes:</p>
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="error-propagation.html#cb47-1" tabindex="-1"></a><span class="fu">exp</span>(eta.max.a)</span></code></pre></div>
 <pre><code>##          [,1]
-## [1,] 17.69185</code></pre>
+## [1,] 23.89463</code></pre>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="error-propagation.html#cb49-1" tabindex="-1"></a><span class="fu">exp</span>(eta.max.b)</span></code></pre></div>
 <pre><code>##          [,1]
-## [1,] 25.88108</code></pre>
+## [1,] 23.77284</code></pre>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="error-propagation.html#cb51-1" tabindex="-1"></a><span class="fu">exp</span>(delta.eta.max)</span></code></pre></div>
-<pre><code>##           [,1]
-## [1,] 0.6835823</code></pre>
+<pre><code>##          [,1]
+## [1,] 1.005123</code></pre>
 <p>Note here that the last number corresponds to the ratio between the first two.</p>
 </div>
 <div id="uncertainty-using-sampling" class="section level2 hasAnchor" number="7.4">
@@ -352,13 +357,13 @@ For the specific model fit, we end up with (for the time points):</p>
 <span id="cb53-9"><a href="error-propagation.html#cb53-9" tabindex="-1"></a><span class="co"># confints:</span></span>
 <span id="cb53-10"><a href="error-propagation.html#cb53-10" tabindex="-1"></a><span class="fu">quantile</span>(tmax.as,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
 <pre><code>##     2.5%    97.5% 
-## 11.37168 12.27021</code></pre>
+## 11.52456 12.32558</code></pre>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="error-propagation.html#cb55-1" tabindex="-1"></a><span class="fu">quantile</span>(tmax.bs,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
 <pre><code>##     2.5%    97.5% 
-## 17.51305 18.35625</code></pre>
+## 17.72830 18.62357</code></pre>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="error-propagation.html#cb57-1" tabindex="-1"></a><span class="fu">quantile</span>(delta.tmaxs,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
 <pre><code>##      2.5%     97.5% 
-## -6.725551 -5.497609</code></pre>
+## -6.848512 -5.646991</code></pre>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="error-propagation.html#cb59-1" tabindex="-1"></a><span class="co"># we can do the same for eta max:</span></span>
 <span id="cb59-2"><a href="error-propagation.html#cb59-2" tabindex="-1"></a>eta.max.as <span class="ot">&lt;-</span> samples[,<span class="dv">1</span>] <span class="sc">+</span> samples[,<span class="dv">3</span>] <span class="sc">*</span> tmax.as <span class="sc">+</span> samples[,<span class="dv">4</span>] <span class="sc">*</span> tmax.as<span class="sc">^</span><span class="dv">2</span></span>
 <span id="cb59-3"><a href="error-propagation.html#cb59-3" tabindex="-1"></a>eta.max.bs <span class="ot">&lt;-</span> samples[,<span class="dv">1</span>] <span class="sc">+</span> samples[,<span class="dv">2</span>] <span class="sc">+</span> (samples[,<span class="dv">3</span>]<span class="sc">+</span>samples[,<span class="dv">5</span>]) <span class="sc">*</span> tmax.bs <span class="sc">+</span> (samples[,<span class="dv">4</span>]<span class="sc">+</span>samples[,<span class="dv">6</span>]) <span class="sc">*</span> tmax.bs<span class="sc">^</span><span class="dv">2</span></span>
@@ -367,23 +372,23 @@ For the specific model fit, we end up with (for the time points):</p>
 <span id="cb59-6"><a href="error-propagation.html#cb59-6" tabindex="-1"></a><span class="co"># confints:</span></span>
 <span id="cb59-7"><a href="error-propagation.html#cb59-7" tabindex="-1"></a><span class="fu">quantile</span>(eta.max.as,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
 <pre><code>##     2.5%    97.5% 
-## 2.632775 3.124366</code></pre>
+## 2.976636 3.378461</code></pre>
 <div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="error-propagation.html#cb61-1" tabindex="-1"></a><span class="fu">quantile</span>(eta.max.bs,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
 <pre><code>##     2.5%    97.5% 
-## 3.068536 3.443036</code></pre>
+## 2.978929 3.364790</code></pre>
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="error-propagation.html#cb63-1" tabindex="-1"></a><span class="fu">quantile</span>(delta.maxs,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
 <pre><code>##       2.5%      97.5% 
-## -0.6872014 -0.0704490</code></pre>
+## -0.2732373  0.2831736</code></pre>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="error-propagation.html#cb65-1" tabindex="-1"></a><span class="co"># on the response scale:</span></span>
 <span id="cb65-2"><a href="error-propagation.html#cb65-2" tabindex="-1"></a><span class="fu">quantile</span>(<span class="fu">exp</span>(eta.max.as),<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
 <pre><code>##     2.5%    97.5% 
-## 13.91233 22.74546</code></pre>
+## 19.62169 29.32560</code></pre>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="error-propagation.html#cb67-1" tabindex="-1"></a><span class="fu">quantile</span>(<span class="fu">exp</span>(eta.max.bs),<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
 <pre><code>##     2.5%    97.5% 
-## 21.51038 31.28178</code></pre>
+## 19.66675 28.92742</code></pre>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="error-propagation.html#cb69-1" tabindex="-1"></a><span class="fu">quantile</span>(<span class="fu">exp</span>(delta.maxs),<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
 <pre><code>##      2.5%     97.5% 
-## 0.5029818 0.9319753</code></pre>
+## 0.7609122 1.3273355</code></pre>
 </div>
 <div id="uncertainty-using-delta-method" class="section level2 hasAnchor" number="7.5">
 <h2><span class="header-section-number">7.5</span> Uncertainty using delta method<a href="error-propagation.html#uncertainty-using-delta-method" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -422,11 +427,11 @@ We can take the square root of this variance to obtain the standard error, and t
 <span id="cb71-8"><a href="error-propagation.html#cb71-8" tabindex="-1"></a><span class="co"># 95% CI:</span></span>
 <span id="cb71-9"><a href="error-propagation.html#cb71-9" tabindex="-1"></a>tmax.a.CI <span class="ot">&lt;-</span> tmax.a <span class="sc">+</span> <span class="fu">qnorm</span>(<span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))<span class="sc">*</span>se.tmax.a</span>
 <span id="cb71-10"><a href="error-propagation.html#cb71-10" tabindex="-1"></a>tmax.a.CI</span></code></pre></div>
-<pre><code>## [1] 11.39028 12.25182</code></pre>
+<pre><code>## [1] 11.53259 12.31248</code></pre>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="error-propagation.html#cb73-1" tabindex="-1"></a><span class="co"># compare to the sampling 95% CI:</span></span>
 <span id="cb73-2"><a href="error-propagation.html#cb73-2" tabindex="-1"></a><span class="fu">quantile</span>(tmax.as,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
 <pre><code>##     2.5%    97.5% 
-## 11.37168 12.27021</code></pre>
+## 11.52456 12.32558</code></pre>
 <p>We can calculate the CI for <span class="math inline">\(t_\text{max,B}\)</span> anaogously:
 <span class="math display">\[\begin{equation}
 \nabla \hat{t_\text{max,B}} = \begin{bmatrix} 0 \\ 0 \\
@@ -449,11 +454,11 @@ From here it is then straightforward to calculate the standard error and 95% CI.
 <span id="cb75-8"><a href="error-propagation.html#cb75-8" tabindex="-1"></a><span class="co"># 95% CI:</span></span>
 <span id="cb75-9"><a href="error-propagation.html#cb75-9" tabindex="-1"></a>tmax.b.CI <span class="ot">&lt;-</span> tmax.b <span class="sc">+</span> <span class="fu">qnorm</span>(<span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))<span class="sc">*</span>se.tmax.b</span>
 <span id="cb75-10"><a href="error-propagation.html#cb75-10" tabindex="-1"></a>tmax.b.CI</span></code></pre></div>
-<pre><code>## [1] 17.51583 18.33425</code></pre>
+<pre><code>## [1] 17.72479 18.59090</code></pre>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="error-propagation.html#cb77-1" tabindex="-1"></a><span class="co"># compare to the sampling 95% CI:</span></span>
 <span id="cb77-2"><a href="error-propagation.html#cb77-2" tabindex="-1"></a><span class="fu">quantile</span>(tmax.bs,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
 <pre><code>##     2.5%    97.5% 
-## 17.51305 18.35625</code></pre>
+## 17.72830 18.62357</code></pre>
 <p>Next, we can do the same for the difference in time. We take a shortcut now, in the sense that we let R calculate the derivatives for us, using the Deriv library.</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="error-propagation.html#cb79-1" tabindex="-1"></a><span class="fu">library</span>(Deriv)</span></code></pre></div>
 <pre><code>## Warning: package &#39;Deriv&#39; was built under R version 4.2.1</code></pre>
@@ -480,11 +485,11 @@ From here it is then straightforward to calculate the standard error and 95% CI.
 <span id="cb83-6"><a href="error-propagation.html#cb83-6" tabindex="-1"></a><span class="co"># 95% CI:</span></span>
 <span id="cb83-7"><a href="error-propagation.html#cb83-7" tabindex="-1"></a>tmax.delta.CI <span class="ot">&lt;-</span> (tmax.a<span class="sc">-</span>tmax.b) <span class="sc">+</span> <span class="fu">qnorm</span>(<span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))<span class="sc">*</span>se.delta.tmax</span>
 <span id="cb83-8"><a href="error-propagation.html#cb83-8" tabindex="-1"></a>tmax.delta.CI</span></code></pre></div>
-<pre><code>## [1] -6.698143 -5.509839</code></pre>
+<pre><code>## [1] -6.818054 -5.652565</code></pre>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="error-propagation.html#cb85-1" tabindex="-1"></a><span class="co"># compare to the sampling 95% CI:</span></span>
 <span id="cb85-2"><a href="error-propagation.html#cb85-2" tabindex="-1"></a><span class="fu">quantile</span>(delta.tmaxs,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
 <pre><code>##      2.5%     97.5% 
-## -6.725551 -5.497609</code></pre>
+## -6.848512 -5.646991</code></pre>
 <p>Again close enough!</p>
 <p>We proceed in a similar fashion for the maximum values, first defining appropriate functions and then using the machinery from above to calculate CIs:</p>
 <div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="error-propagation.html#cb87-1" tabindex="-1"></a>eta.max.a.fun <span class="ot">&lt;-</span> <span class="cf">function</span>(beta<span class="fl">.0</span>,beta.B,beta.time,beta.Bxtime,beta.time2,beta.Bxtime2){</span>
@@ -528,156 +533,32 @@ From here it is then straightforward to calculate the standard error and 95% CI.
 <span id="cb87-39"><a href="error-propagation.html#cb87-39" tabindex="-1"></a></span>
 <span id="cb87-40"><a href="error-propagation.html#cb87-40" tabindex="-1"></a><span class="co"># CI for eta.max.a:</span></span>
 <span id="cb87-41"><a href="error-propagation.html#cb87-41" tabindex="-1"></a><span class="fu">calc.CI</span>(m1,eta.max.a.fun)</span></code></pre></div>
-<pre><code>## [1] 2.626822 3.119385</code></pre>
+<pre><code>## [1] 2.972210 3.375097</code></pre>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="error-propagation.html#cb89-1" tabindex="-1"></a><span class="co"># compare to the sampling 95% CI:</span></span>
 <span id="cb89-2"><a href="error-propagation.html#cb89-2" tabindex="-1"></a><span class="fu">quantile</span>(eta.max.as,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
 <pre><code>##     2.5%    97.5% 
-## 2.632775 3.124366</code></pre>
+## 2.976636 3.378461</code></pre>
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="error-propagation.html#cb91-1" tabindex="-1"></a><span class="co"># CI for eta.max.b:</span></span>
 <span id="cb91-2"><a href="error-propagation.html#cb91-2" tabindex="-1"></a><span class="fu">calc.CI</span>(m1,eta.max.b.fun)</span></code></pre></div>
-<pre><code>## [1] 3.066943 3.440081</code></pre>
+<pre><code>## [1] 2.974060 3.363027</code></pre>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="error-propagation.html#cb93-1" tabindex="-1"></a><span class="co"># compare to the sampling 95% CI:</span></span>
 <span id="cb93-2"><a href="error-propagation.html#cb93-2" tabindex="-1"></a><span class="fu">quantile</span>(eta.max.bs,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
 <pre><code>##     2.5%    97.5% 
-## 3.068536 3.443036</code></pre>
+## 2.978929 3.364790</code></pre>
 <div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="error-propagation.html#cb95-1" tabindex="-1"></a><span class="do">## CI for the difference:</span></span>
 <span id="cb95-2"><a href="error-propagation.html#cb95-2" tabindex="-1"></a><span class="co"># CI for eta.max.b:</span></span>
 <span id="cb95-3"><a href="error-propagation.html#cb95-3" tabindex="-1"></a><span class="fu">calc.CI</span>(m1,delta.eta.max.fun)</span></code></pre></div>
-<pre><code>## [1] -0.68937835 -0.07143819</code></pre>
+<pre><code>## [1] -0.2748959  0.2851158</code></pre>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="error-propagation.html#cb97-1" tabindex="-1"></a><span class="co"># compare to the sampling 95% CI:</span></span>
 <span id="cb97-2"><a href="error-propagation.html#cb97-2" tabindex="-1"></a><span class="fu">quantile</span>(delta.maxs,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</span></code></pre></div>
 <pre><code>##       2.5%      97.5% 
-## -0.6872014 -0.0704490</code></pre>
-<pre><code>
-## Conclusion
-
-The sampling and delta method gave near identical results. We conclude that for the fitted model, the maximum number of visitors at truck A occurs at 11.8 with a 95% CI of [11.39, 12.25] and for truck B at time 17.9 with a 95% CI of [17.52, 18.33]. The difference in timing of the maxima between the two trucks is -6.1 with a 95% CI of [-6.7, -5.51]. Here, negative numbers indicate that the maximum occurred first in truck A.
-
-The maximum values themselves on the log scale were for truck A 2.87 with a 95% CI of [2.63, 3.12] and for truck B  3.25 with a 95% CI of [3.07, 3.44]. The difference in between maxima between the two trucks is -0.38 with a 95% CI of [-0.69, -0.07]. Here, negative values would indicate that truck B has a higher maximum than truck A.
-
-On the observable scale (i.e. actual counts), the highest number of visitors at truck A was 17.69 with a 95% CI of [13.83, 22.63] and for truck B 25.88 with a 95% CI of [21.48, 31.19]. The relative difference between the maximum number of visitors between the two trucks was 0.68 with a 95% CI of [0.5, 0.93]. This means that the maximum number of visitors for truck A was 0.68 x the maximum number of visitors for truck B.
-
-
-&lt;!--chapter:end:errorprop.Rmd--&gt;
-
-# Proportion of negative values from a normal distribution
-
-## Invariability of the proportion of negative values
-For a given normal distribution with mean $\mu$ and standard deviation $\sigma$, the proportion of negative values does not change when $\mu$ and $\sigma$ are multiplied by the same positive constant:
-
-``` r
-pnorm(0,mean=5.3,sd=2.1)</code></pre>
-<pre><code>## [1] 0.005804541</code></pre>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="error-propagation.html#cb101-1" tabindex="-1"></a>multi.factors <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">100</span>) <span class="co"># generate random multiplication factors</span></span>
-<span id="cb101-2"><a href="error-propagation.html#cb101-2" tabindex="-1"></a>prop.zeroes <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">0</span>,<span class="at">mean=</span>multi.factors<span class="sc">*</span><span class="fl">5.3</span>,<span class="at">sd=</span>multi.factors<span class="sc">*</span><span class="fl">2.1</span>)</span>
-<span id="cb101-3"><a href="error-propagation.html#cb101-3" tabindex="-1"></a><span class="fu">var</span>(prop.zeroes) <span class="co"># no variation in proportion of zeroes!</span></span></code></pre></div>
-<pre><code>## [1] 0</code></pre>
-<p>If we find one combination of mean and standard deviation that satisfies a certain fraction of negative values, we can thus generate infinitely many combinations that satisfy these conditions, simply by multiplying both mean and standard deviation with the same positive constant.</p>
+## -0.2732373  0.2831736</code></pre>
 </div>
-<div id="adapting-the-mean-to-find-a-given-proportion-of-negative-values" class="section level2 hasAnchor" number="7.6">
-<h2><span class="header-section-number">7.6</span> Adapting the mean to find a given proportion of negative values<a href="error-propagation.html#adapting-the-mean-to-find-a-given-proportion-of-negative-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Assume we want to find a distribution with a certain proportion of zeroes, <span class="math inline">\(p_0\)</span>, and a set standard deviation <span class="math inline">\(\sigma\)</span>. We can proceed as follows:</p>
-<ul>
-<li>Pick an arbitrary starting value for the mean <span class="math inline">\(\mu_0\)</span></li>
-<li>Use to determine for the distribution with mean <span class="math inline">\(\mu_0\)</span> and standard deviation <span class="math inline">\(\sigma\)</span> at which cut-off value the fraction of random numbers below the cut-off is equal to <span class="math inline">\(p_0\)</span>.</li>
-<li>Shift the mean with that value, such that the cut-off aligns with the 0 point.</li>
-<li>You have found the distribution that you need!</li>
-</ul>
-<p>An example: assume we want to find the mean of a distribution for which <span class="math inline">\(\sigma=0.2\)</span> and a proportion of <span class="math inline">\(p_0=0.21\)</span> of the random draws is negative:</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="error-propagation.html#cb103-1" tabindex="-1"></a>mu_0 <span class="ot">&lt;-</span> <span class="fl">5.67</span> <span class="co"># determine a random m_0</span></span>
-<span id="cb103-2"><a href="error-propagation.html#cb103-2" tabindex="-1"></a>dmu <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.21</span>,<span class="at">mean=</span>mu_0,<span class="at">sd=</span><span class="fl">0.2</span>)</span>
-<span id="cb103-3"><a href="error-propagation.html#cb103-3" tabindex="-1"></a>dmu <span class="co"># a fraction of 0.21 of the points is below this cut-off</span></span></code></pre></div>
-<pre><code>## [1] 5.508716</code></pre>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="error-propagation.html#cb105-1" tabindex="-1"></a>mu <span class="ot">&lt;-</span> mu_0 <span class="sc">-</span> dmu <span class="co"># we shift the whole distribution</span></span>
-<span id="cb105-2"><a href="error-propagation.html#cb105-2" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">0</span>,mu,<span class="fl">0.2</span>) <span class="co"># we found a distribution for which exactly 21% of the datapoints are below zero!</span></span></code></pre></div>
-<pre><code>## [1] 0.21</code></pre>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="error-propagation.html#cb107-1" tabindex="-1"></a><span class="co"># it has mean:</span></span>
-<span id="cb107-2"><a href="error-propagation.html#cb107-2" tabindex="-1"></a>mu</span></code></pre></div>
-<pre><code>## [1] 0.1612842</code></pre>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="error-propagation.html#cb109-1" tabindex="-1"></a><span class="co"># and standard deviation (as predefined)</span></span>
-<span id="cb109-2"><a href="error-propagation.html#cb109-2" tabindex="-1"></a><span class="fl">0.2</span></span></code></pre></div>
-<pre><code>## [1] 0.2</code></pre>
-</div>
-<div id="adapting-the-standard-deviation" class="section level2 hasAnchor" number="7.7">
-<h2><span class="header-section-number">7.7</span> Adapting the standard deviation<a href="error-propagation.html#adapting-the-standard-deviation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We can adapt the above procedure to find the standard deviation <span class="math inline">\(\sigma\)</span> for which a certain proportion <span class="math inline">\(p_0\)</span> of the data points is negative, given a predefined mean value of the distribution of <span class="math inline">\(\mu\)</span>.</p>
-<ul>
-<li>Pick an arbitrary starting value for the mean <span class="math inline">\(\mu_0\)</span> and the standard deviation <span class="math inline">\(\sigma_0\)</span></li>
-<li>Use to determine for the distribution with mean <span class="math inline">\(\mu_0\)</span> and standard deviation <span class="math inline">\(\sigma_0\)</span> at which cut-off value the fraction of random numbers below the cut-off is equal to <span class="math inline">\(p_0\)</span>.</li>
-<li>Shift the mean with that value, such that the cut-off aligns with the 0 point, this give <span class="math inline">\(\mu_0^\prime\)</span>.</li>
-<li>Multiply both <span class="math inline">\(\sigma_0\)</span> and <span class="math inline">\(\mu_0^\prime\)</span> with <span class="math inline">\(\frac{mu}{\mu_0^\prime}\)</span> to find the distribution that you need.</li>
-</ul>
-<p>An example: assume we want to find the standard deviation of a distribution for which <span class="math inline">\(\mu=3.4\)</span> and a proportion of <span class="math inline">\(p_0=0.17\)</span> of the random draws is negative:</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="error-propagation.html#cb111-1" tabindex="-1"></a>mu_0 <span class="ot">&lt;-</span> <span class="fl">2.45</span> <span class="co"># determine a random m_0</span></span>
-<span id="cb111-2"><a href="error-propagation.html#cb111-2" tabindex="-1"></a>sd_0 <span class="ot">&lt;-</span> <span class="fl">1.14</span></span>
-<span id="cb111-3"><a href="error-propagation.html#cb111-3" tabindex="-1"></a>p_0 <span class="ot">&lt;-</span> <span class="fl">0.17</span></span>
-<span id="cb111-4"><a href="error-propagation.html#cb111-4" tabindex="-1"></a>dmu <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(p_0,<span class="at">mean=</span>mu_0,<span class="at">sd=</span>sd_0)</span>
-<span id="cb111-5"><a href="error-propagation.html#cb111-5" tabindex="-1"></a>dmu <span class="co"># a fraction of 0.21 of the points is below this cut-off</span></span></code></pre></div>
-<pre><code>## [1] 1.362252</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="error-propagation.html#cb113-1" tabindex="-1"></a>mu_0p <span class="ot">&lt;-</span> mu_0 <span class="sc">-</span> dmu <span class="co"># we shift the whole distribution</span></span>
-<span id="cb113-2"><a href="error-propagation.html#cb113-2" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fl">3.4</span> <span class="co"># the mean value that we would want to have</span></span>
-<span id="cb113-3"><a href="error-propagation.html#cb113-3" tabindex="-1"></a>mu <span class="ot">&lt;-</span> mu_0p <span class="sc">*</span> (mu<span class="sc">/</span>mu_0p)<span class="co"># Multiply the temporary values of mu and sd with a factor to match the predefined mean</span></span>
-<span id="cb113-4"><a href="error-propagation.html#cb113-4" tabindex="-1"></a>sd <span class="ot">&lt;-</span> sd_0 <span class="sc">*</span>(mu<span class="sc">/</span>mu_0p)</span>
-<span id="cb113-5"><a href="error-propagation.html#cb113-5" tabindex="-1"></a></span>
-<span id="cb113-6"><a href="error-propagation.html#cb113-6" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">0</span>,mu,sd) <span class="co"># we found a distribution for which exactly 17% of the datapoints are below zero!</span></span></code></pre></div>
-<pre><code>## [1] 0.17</code></pre>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="error-propagation.html#cb115-1" tabindex="-1"></a><span class="co"># it has mean (as predefined):</span></span>
-<span id="cb115-2"><a href="error-propagation.html#cb115-2" tabindex="-1"></a>mu</span></code></pre></div>
-<pre><code>## [1] 3.4</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="error-propagation.html#cb117-1" tabindex="-1"></a><span class="co"># and standard deviation:</span></span>
-<span id="cb117-2"><a href="error-propagation.html#cb117-2" tabindex="-1"></a>sd</span></code></pre></div>
-<pre><code>## [1] 3.563324</code></pre>
-</div>
-<div id="simplified" class="section level2 hasAnchor" number="7.8">
-<h2><span class="header-section-number">7.8</span> Simplified<a href="error-propagation.html#simplified" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We can simplify the procedure in the previous section by starting with the standard normal distribution with <span class="math inline">\(\mu_0=0\)</span> and <span class="math inline">\(\sigma_0=1\)</span>. Let’s say we want to find a proportion of <span class="math inline">\(p_0=0.06\)</span> negative values with <span class="math inline">\(\mu=1.2\)</span>:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="error-propagation.html#cb119-1" tabindex="-1"></a>p_0 <span class="ot">&lt;-</span> <span class="fl">0.06</span></span>
-<span id="cb119-2"><a href="error-propagation.html#cb119-2" tabindex="-1"></a>mu_0p <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">qnorm</span>(p_0,<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb119-3"><a href="error-propagation.html#cb119-3" tabindex="-1"></a>mu_0p <span class="co"># the mu necessary for p_0=0.06, when sigma=1</span></span></code></pre></div>
-<pre><code>## [1] 1.554774</code></pre>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="error-propagation.html#cb121-1" tabindex="-1"></a><span class="co"># therefore also equal to the ratio mu/sigma such that p_0 = 0.06</span></span>
-<span id="cb121-2"><a href="error-propagation.html#cb121-2" tabindex="-1"></a></span>
-<span id="cb121-3"><a href="error-propagation.html#cb121-3" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fl">1.2</span> <span class="co"># the mean value that we would want to have</span></span>
-<span id="cb121-4"><a href="error-propagation.html#cb121-4" tabindex="-1"></a>mu <span class="ot">&lt;-</span> mu_0p <span class="sc">*</span> (mu<span class="sc">/</span>mu_0p)<span class="co"># Multiply the temporary values of mu and sd with a factor to match the predefined mean</span></span>
-<span id="cb121-5"><a href="error-propagation.html#cb121-5" tabindex="-1"></a>sd <span class="ot">&lt;-</span> (mu<span class="sc">/</span>mu_0p)</span>
-<span id="cb121-6"><a href="error-propagation.html#cb121-6" tabindex="-1"></a></span>
-<span id="cb121-7"><a href="error-propagation.html#cb121-7" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">0</span>,mu,sd) <span class="co"># we found a distribution for which exactly 17% of the datapoints are below zero!</span></span></code></pre></div>
-<pre><code>## [1] 0.06</code></pre>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="error-propagation.html#cb123-1" tabindex="-1"></a><span class="co"># it has mean (as predefined):</span></span>
-<span id="cb123-2"><a href="error-propagation.html#cb123-2" tabindex="-1"></a>mu</span></code></pre></div>
-<pre><code>## [1] 1.2</code></pre>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="error-propagation.html#cb125-1" tabindex="-1"></a><span class="co"># and standard deviation:</span></span>
-<span id="cb125-2"><a href="error-propagation.html#cb125-2" tabindex="-1"></a>sd</span></code></pre></div>
-<pre><code>## [1] 0.7718166</code></pre>
-</div>
-<div id="matching-an-empirical-distribution" class="section level2 hasAnchor" number="7.9">
-<h2><span class="header-section-number">7.9</span> Matching an empirical distribution<a href="error-propagation.html#matching-an-empirical-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The means above are all based on the means of full distributions, including the negative values. How can one approximately match a distribution that was generated by drawing random numbers from a normal distribution and then setting all negative values to 0? If the proportion of negative values is smaller than 50%, one can obtain a rough approximation of the mean by removing the same percentage of high values from the data and calculate the mean on the remaining data. For example:</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="error-propagation.html#cb127-1" tabindex="-1"></a><span class="co"># generate data from a normal distribution (1000 datpoints):</span></span>
-<span id="cb127-2"><a href="error-propagation.html#cb127-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>,<span class="at">mean=</span><span class="fl">0.45</span>,<span class="at">sd=</span><span class="fl">0.85</span>) <span class="co"># we want to find this mean and sd back</span></span>
-<span id="cb127-3"><a href="error-propagation.html#cb127-3" tabindex="-1"></a>x[x<span class="sc">&lt;</span><span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="dv">0</span> <span class="co"># all negative values are set to 0</span></span>
-<span id="cb127-4"><a href="error-propagation.html#cb127-4" tabindex="-1"></a><span class="fu">sd</span>(x)</span></code></pre></div>
-<pre><code>## [1] 0.6529252</code></pre>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="error-propagation.html#cb129-1" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div>
-<pre><code>## [1] 0.6262136</code></pre>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="error-propagation.html#cb131-1" tabindex="-1"></a><span class="co"># we note that the sd and mean of these values are way off</span></span></code></pre></div>
-<p>Now that we have some dummy data, how can we find the mean and sd values back?</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="error-propagation.html#cb132-1" tabindex="-1"></a><span class="co"># calculate the proportion of zereos:</span></span>
-<span id="cb132-2"><a href="error-propagation.html#cb132-2" tabindex="-1"></a>p_0 <span class="ot">&lt;-</span> <span class="fu">mean</span>(x<span class="sc">==</span><span class="dv">0</span>)</span>
-<span id="cb132-3"><a href="error-propagation.html#cb132-3" tabindex="-1"></a>p_0</span></code></pre></div>
-<pre><code>## [1] 0.272</code></pre>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="error-propagation.html#cb134-1" tabindex="-1"></a><span class="co"># Remove the same fraction of points on the high side</span></span>
-<span id="cb134-2"><a href="error-propagation.html#cb134-2" tabindex="-1"></a><span class="co"># and calculate the mean for the remaining values</span></span>
-<span id="cb134-3"><a href="error-propagation.html#cb134-3" tabindex="-1"></a>q1 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(x,<span class="at">probs=</span><span class="dv">1</span><span class="sc">-</span>p_0)</span>
-<span id="cb134-4"><a href="error-propagation.html#cb134-4" tabindex="-1"></a>mu_approx <span class="ot">&lt;-</span> <span class="fu">mean</span>(x[x<span class="sc">&gt;</span><span class="dv">0</span> <span class="sc">&amp;</span> x <span class="sc">&lt;</span>q1]) <span class="co"># a pretty okay approximation!</span></span>
-<span id="cb134-5"><a href="error-propagation.html#cb134-5" tabindex="-1"></a>mu_approx</span></code></pre></div>
-<pre><code>## [1] 0.4636028</code></pre>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="error-propagation.html#cb136-1" tabindex="-1"></a><span class="co"># now we want to calculate the necessary sd such that a proportion p_0 for a distribution with mean mu_approx is below 0</span></span>
-<span id="cb136-2"><a href="error-propagation.html#cb136-2" tabindex="-1"></a>multip <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">qnorm</span>(p_0) <span class="co"># the factor between mu and sd</span></span>
-<span id="cb136-3"><a href="error-propagation.html#cb136-3" tabindex="-1"></a>sd_approx <span class="ot">&lt;-</span> mu_approx<span class="sc">/</span>multip</span>
-<span id="cb136-4"><a href="error-propagation.html#cb136-4" tabindex="-1"></a>sd_approx <span class="co"># a very fair approximation of the standard deviation!</span></span></code></pre></div>
-<pre><code>## [1] 0.7640435</code></pre>
-<p>There must be better ways to achieve this, if you know a good method, please let me know!</p>
+<div id="conclusion" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> Conclusion<a href="error-propagation.html#conclusion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The sampling and delta method gave near identical results. We conclude that for the fitted model, the maximum number of visitors at truck A occurs at 11.9 with a 95% CI of [11.53, 12.31] and for truck B at time 18.2 with a 95% CI of [17.72, 18.59]. The difference in timing of the maxima between the two trucks is -6.2 with a 95% CI of [-6.82, -5.65]. Here, negative numbers indicate that the maximum occurred first in truck A.</p>
+<p>The maximum values themselves on the log scale were for truck A 3.17 with a 95% CI of [2.97, 3.38] and for truck B 3.17 with a 95% CI of [2.97, 3.36]. The difference in between maxima between the two trucks is 0.01 with a 95% CI of [-0.27, 0.29]. Here, negative values would indicate that truck B has a higher maximum than truck A.</p>
+<p>On the observable scale (i.e. actual counts), the highest number of visitors at truck A was 23.89 with a 95% CI of [19.54, 29.23] and for truck B 23.77 with a 95% CI of [19.57, 28.88]. The relative difference between the maximum number of visitors between the two trucks was 1.01 with a 95% CI of [0.76, 1.33]. This means that the maximum number of visitors for truck A was 1.01 x the maximum number of visitors for truck B.</p>
 
 </div>
 </div>
@@ -693,7 +574,7 @@ Cooch, E., and G. White, eds. 2024. <span>“Appendix b – the <span>‘Delta M
         </div>
       </div>
 <a href="transforming-posterior-samples.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bibliography.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="proportion-of-negative-values-from-a-normal-distribution.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

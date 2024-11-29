@@ -122,6 +122,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 </head>
 
@@ -163,92 +186,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7" data-path="error-propagation.html"><a href="error-propagation.html"><i class="fa fa-check"></i><b>7</b> Error propagation</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="error-propagation.html"><a href="error-propagation.html#data-simulation"><i class="fa fa-check"></i><b>7.1</b> Data simulation</a></li>
-<li class="chapter" data-level="7.2" data-path="error-propagation.html"><a href="error-propagation.html#warning-package-ggplot2-was-built-under-r-version-4.2.3"><i class="fa fa-check"></i><b>7.2</b> Warning: package ‘ggplot2’ was built under R version 4.2.3</a></li>
-<li class="chapter" data-level="7.3" data-path="error-propagation.html"><a href="error-propagation.html#problem-statement"><i class="fa fa-check"></i><b>7.3</b> Problem statement</a></li>
-<li class="chapter" data-level="7.4" data-path="error-propagation.html"><a href="error-propagation.html#section"><i class="fa fa-check"></i><b>7.4</b> </a></li>
-<li class="chapter" data-level="7.5" data-path="error-propagation.html"><a href="error-propagation.html#call"><i class="fa fa-check"></i><b>7.5</b> Call:</a></li>
-<li class="chapter" data-level="7.6" data-path="error-propagation.html"><a href="error-propagation.html#glmformula-visitors-truck-time-truck-itime2-family-poisson"><i class="fa fa-check"></i><b>7.6</b> glm(formula = visitors ~ truck * time + truck * I(time^2), family = poisson,</a></li>
-<li class="chapter" data-level="7.7" data-path="error-propagation.html"><a href="error-propagation.html#data-df"><i class="fa fa-check"></i><b>7.7</b> data = df)</a></li>
-<li class="chapter" data-level="7.8" data-path="error-propagation.html"><a href="error-propagation.html#section-1"><i class="fa fa-check"></i><b>7.8</b> </a></li>
-<li class="chapter" data-level="7.9" data-path="error-propagation.html"><a href="error-propagation.html#deviance-residuals"><i class="fa fa-check"></i><b>7.9</b> Deviance Residuals:</a></li>
-<li class="chapter" data-level="7.10" data-path="error-propagation.html"><a href="error-propagation.html#min-1q-median-3q-max"><i class="fa fa-check"></i><b>7.10</b> Min 1Q Median 3Q Max</a></li>
-<li class="chapter" data-level="7.11" data-path="error-propagation.html"><a href="error-propagation.html#section-2"><i class="fa fa-check"></i><b>7.11</b> -1.51860 -0.37898 -0.04296 0.14487 1.74209</a></li>
-<li class="chapter" data-level="7.12" data-path="error-propagation.html"><a href="error-propagation.html#section-3"><i class="fa fa-check"></i><b>7.12</b> </a></li>
-<li class="chapter" data-level="7.13" data-path="error-propagation.html"><a href="error-propagation.html#coefficients"><i class="fa fa-check"></i><b>7.13</b> Coefficients:</a></li>
-<li class="chapter" data-level="7.14" data-path="error-propagation.html"><a href="error-propagation.html#estimate-std.-error-z-value-prz"><i class="fa fa-check"></i><b>7.14</b> Estimate Std. Error z value Pr(&gt;|z|)</a></li>
-<li class="chapter" data-level="7.15" data-path="error-propagation.html"><a href="error-propagation.html#intercept--9.011477-1.595209--5.649-1.61e-08"><i class="fa fa-check"></i><b>7.15</b> (Intercept) -9.011477 1.595209 -5.649 1.61e-08 ***</a></li>
-<li class="chapter" data-level="7.16" data-path="error-propagation.html"><a href="error-propagation.html#truckb--13.068856-3.560809--3.670-0.000242"><i class="fa fa-check"></i><b>7.16</b> truckB -13.068856 3.560809 -3.670 0.000242 ***</a></li>
-<li class="chapter" data-level="7.17" data-path="error-propagation.html"><a href="error-propagation.html#time-1.972469-0.266353-7.405-1.31e-13"><i class="fa fa-check"></i><b>7.17</b> time 1.972469 0.266353 7.405 1.31e-13 ***</a></li>
-<li class="chapter" data-level="7.18" data-path="error-propagation.html"><a href="error-propagation.html#itime2--0.081700-0.010918--7.483-7.28e-14"><i class="fa fa-check"></i><b>7.18</b> I(time^2) -0.081700 0.010918 -7.483 7.28e-14 ***</a></li>
-<li class="chapter" data-level="7.19" data-path="error-propagation.html"><a href="error-propagation.html#truckbtime-0.788540-0.443230-1.779-0.075227-."><i class="fa fa-check"></i><b>7.19</b> truckB:time 0.788540 0.443230 1.779 0.075227 .</a></li>
-<li class="chapter" data-level="7.20" data-path="error-propagation.html"><a href="error-propagation.html#truckbitime2-0.006137-0.014645-0.419-0.675183"><i class="fa fa-check"></i><b>7.20</b> truckB:I(time^2) 0.006137 0.014645 0.419 0.675183</a></li>
-<li class="chapter" data-level="7.21" data-path="error-propagation.html"><a href="error-propagation.html#section-4"><i class="fa fa-check"></i><b>7.21</b> —</a></li>
-<li class="chapter" data-level="7.22" data-path="error-propagation.html"><a href="error-propagation.html#signif.-codes-0-0.001-0.01-0.05-.-0.1-1"><i class="fa fa-check"></i><b>7.22</b> Signif. codes: 0 ‘<em><strong>’ 0.001 ’</strong>’ 0.01 ’</em>’ 0.05 ‘.’ 0.1 ’ ’ 1</a></li>
-<li class="chapter" data-level="7.23" data-path="error-propagation.html"><a href="error-propagation.html#section-5"><i class="fa fa-check"></i><b>7.23</b> </a></li>
-<li class="chapter" data-level="7.24" data-path="error-propagation.html"><a href="error-propagation.html#dispersion-parameter-for-poisson-family-taken-to-be-1"><i class="fa fa-check"></i><b>7.24</b> (Dispersion parameter for poisson family taken to be 1)</a></li>
-<li class="chapter" data-level="7.25" data-path="error-propagation.html"><a href="error-propagation.html#section-6"><i class="fa fa-check"></i><b>7.25</b> </a></li>
-<li class="chapter" data-level="7.26" data-path="error-propagation.html"><a href="error-propagation.html#null-deviance-490.708-on-49-degrees-of-freedom"><i class="fa fa-check"></i><b>7.26</b> Null deviance: 490.708 on 49 degrees of freedom</a></li>
-<li class="chapter" data-level="7.27" data-path="error-propagation.html"><a href="error-propagation.html#residual-deviance-22.575-on-44-degrees-of-freedom"><i class="fa fa-check"></i><b>7.27</b> Residual deviance: 22.575 on 44 degrees of freedom</a></li>
-<li class="chapter" data-level="7.28" data-path="error-propagation.html"><a href="error-propagation.html#aic-136.08"><i class="fa fa-check"></i><b>7.28</b> AIC: 136.08</a></li>
-<li class="chapter" data-level="7.29" data-path="error-propagation.html"><a href="error-propagation.html#section-7"><i class="fa fa-check"></i><b>7.29</b> </a></li>
-<li class="chapter" data-level="7.30" data-path="error-propagation.html"><a href="error-propagation.html#number-of-fisher-scoring-iterations-6"><i class="fa fa-check"></i><b>7.30</b> Number of Fisher Scoring iterations: 6</a></li>
-<li class="chapter" data-level="7.31" data-path="error-propagation.html"><a href="error-propagation.html#point-estimates"><i class="fa fa-check"></i><b>7.31</b> Point estimates</a></li>
-<li class="chapter" data-level="7.32" data-path="error-propagation.html"><a href="error-propagation.html#time"><i class="fa fa-check"></i><b>7.32</b> time</a></li>
-<li class="chapter" data-level="7.33" data-path="error-propagation.html"><a href="error-propagation.html#section-8"><i class="fa fa-check"></i><b>7.33</b> 12.07143</a></li>
-<li class="chapter" data-level="7.34" data-path="error-propagation.html"><a href="error-propagation.html#time-1"><i class="fa fa-check"></i><b>7.34</b> time</a></li>
-<li class="chapter" data-level="7.35" data-path="error-propagation.html"><a href="error-propagation.html#section-9"><i class="fa fa-check"></i><b>7.35</b> 18.26956</a></li>
-<li class="chapter" data-level="7.36" data-path="error-propagation.html"><a href="error-propagation.html#time-2"><i class="fa fa-check"></i><b>7.36</b> time</a></li>
-<li class="chapter" data-level="7.37" data-path="error-propagation.html"><a href="error-propagation.html#section-10"><i class="fa fa-check"></i><b>7.37</b> -6.198132</a></li>
-<li class="chapter" data-level="7.38" data-path="error-propagation.html"><a href="error-propagation.html#section-11"><i class="fa fa-check"></i><b>7.38</b> [,1]</a></li>
-<li class="chapter" data-level="7.39" data-path="error-propagation.html"><a href="error-propagation.html#section-12"><i class="fa fa-check"></i><b>7.39</b> [1,] 18.06151</a></li>
-<li class="chapter" data-level="7.40" data-path="error-propagation.html"><a href="error-propagation.html#section-13"><i class="fa fa-check"></i><b>7.40</b> [,1]</a></li>
-<li class="chapter" data-level="7.41" data-path="error-propagation.html"><a href="error-propagation.html#section-14"><i class="fa fa-check"></i><b>7.41</b> [1,] 23.12415</a></li>
-<li class="chapter" data-level="7.42" data-path="error-propagation.html"><a href="error-propagation.html#section-15"><i class="fa fa-check"></i><b>7.42</b> [,1]</a></li>
-<li class="chapter" data-level="7.43" data-path="error-propagation.html"><a href="error-propagation.html#section-16"><i class="fa fa-check"></i><b>7.43</b> [1,] 0.7810669</a></li>
-<li class="chapter" data-level="7.44" data-path="error-propagation.html"><a href="error-propagation.html#uncertainty-using-sampling"><i class="fa fa-check"></i><b>7.44</b> Uncertainty using sampling</a></li>
-<li class="chapter" data-level="7.45" data-path="error-propagation.html"><a href="error-propagation.html#section-17"><i class="fa fa-check"></i><b>7.45</b> 2.5% 97.5%</a></li>
-<li class="chapter" data-level="7.46" data-path="error-propagation.html"><a href="error-propagation.html#section-18"><i class="fa fa-check"></i><b>7.46</b> 11.59691 12.54606</a></li>
-<li class="chapter" data-level="7.47" data-path="error-propagation.html"><a href="error-propagation.html#section-19"><i class="fa fa-check"></i><b>7.47</b> 2.5% 97.5%</a></li>
-<li class="chapter" data-level="7.48" data-path="error-propagation.html"><a href="error-propagation.html#section-20"><i class="fa fa-check"></i><b>7.48</b> 17.84223 18.72235</a></li>
-<li class="chapter" data-level="7.49" data-path="error-propagation.html"><a href="error-propagation.html#section-21"><i class="fa fa-check"></i><b>7.49</b> 2.5% 97.5%</a></li>
-<li class="chapter" data-level="7.50" data-path="error-propagation.html"><a href="error-propagation.html#section-22"><i class="fa fa-check"></i><b>7.50</b> -6.850810 -5.562397</a></li>
-<li class="chapter" data-level="7.51" data-path="error-propagation.html"><a href="error-propagation.html#section-23"><i class="fa fa-check"></i><b>7.51</b> 2.5% 97.5%</a></li>
-<li class="chapter" data-level="7.52" data-path="error-propagation.html"><a href="error-propagation.html#section-24"><i class="fa fa-check"></i><b>7.52</b> 2.671837 3.124145</a></li>
-<li class="chapter" data-level="7.53" data-path="error-propagation.html"><a href="error-propagation.html#section-25"><i class="fa fa-check"></i><b>7.53</b> 2.5% 97.5%</a></li>
-<li class="chapter" data-level="7.54" data-path="error-propagation.html"><a href="error-propagation.html#section-26"><i class="fa fa-check"></i><b>7.54</b> 2.943406 3.345159</a></li>
-<li class="chapter" data-level="7.55" data-path="error-propagation.html"><a href="error-propagation.html#section-27"><i class="fa fa-check"></i><b>7.55</b> 2.5% 97.5%</a></li>
-<li class="chapter" data-level="7.56" data-path="error-propagation.html"><a href="error-propagation.html#section-28"><i class="fa fa-check"></i><b>7.56</b> -0.54893785 0.05755216</a></li>
-<li class="chapter" data-level="7.57" data-path="error-propagation.html"><a href="error-propagation.html#section-29"><i class="fa fa-check"></i><b>7.57</b> 2.5% 97.5%</a></li>
-<li class="chapter" data-level="7.58" data-path="error-propagation.html"><a href="error-propagation.html#section-30"><i class="fa fa-check"></i><b>7.58</b> 14.46653 22.74044</a></li>
-<li class="chapter" data-level="7.59" data-path="error-propagation.html"><a href="error-propagation.html#section-31"><i class="fa fa-check"></i><b>7.59</b> 2.5% 97.5%</a></li>
-<li class="chapter" data-level="7.60" data-path="error-propagation.html"><a href="error-propagation.html#section-32"><i class="fa fa-check"></i><b>7.60</b> 18.98038 28.36507</a></li>
-<li class="chapter" data-level="7.61" data-path="error-propagation.html"><a href="error-propagation.html#section-33"><i class="fa fa-check"></i><b>7.61</b> 2.5% 97.5%</a></li>
-<li class="chapter" data-level="7.62" data-path="error-propagation.html"><a href="error-propagation.html#section-34"><i class="fa fa-check"></i><b>7.62</b> 0.5775629 1.0592405</a></li>
-<li class="chapter" data-level="7.63" data-path="error-propagation.html"><a href="error-propagation.html#uncertainty-using-delta-method"><i class="fa fa-check"></i><b>7.63</b> Uncertainty using delta method</a></li>
-<li class="chapter" data-level="7.64" data-path="error-propagation.html"><a href="error-propagation.html#section-35"><i class="fa fa-check"></i><b>7.64</b> [1] 11.61327 12.52959</a></li>
-<li class="chapter" data-level="7.65" data-path="error-propagation.html"><a href="error-propagation.html#section-36"><i class="fa fa-check"></i><b>7.65</b> 2.5% 97.5%</a></li>
-<li class="chapter" data-level="7.66" data-path="error-propagation.html"><a href="error-propagation.html#section-37"><i class="fa fa-check"></i><b>7.66</b> 11.59691 12.54606</a></li>
-<li class="chapter" data-level="7.67" data-path="error-propagation.html"><a href="error-propagation.html#section-38"><i class="fa fa-check"></i><b>7.67</b> [1] 17.84113 18.69799</a></li>
-<li class="chapter" data-level="7.68" data-path="error-propagation.html"><a href="error-propagation.html#section-39"><i class="fa fa-check"></i><b>7.68</b> 2.5% 97.5%</a></li>
-<li class="chapter" data-level="7.69" data-path="error-propagation.html"><a href="error-propagation.html#section-40"><i class="fa fa-check"></i><b>7.69</b> 17.84223 18.72235</a></li>
-<li class="chapter" data-level="7.70" data-path="error-propagation.html"><a href="error-propagation.html#warning-package-deriv-was-built-under-r-version-4.2.1"><i class="fa fa-check"></i><b>7.70</b> Warning: package ‘Deriv’ was built under R version 4.2.1</a></li>
-<li class="chapter" data-level="7.71" data-path="error-propagation.html"><a href="error-propagation.html#function-beta.0-beta.b-beta.time-beta.bxtime-beta.time2"><i class="fa fa-check"></i><b>7.71</b> function (beta.0, beta.B, beta.time, beta.Bxtime, beta.time2,</a></li>
-<li class="chapter" data-level="7.72" data-path="error-propagation.html"><a href="error-propagation.html#beta.bxtime2"><i class="fa fa-check"></i><b>7.72</b> beta.Bxtime2)</a></li>
-<li class="chapter" data-level="7.73" data-path="error-propagation.html"><a href="error-propagation.html#beta.bxtime2-beta.time2---12-beta.time2"><i class="fa fa-check"></i><b>7.73</b> 1/(2 * (beta.Bxtime2 + beta.time2)) - 1/(2 * beta.time2)</a></li>
-<li class="chapter" data-level="7.74" data-path="error-propagation.html"><a href="error-propagation.html#section-41"><i class="fa fa-check"></i><b>7.74</b> [1] -6.825394 -5.570869</a></li>
-<li class="chapter" data-level="7.75" data-path="error-propagation.html"><a href="error-propagation.html#section-42"><i class="fa fa-check"></i><b>7.75</b> 2.5% 97.5%</a></li>
-<li class="chapter" data-level="7.76" data-path="error-propagation.html"><a href="error-propagation.html#section-43"><i class="fa fa-check"></i><b>7.76</b> -6.850810 -5.562397</a></li>
-<li class="chapter" data-level="7.77" data-path="error-propagation.html"><a href="error-propagation.html#section-44"><i class="fa fa-check"></i><b>7.77</b> [1] 2.666957 3.120609</a></li>
-<li class="chapter" data-level="7.78" data-path="error-propagation.html"><a href="error-propagation.html#section-45"><i class="fa fa-check"></i><b>7.78</b> 2.5% 97.5%</a></li>
-<li class="chapter" data-level="7.79" data-path="error-propagation.html"><a href="error-propagation.html#section-46"><i class="fa fa-check"></i><b>7.79</b> 2.671837 3.124145</a></li>
-<li class="chapter" data-level="7.80" data-path="error-propagation.html"><a href="error-propagation.html#section-47"><i class="fa fa-check"></i><b>7.80</b> [1] 2.940117 3.341638</a></li>
-<li class="chapter" data-level="7.81" data-path="error-propagation.html"><a href="error-propagation.html#section-48"><i class="fa fa-check"></i><b>7.81</b> 2.5% 97.5%</a></li>
-<li class="chapter" data-level="7.82" data-path="error-propagation.html"><a href="error-propagation.html#section-49"><i class="fa fa-check"></i><b>7.82</b> 2.943406 3.345159</a></li>
-<li class="chapter" data-level="7.83" data-path="error-propagation.html"><a href="error-propagation.html#ci-for-the-difference"><i class="fa fa-check"></i><b>7.83</b> CI for the difference:</a></li>
-<li class="chapter" data-level="7.84" data-path="error-propagation.html"><a href="error-propagation.html#section-50"><i class="fa fa-check"></i><b>7.84</b> [1] -0.55000518 0.05581633</a></li>
-<li class="chapter" data-level="7.85" data-path="error-propagation.html"><a href="error-propagation.html#section-51"><i class="fa fa-check"></i><b>7.85</b> 2.5% 97.5%</a></li>
-<li class="chapter" data-level="7.86" data-path="error-propagation.html"><a href="error-propagation.html#section-52"><i class="fa fa-check"></i><b>7.86</b> -0.54893785 0.05755216</a></li>
-<li class="chapter" data-level="7.87" data-path="error-propagation.html"><a href="error-propagation.html#conclusion"><i class="fa fa-check"></i><b>7.87</b> Conclusion</a></li>
+<li class="chapter" data-level="7.2" data-path="error-propagation.html"><a href="error-propagation.html#problem-statement"><i class="fa fa-check"></i><b>7.2</b> Problem statement</a></li>
+<li class="chapter" data-level="7.3" data-path="error-propagation.html"><a href="error-propagation.html#point-estimates"><i class="fa fa-check"></i><b>7.3</b> Point estimates</a></li>
+<li class="chapter" data-level="7.4" data-path="error-propagation.html"><a href="error-propagation.html#uncertainty-using-sampling"><i class="fa fa-check"></i><b>7.4</b> Uncertainty using sampling</a></li>
+<li class="chapter" data-level="7.5" data-path="error-propagation.html"><a href="error-propagation.html#uncertainty-using-delta-method"><i class="fa fa-check"></i><b>7.5</b> Uncertainty using delta method</a></li>
+<li class="chapter" data-level="7.6" data-path="error-propagation.html"><a href="error-propagation.html#conclusion"><i class="fa fa-check"></i><b>7.6</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="proportion-of-negative-values-from-a-normal-distribution.html"><a href="proportion-of-negative-values-from-a-normal-distribution.html"><i class="fa fa-check"></i><b>8</b> Proportion of negative values from a normal distribution</a>
 <ul>
@@ -281,11 +223,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="invariability-of-the-proportion-of-negative-values" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> Invariability of the proportion of negative values<a href="proportion-of-negative-values-from-a-normal-distribution.html#invariability-of-the-proportion-of-negative-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>For a given normal distribution with mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>, the proportion of negative values does not change when <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> are multiplied by the same positive constant:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb1-1" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">0</span>,<span class="at">mean=</span><span class="fl">5.3</span>,<span class="at">sd=</span><span class="fl">2.1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb99-1" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">0</span>,<span class="at">mean=</span><span class="fl">5.3</span>,<span class="at">sd=</span><span class="fl">2.1</span>)</span></code></pre></div>
 <pre><code>## [1] 0.005804541</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb3-1" tabindex="-1"></a>multi.factors <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">100</span>) <span class="co"># generate random multiplication factors</span></span>
-<span id="cb3-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb3-2" tabindex="-1"></a>prop.zeroes <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">0</span>,<span class="at">mean=</span>multi.factors<span class="sc">*</span><span class="fl">5.3</span>,<span class="at">sd=</span>multi.factors<span class="sc">*</span><span class="fl">2.1</span>)</span>
-<span id="cb3-3"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb3-3" tabindex="-1"></a><span class="fu">var</span>(prop.zeroes) <span class="co"># no variation in proportion of zeroes!</span></span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb101-1" tabindex="-1"></a>multi.factors <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">100</span>) <span class="co"># generate random multiplication factors</span></span>
+<span id="cb101-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb101-2" tabindex="-1"></a>prop.zeroes <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">0</span>,<span class="at">mean=</span>multi.factors<span class="sc">*</span><span class="fl">5.3</span>,<span class="at">sd=</span>multi.factors<span class="sc">*</span><span class="fl">2.1</span>)</span>
+<span id="cb101-3"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb101-3" tabindex="-1"></a><span class="fu">var</span>(prop.zeroes) <span class="co"># no variation in proportion of zeroes!</span></span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 <p>If we find one combination of mean and standard deviation that satisfies a certain fraction of negative values, we can thus generate infinitely many combinations that satisfy these conditions, simply by multiplying both mean and standard deviation with the same positive constant.</p>
 </div>
@@ -299,18 +241,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>You have found the distribution that you need!</li>
 </ul>
 <p>An example: assume we want to find the mean of a distribution for which <span class="math inline">\(\sigma=0.2\)</span> and a proportion of <span class="math inline">\(p_0=0.21\)</span> of the random draws is negative:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb5-1" tabindex="-1"></a>mu_0 <span class="ot">&lt;-</span> <span class="fl">5.67</span> <span class="co"># determine a random m_0</span></span>
-<span id="cb5-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb5-2" tabindex="-1"></a>dmu <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.21</span>,<span class="at">mean=</span>mu_0,<span class="at">sd=</span><span class="fl">0.2</span>)</span>
-<span id="cb5-3"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb5-3" tabindex="-1"></a>dmu <span class="co"># a fraction of 0.21 of the points is below this cut-off</span></span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb103-1" tabindex="-1"></a>mu_0 <span class="ot">&lt;-</span> <span class="fl">5.67</span> <span class="co"># determine a random m_0</span></span>
+<span id="cb103-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb103-2" tabindex="-1"></a>dmu <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.21</span>,<span class="at">mean=</span>mu_0,<span class="at">sd=</span><span class="fl">0.2</span>)</span>
+<span id="cb103-3"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb103-3" tabindex="-1"></a>dmu <span class="co"># a fraction of 0.21 of the points is below this cut-off</span></span></code></pre></div>
 <pre><code>## [1] 5.508716</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb7-1" tabindex="-1"></a>mu <span class="ot">&lt;-</span> mu_0 <span class="sc">-</span> dmu <span class="co"># we shift the whole distribution</span></span>
-<span id="cb7-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb7-2" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">0</span>,mu,<span class="fl">0.2</span>) <span class="co"># we found a distribution for which exactly 21% of the datapoints are below zero!</span></span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb105-1" tabindex="-1"></a>mu <span class="ot">&lt;-</span> mu_0 <span class="sc">-</span> dmu <span class="co"># we shift the whole distribution</span></span>
+<span id="cb105-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb105-2" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">0</span>,mu,<span class="fl">0.2</span>) <span class="co"># we found a distribution for which exactly 21% of the datapoints are below zero!</span></span></code></pre></div>
 <pre><code>## [1] 0.21</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb9-1" tabindex="-1"></a><span class="co"># it has mean:</span></span>
-<span id="cb9-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb9-2" tabindex="-1"></a>mu</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb107-1" tabindex="-1"></a><span class="co"># it has mean:</span></span>
+<span id="cb107-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb107-2" tabindex="-1"></a>mu</span></code></pre></div>
 <pre><code>## [1] 0.1612842</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb11-1" tabindex="-1"></a><span class="co"># and standard deviation (as predefined)</span></span>
-<span id="cb11-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb11-2" tabindex="-1"></a><span class="fl">0.2</span></span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb109-1" tabindex="-1"></a><span class="co"># and standard deviation (as predefined)</span></span>
+<span id="cb109-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb109-2" tabindex="-1"></a><span class="fl">0.2</span></span></code></pre></div>
 <pre><code>## [1] 0.2</code></pre>
 </div>
 <div id="adapting-the-standard-deviation" class="section level2 hasAnchor" number="8.3">
@@ -323,75 +265,75 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Multiply both <span class="math inline">\(\sigma_0\)</span> and <span class="math inline">\(\mu_0^\prime\)</span> with <span class="math inline">\(\frac{mu}{\mu_0^\prime}\)</span> to find the distribution that you need.</li>
 </ul>
 <p>An example: assume we want to find the standard deviation of a distribution for which <span class="math inline">\(\mu=3.4\)</span> and a proportion of <span class="math inline">\(p_0=0.17\)</span> of the random draws is negative:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb13-1" tabindex="-1"></a>mu_0 <span class="ot">&lt;-</span> <span class="fl">2.45</span> <span class="co"># determine a random m_0</span></span>
-<span id="cb13-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb13-2" tabindex="-1"></a>sd_0 <span class="ot">&lt;-</span> <span class="fl">1.14</span></span>
-<span id="cb13-3"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb13-3" tabindex="-1"></a>p_0 <span class="ot">&lt;-</span> <span class="fl">0.17</span></span>
-<span id="cb13-4"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb13-4" tabindex="-1"></a>dmu <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(p_0,<span class="at">mean=</span>mu_0,<span class="at">sd=</span>sd_0)</span>
-<span id="cb13-5"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb13-5" tabindex="-1"></a>dmu <span class="co"># a fraction of 0.21 of the points is below this cut-off</span></span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb111-1" tabindex="-1"></a>mu_0 <span class="ot">&lt;-</span> <span class="fl">2.45</span> <span class="co"># determine a random m_0</span></span>
+<span id="cb111-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb111-2" tabindex="-1"></a>sd_0 <span class="ot">&lt;-</span> <span class="fl">1.14</span></span>
+<span id="cb111-3"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb111-3" tabindex="-1"></a>p_0 <span class="ot">&lt;-</span> <span class="fl">0.17</span></span>
+<span id="cb111-4"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb111-4" tabindex="-1"></a>dmu <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(p_0,<span class="at">mean=</span>mu_0,<span class="at">sd=</span>sd_0)</span>
+<span id="cb111-5"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb111-5" tabindex="-1"></a>dmu <span class="co"># a fraction of 0.21 of the points is below this cut-off</span></span></code></pre></div>
 <pre><code>## [1] 1.362252</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb15-1" tabindex="-1"></a>mu_0p <span class="ot">&lt;-</span> mu_0 <span class="sc">-</span> dmu <span class="co"># we shift the whole distribution</span></span>
-<span id="cb15-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb15-2" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fl">3.4</span> <span class="co"># the mean value that we would want to have</span></span>
-<span id="cb15-3"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb15-3" tabindex="-1"></a>mu <span class="ot">&lt;-</span> mu_0p <span class="sc">*</span> (mu<span class="sc">/</span>mu_0p)<span class="co"># Multiply the temporary values of mu and sd with a factor to match the predefined mean</span></span>
-<span id="cb15-4"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb15-4" tabindex="-1"></a>sd <span class="ot">&lt;-</span> sd_0 <span class="sc">*</span>(mu<span class="sc">/</span>mu_0p)</span>
-<span id="cb15-5"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb15-5" tabindex="-1"></a></span>
-<span id="cb15-6"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb15-6" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">0</span>,mu,sd) <span class="co"># we found a distribution for which exactly 17% of the datapoints are below zero!</span></span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb113-1" tabindex="-1"></a>mu_0p <span class="ot">&lt;-</span> mu_0 <span class="sc">-</span> dmu <span class="co"># we shift the whole distribution</span></span>
+<span id="cb113-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb113-2" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fl">3.4</span> <span class="co"># the mean value that we would want to have</span></span>
+<span id="cb113-3"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb113-3" tabindex="-1"></a>mu <span class="ot">&lt;-</span> mu_0p <span class="sc">*</span> (mu<span class="sc">/</span>mu_0p)<span class="co"># Multiply the temporary values of mu and sd with a factor to match the predefined mean</span></span>
+<span id="cb113-4"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb113-4" tabindex="-1"></a>sd <span class="ot">&lt;-</span> sd_0 <span class="sc">*</span>(mu<span class="sc">/</span>mu_0p)</span>
+<span id="cb113-5"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb113-5" tabindex="-1"></a></span>
+<span id="cb113-6"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb113-6" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">0</span>,mu,sd) <span class="co"># we found a distribution for which exactly 17% of the datapoints are below zero!</span></span></code></pre></div>
 <pre><code>## [1] 0.17</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb17-1" tabindex="-1"></a><span class="co"># it has mean (as predefined):</span></span>
-<span id="cb17-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb17-2" tabindex="-1"></a>mu</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb115-1" tabindex="-1"></a><span class="co"># it has mean (as predefined):</span></span>
+<span id="cb115-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb115-2" tabindex="-1"></a>mu</span></code></pre></div>
 <pre><code>## [1] 3.4</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb19-1" tabindex="-1"></a><span class="co"># and standard deviation:</span></span>
-<span id="cb19-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb19-2" tabindex="-1"></a>sd</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb117-1" tabindex="-1"></a><span class="co"># and standard deviation:</span></span>
+<span id="cb117-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb117-2" tabindex="-1"></a>sd</span></code></pre></div>
 <pre><code>## [1] 3.563324</code></pre>
 </div>
 <div id="simplified" class="section level2 hasAnchor" number="8.4">
 <h2><span class="header-section-number">8.4</span> Simplified<a href="proportion-of-negative-values-from-a-normal-distribution.html#simplified" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can simplify the procedure in the previous section by starting with the standard normal distribution with <span class="math inline">\(\mu_0=0\)</span> and <span class="math inline">\(\sigma_0=1\)</span>. Let’s say we want to find a proportion of <span class="math inline">\(p_0=0.06\)</span> negative values with <span class="math inline">\(\mu=1.2\)</span>:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb21-1" tabindex="-1"></a>p_0 <span class="ot">&lt;-</span> <span class="fl">0.06</span></span>
-<span id="cb21-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb21-2" tabindex="-1"></a>mu_0p <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">qnorm</span>(p_0,<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb21-3"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb21-3" tabindex="-1"></a>mu_0p <span class="co"># the mu necessary for p_0=0.06, when sigma=1</span></span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb119-1" tabindex="-1"></a>p_0 <span class="ot">&lt;-</span> <span class="fl">0.06</span></span>
+<span id="cb119-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb119-2" tabindex="-1"></a>mu_0p <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">qnorm</span>(p_0,<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb119-3"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb119-3" tabindex="-1"></a>mu_0p <span class="co"># the mu necessary for p_0=0.06, when sigma=1</span></span></code></pre></div>
 <pre><code>## [1] 1.554774</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb23-1" tabindex="-1"></a><span class="co"># therefore also equal to the ratio mu/sigma such that p_0 = 0.06</span></span>
-<span id="cb23-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb23-2" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb23-3" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fl">1.2</span> <span class="co"># the mean value that we would want to have</span></span>
-<span id="cb23-4"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb23-4" tabindex="-1"></a>mu <span class="ot">&lt;-</span> mu_0p <span class="sc">*</span> (mu<span class="sc">/</span>mu_0p)<span class="co"># Multiply the temporary values of mu and sd with a factor to match the predefined mean</span></span>
-<span id="cb23-5"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb23-5" tabindex="-1"></a>sd <span class="ot">&lt;-</span> (mu<span class="sc">/</span>mu_0p)</span>
-<span id="cb23-6"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb23-6" tabindex="-1"></a></span>
-<span id="cb23-7"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb23-7" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">0</span>,mu,sd) <span class="co"># we found a distribution for which exactly 17% of the datapoints are below zero!</span></span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb121-1" tabindex="-1"></a><span class="co"># therefore also equal to the ratio mu/sigma such that p_0 = 0.06</span></span>
+<span id="cb121-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb121-2" tabindex="-1"></a></span>
+<span id="cb121-3"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb121-3" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fl">1.2</span> <span class="co"># the mean value that we would want to have</span></span>
+<span id="cb121-4"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb121-4" tabindex="-1"></a>mu <span class="ot">&lt;-</span> mu_0p <span class="sc">*</span> (mu<span class="sc">/</span>mu_0p)<span class="co"># Multiply the temporary values of mu and sd with a factor to match the predefined mean</span></span>
+<span id="cb121-5"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb121-5" tabindex="-1"></a>sd <span class="ot">&lt;-</span> (mu<span class="sc">/</span>mu_0p)</span>
+<span id="cb121-6"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb121-6" tabindex="-1"></a></span>
+<span id="cb121-7"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb121-7" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">0</span>,mu,sd) <span class="co"># we found a distribution for which exactly 17% of the datapoints are below zero!</span></span></code></pre></div>
 <pre><code>## [1] 0.06</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb25-1" tabindex="-1"></a><span class="co"># it has mean (as predefined):</span></span>
-<span id="cb25-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb25-2" tabindex="-1"></a>mu</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb123-1" tabindex="-1"></a><span class="co"># it has mean (as predefined):</span></span>
+<span id="cb123-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb123-2" tabindex="-1"></a>mu</span></code></pre></div>
 <pre><code>## [1] 1.2</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb27-1" tabindex="-1"></a><span class="co"># and standard deviation:</span></span>
-<span id="cb27-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb27-2" tabindex="-1"></a>sd</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb125-1" tabindex="-1"></a><span class="co"># and standard deviation:</span></span>
+<span id="cb125-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb125-2" tabindex="-1"></a>sd</span></code></pre></div>
 <pre><code>## [1] 0.7718166</code></pre>
 </div>
 <div id="matching-an-empirical-distribution" class="section level2 hasAnchor" number="8.5">
 <h2><span class="header-section-number">8.5</span> Matching an empirical distribution<a href="proportion-of-negative-values-from-a-normal-distribution.html#matching-an-empirical-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The means above are all based on the means of full distributions, including the negative values. How can one approximately match a distribution that was generated by drawing random numbers from a normal distribution and then setting all negative values to 0? If the proportion of negative values is smaller than 50%, one can obtain a rough approximation of the mean by removing the same percentage of high values from the data and calculate the mean on the remaining data. For example:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb29-1" tabindex="-1"></a><span class="co"># generate data from a normal distribution (1000 datpoints):</span></span>
-<span id="cb29-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb29-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>,<span class="at">mean=</span><span class="fl">0.45</span>,<span class="at">sd=</span><span class="fl">0.85</span>) <span class="co"># we want to find this mean and sd back</span></span>
-<span id="cb29-3"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb29-3" tabindex="-1"></a>x[x<span class="sc">&lt;</span><span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="dv">0</span> <span class="co"># all negative values are set to 0</span></span>
-<span id="cb29-4"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb29-4" tabindex="-1"></a><span class="fu">sd</span>(x)</span></code></pre></div>
-<pre><code>## [1] 0.628843</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb31-1" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div>
-<pre><code>## [1] 0.6041365</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb33-1" tabindex="-1"></a><span class="co"># we note that the sd and mean of these values are way off</span></span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb127-1" tabindex="-1"></a><span class="co"># generate data from a normal distribution (1000 datpoints):</span></span>
+<span id="cb127-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb127-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>,<span class="at">mean=</span><span class="fl">0.45</span>,<span class="at">sd=</span><span class="fl">0.85</span>) <span class="co"># we want to find this mean and sd back</span></span>
+<span id="cb127-3"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb127-3" tabindex="-1"></a>x[x<span class="sc">&lt;</span><span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="dv">0</span> <span class="co"># all negative values are set to 0</span></span>
+<span id="cb127-4"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb127-4" tabindex="-1"></a><span class="fu">sd</span>(x)</span></code></pre></div>
+<pre><code>## [1] 0.6519494</code></pre>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb129-1" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div>
+<pre><code>## [1] 0.6108659</code></pre>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb131-1" tabindex="-1"></a><span class="co"># we note that the sd and mean of these values are way off</span></span></code></pre></div>
 <p>Now that we have some dummy data, how can we find the mean and sd values back?</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb34-1" tabindex="-1"></a><span class="co"># calculate the proportion of zereos:</span></span>
-<span id="cb34-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb34-2" tabindex="-1"></a>p_0 <span class="ot">&lt;-</span> <span class="fu">mean</span>(x<span class="sc">==</span><span class="dv">0</span>)</span>
-<span id="cb34-3"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb34-3" tabindex="-1"></a>p_0</span></code></pre></div>
-<pre><code>## [1] 0.306</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb36-1" tabindex="-1"></a><span class="co"># Remove the same fraction of points on the high side</span></span>
-<span id="cb36-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb36-2" tabindex="-1"></a><span class="co"># and calculate the mean for the remaining values</span></span>
-<span id="cb36-3"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb36-3" tabindex="-1"></a>q1 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(x,<span class="at">probs=</span><span class="dv">1</span><span class="sc">-</span>p_0)</span>
-<span id="cb36-4"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb36-4" tabindex="-1"></a>mu_approx <span class="ot">&lt;-</span> <span class="fu">mean</span>(x[x<span class="sc">&gt;</span><span class="dv">0</span> <span class="sc">&amp;</span> x <span class="sc">&lt;</span>q1]) <span class="co"># a pretty okay approximation!</span></span>
-<span id="cb36-5"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb36-5" tabindex="-1"></a>mu_approx</span></code></pre></div>
-<pre><code>## [1] 0.4515369</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb38-1" tabindex="-1"></a><span class="co"># now we want to calculate the necessary sd such that a proportion p_0 for a distribution with mean mu_approx is below 0</span></span>
-<span id="cb38-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb38-2" tabindex="-1"></a>multip <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">qnorm</span>(p_0) <span class="co"># the factor between mu and sd</span></span>
-<span id="cb38-3"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb38-3" tabindex="-1"></a>sd_approx <span class="ot">&lt;-</span> mu_approx<span class="sc">/</span>multip</span>
-<span id="cb38-4"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb38-4" tabindex="-1"></a>sd_approx <span class="co"># a very fair approximation of the standard deviation!</span></span></code></pre></div>
-<pre><code>## [1] 0.8902178</code></pre>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb132-1" tabindex="-1"></a><span class="co"># calculate the proportion of zereos:</span></span>
+<span id="cb132-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb132-2" tabindex="-1"></a>p_0 <span class="ot">&lt;-</span> <span class="fu">mean</span>(x<span class="sc">==</span><span class="dv">0</span>)</span>
+<span id="cb132-3"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb132-3" tabindex="-1"></a>p_0</span></code></pre></div>
+<pre><code>## [1] 0.317</code></pre>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb134-1" tabindex="-1"></a><span class="co"># Remove the same fraction of points on the high side</span></span>
+<span id="cb134-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb134-2" tabindex="-1"></a><span class="co"># and calculate the mean for the remaining values</span></span>
+<span id="cb134-3"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb134-3" tabindex="-1"></a>q1 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(x,<span class="at">probs=</span><span class="dv">1</span><span class="sc">-</span>p_0)</span>
+<span id="cb134-4"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb134-4" tabindex="-1"></a>mu_approx <span class="ot">&lt;-</span> <span class="fu">mean</span>(x[x<span class="sc">&gt;</span><span class="dv">0</span> <span class="sc">&amp;</span> x <span class="sc">&lt;</span>q1]) <span class="co"># a pretty okay approximation!</span></span>
+<span id="cb134-5"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb134-5" tabindex="-1"></a>mu_approx</span></code></pre></div>
+<pre><code>## [1] 0.4358268</code></pre>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb136-1" tabindex="-1"></a><span class="co"># now we want to calculate the necessary sd such that a proportion p_0 for a distribution with mean mu_approx is below 0</span></span>
+<span id="cb136-2"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb136-2" tabindex="-1"></a>multip <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">qnorm</span>(p_0) <span class="co"># the factor between mu and sd</span></span>
+<span id="cb136-3"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb136-3" tabindex="-1"></a>sd_approx <span class="ot">&lt;-</span> mu_approx<span class="sc">/</span>multip</span>
+<span id="cb136-4"><a href="proportion-of-negative-values-from-a-normal-distribution.html#cb136-4" tabindex="-1"></a>sd_approx <span class="co"># a very fair approximation of the standard deviation!</span></span></code></pre></div>
+<pre><code>## [1] 0.9154018</code></pre>
 <p>There must be better ways to achieve this, if you know a good method, please let me know!</p>
 
 </div>
