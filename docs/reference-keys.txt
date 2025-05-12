@@ -8,6 +8,14 @@ correlation-test-and-t-test
 notation-1
 linear-model-1
 correlation-test
+r2-and-correlation
+notation-2
+correlation-between-x-and-y
+r2-value-of-the-linear-model
+correlation-between-y-and-haty
+r2-of-a-linear-regression-of-y-on-haty
+r2-for-multiple-regression
+r2-value-of-more-general-models
 survival-analysis
 proportional-hazard-models
 when-not-to-use-a-pca

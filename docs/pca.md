@@ -42,12 +42,12 @@ head(d)
 
 ```
 ##            y        PC1        PC2        PC3         PC4
-## 1 -1.6267028 -1.5775951 -0.2800516 -0.3727663 -0.35502422
-## 2  0.7772536  0.5864081  0.8836272  0.3464420 -0.04036141
-## 3 -0.2745109 -2.1333463  1.5687629 -0.7284356  0.21787624
-## 4 -1.0983262 -1.1603281  0.5778170 -0.1408519 -0.13538958
-## 5 -0.3078073 -1.0937142 -0.1890704  0.3171644 -0.64608988
-## 6 -0.7859098 -0.8988454 -1.0151972 -0.6220823 -0.40436840
+## 1 -1.6267028 -1.5775951  0.2800516 -0.3727663  0.35502422
+## 2  0.7772536  0.5864081 -0.8836272  0.3464420  0.04036141
+## 3 -0.2745109 -2.1333463 -1.5687629 -0.7284356 -0.21787624
+## 4 -1.0983262 -1.1603281 -0.5778170 -0.1408519  0.13538958
+## 5 -0.3078073 -1.0937142  0.1890704  0.3171644  0.64608988
+## 6 -0.7859098 -0.8988454  1.0151972 -0.6220823  0.40436840
 ```
 We can use dredge (should we?) to compare all models:
 
@@ -56,7 +56,7 @@ library(MuMIn)
 ```
 
 ```
-## Warning: package 'MuMIn' was built under R version 4.2.1
+## Warning: package 'MuMIn' was built under R version 4.4.3
 ```
 
 ``` r
@@ -75,10 +75,10 @@ head(modSel,3)
 ```
 
 ```
-##    (Intercept)     PC1    PC2  PC3  PC4 df logLik AICc delta weight
-## 13      0.0899      NA     NA 1.74 1.14  4  -40.3 89.4 0.000  0.355
-## 15      0.0899      NA 0.0816 1.74 1.14  5  -39.4 90.1 0.670  0.254
-## 14      0.0899 -0.0634     NA 1.74 1.14  5  -39.5 90.3 0.856  0.231
+##    (Intercept)     PC1     PC2  PC3   PC4 df logLik AICc delta weight
+## 13      0.0899      NA      NA 1.74 -1.14  4  -40.3 89.4 0.000  0.355
+## 15      0.0899      NA -0.0816 1.74 -1.14  5  -39.4 90.1 0.670  0.254
+## 14      0.0899 -0.0634      NA 1.74 -1.14  5  -39.5 90.3 0.856  0.231
 ```
 
 ``` r
@@ -87,10 +87,10 @@ tail(modSel,3)
 ```
 
 ```
-##   (Intercept)     PC1    PC2 PC3 PC4 df logLik AICc delta   weight
-## 3      0.0899      NA 0.0816  NA  NA  3  -70.4  147  57.8 9.88e-14
-## 2      0.0899 -0.0634     NA  NA  NA  3  -70.4  147  57.9 9.62e-14
-## 4      0.0899 -0.0634 0.0816  NA  NA  4  -70.1  149  59.7 3.85e-14
+##   (Intercept)     PC1     PC2 PC3 PC4 df logLik AICc delta   weight
+## 3      0.0899      NA -0.0816  NA  NA  3  -70.4  147  57.8 9.88e-14
+## 2      0.0899 -0.0634      NA  NA  NA  3  -70.4  147  57.9 9.62e-14
+## 4      0.0899 -0.0634 -0.0816  NA  NA  4  -70.1  149  59.7 3.85e-14
 ```
 This is an interesting finding: the model that performs best is the model that contains the two axes that explain the least amount of variation, while the model that explains worst is the model that contains the two axes that explain the most variation. We can look at this sligthly more indepth:
 
@@ -112,7 +112,7 @@ summary(m.12)
 ##             Estimate Std. Error t value Pr(>|t|)
 ## (Intercept)   0.0899     0.1435    0.63     0.53
 ## PC1          -0.0634     0.0942   -0.67     0.50
-## PC2           0.0816     0.1149    0.71     0.48
+## PC2          -0.0816     0.1149   -0.71     0.48
 ## 
 ## Residual standard error: 1.01 on 47 degrees of freedom
 ## Multiple R-squared:  0.02,	Adjusted R-squared:  -0.0217 
@@ -137,7 +137,7 @@ summary(m.34)
 ##             Estimate Std. Error t value Pr(>|t|)    
 ## (Intercept)   0.0899     0.0790    1.14     0.26    
 ## PC3           1.7429     0.1942    8.98  9.3e-12 ***
-## PC4           1.1439     0.2064    5.54  1.3e-06 ***
+## PC4          -1.1439     0.2064   -5.54  1.3e-06 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 

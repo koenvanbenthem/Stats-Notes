@@ -7,6 +7,7 @@ rmd_files:
     "Introduction.Rmd",
     "anovattestlm.Rmd",
     "correlationtest.Rmd",
+    "corlm.Rmd",
     "survival.Rmd",
     "pca.Rmd",
     "brmslogistic.Rmd",

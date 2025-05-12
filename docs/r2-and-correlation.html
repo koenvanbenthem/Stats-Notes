@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 \(R^2\) and correlation | Stats notes</title>
+  <meta name="description" content="4 \(R^2\) and correlation | Stats notes" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 \(R^2\) and correlation | Stats notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 \(R^2\) and correlation | Stats notes" />
+  
+  
+  
+
+<meta name="author" content="Koen van Benthem" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="correlation-test-and-t-test.html"/>
+<link rel="next" href="survival-analysis.html"/>
+<script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Ramblings</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html"><i class="fa fa-check"></i><b>2</b> Differences between two groups</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html#notation"><i class="fa fa-check"></i><b>2.1</b> Notation</a></li>
+<li class="chapter" data-level="2.2" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html#t-test"><i class="fa fa-check"></i><b>2.2</b> t-test</a></li>
+<li class="chapter" data-level="2.3" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html#anova"><i class="fa fa-check"></i><b>2.3</b> ANOVA</a></li>
+<li class="chapter" data-level="2.4" data-path="differences-between-two-groups.html"><a href="differences-between-two-groups.html#linear-model"><i class="fa fa-check"></i><b>2.4</b> linear model</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="correlation-test-and-t-test.html"><a href="correlation-test-and-t-test.html"><i class="fa fa-check"></i><b>3</b> Correlation test and t-test</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="correlation-test-and-t-test.html"><a href="correlation-test-and-t-test.html#notation-1"><i class="fa fa-check"></i><b>3.1</b> Notation</a></li>
+<li class="chapter" data-level="3.2" data-path="correlation-test-and-t-test.html"><a href="correlation-test-and-t-test.html#linear-model-1"><i class="fa fa-check"></i><b>3.2</b> Linear model</a></li>
+<li class="chapter" data-level="3.3" data-path="correlation-test-and-t-test.html"><a href="correlation-test-and-t-test.html#correlation-test"><i class="fa fa-check"></i><b>3.3</b> Correlation test</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r2-and-correlation.html"><a href="r2-and-correlation.html"><i class="fa fa-check"></i><b>4</b> <span class="math inline">\(R^2\)</span> and correlation</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="r2-and-correlation.html"><a href="r2-and-correlation.html#notation-2"><i class="fa fa-check"></i><b>4.1</b> Notation</a></li>
+<li class="chapter" data-level="4.2" data-path="r2-and-correlation.html"><a href="r2-and-correlation.html#correlation-between-x-and-y"><i class="fa fa-check"></i><b>4.2</b> Correlation between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span></a></li>
+<li class="chapter" data-level="4.3" data-path="r2-and-correlation.html"><a href="r2-and-correlation.html#r2-value-of-the-linear-model"><i class="fa fa-check"></i><b>4.3</b> <span class="math inline">\(R^2\)</span> value of the linear model</a></li>
+<li class="chapter" data-level="4.4" data-path="r2-and-correlation.html"><a href="r2-and-correlation.html#correlation-between-y-and-haty"><i class="fa fa-check"></i><b>4.4</b> Correlation between <span class="math inline">\(y\)</span> and <span class="math inline">\(\hat{y}\)</span></a></li>
+<li class="chapter" data-level="4.5" data-path="r2-and-correlation.html"><a href="r2-and-correlation.html#r2-of-a-linear-regression-of-y-on-haty"><i class="fa fa-check"></i><b>4.5</b> <span class="math inline">\(R^2\)</span> of a linear regression of <span class="math inline">\(y\)</span> on <span class="math inline">\(\hat{y}\)</span></a></li>
+<li class="chapter" data-level="4.6" data-path="r2-and-correlation.html"><a href="r2-and-correlation.html#r2-for-multiple-regression"><i class="fa fa-check"></i><b>4.6</b> <span class="math inline">\(R^2\)</span> for multiple regression</a></li>
+<li class="chapter" data-level="4.7" data-path="r2-and-correlation.html"><a href="r2-and-correlation.html#r2-value-of-more-general-models"><i class="fa fa-check"></i><b>4.7</b> <span class="math inline">\(R^2\)</span> value of more general models</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="survival-analysis.html"><a href="survival-analysis.html"><i class="fa fa-check"></i><b>5</b> Survival analysis</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="survival-analysis.html"><a href="survival-analysis.html#proportional-hazard-models"><i class="fa fa-check"></i><b>5.1</b> Proportional hazard models</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="when-not-to-use-a-pca.html"><a href="when-not-to-use-a-pca.html"><i class="fa fa-check"></i><b>6</b> When not to use a PCA</a></li>
+<li class="chapter" data-level="7" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html"><i class="fa fa-check"></i><b>7</b> Transforming posterior samples</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html#binomial-model"><i class="fa fa-check"></i><b>7.1</b> Binomial model</a></li>
+<li class="chapter" data-level="7.2" data-path="transforming-posterior-samples.html"><a href="transforming-posterior-samples.html#beta-zero-one-inflated-model"><i class="fa fa-check"></i><b>7.2</b> Beta zero one inflated model</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="error-propagation.html"><a href="error-propagation.html"><i class="fa fa-check"></i><b>8</b> Error propagation</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="error-propagation.html"><a href="error-propagation.html#data-simulation"><i class="fa fa-check"></i><b>8.1</b> Data simulation</a></li>
+<li class="chapter" data-level="8.2" data-path="error-propagation.html"><a href="error-propagation.html#problem-statement"><i class="fa fa-check"></i><b>8.2</b> Problem statement</a></li>
+<li class="chapter" data-level="8.3" data-path="error-propagation.html"><a href="error-propagation.html#point-estimates"><i class="fa fa-check"></i><b>8.3</b> Point estimates</a></li>
+<li class="chapter" data-level="8.4" data-path="error-propagation.html"><a href="error-propagation.html#uncertainty-using-sampling"><i class="fa fa-check"></i><b>8.4</b> Uncertainty using sampling</a></li>
+<li class="chapter" data-level="8.5" data-path="error-propagation.html"><a href="error-propagation.html#uncertainty-using-delta-method"><i class="fa fa-check"></i><b>8.5</b> Uncertainty using delta method</a></li>
+<li class="chapter" data-level="8.6" data-path="error-propagation.html"><a href="error-propagation.html#conclusion"><i class="fa fa-check"></i><b>8.6</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="proportion-of-negative-values-from-a-normal-distribution.html"><a href="proportion-of-negative-values-from-a-normal-distribution.html"><i class="fa fa-check"></i><b>9</b> Proportion of negative values from a normal distribution</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="proportion-of-negative-values-from-a-normal-distribution.html"><a href="proportion-of-negative-values-from-a-normal-distribution.html#invariability-of-the-proportion-of-negative-values"><i class="fa fa-check"></i><b>9.1</b> Invariability of the proportion of negative values</a></li>
+<li class="chapter" data-level="9.2" data-path="proportion-of-negative-values-from-a-normal-distribution.html"><a href="proportion-of-negative-values-from-a-normal-distribution.html#adapting-the-mean-to-find-a-given-proportion-of-negative-values"><i class="fa fa-check"></i><b>9.2</b> Adapting the mean to find a given proportion of negative values</a></li>
+<li class="chapter" data-level="9.3" data-path="proportion-of-negative-values-from-a-normal-distribution.html"><a href="proportion-of-negative-values-from-a-normal-distribution.html#adapting-the-standard-deviation"><i class="fa fa-check"></i><b>9.3</b> Adapting the standard deviation</a></li>
+<li class="chapter" data-level="9.4" data-path="proportion-of-negative-values-from-a-normal-distribution.html"><a href="proportion-of-negative-values-from-a-normal-distribution.html#simplified"><i class="fa fa-check"></i><b>9.4</b> Simplified</a></li>
+<li class="chapter" data-level="9.5" data-path="proportion-of-negative-values-from-a-normal-distribution.html"><a href="proportion-of-negative-values-from-a-normal-distribution.html#matching-an-empirical-distribution"><i class="fa fa-check"></i><b>9.5</b> Matching an empirical distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Stats notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r2-and-correlation" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> <span class="math inline">\(R^2\)</span> and correlation<a href="r2-and-correlation.html#r2-and-correlation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>For this section, we assume a simple data set that consists of a response variable, <span class="math inline">\(y\)</span> and an explanatory variable <span class="math inline">\(x\)</span>. Here, I try to show the relationship between the following metrics:</p>
+<ol style="list-style-type: decimal">
+<li>The correlation between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span></li>
+<li>The <span class="math inline">\(R^2\)</span> value of the regression model <span class="math inline">\(y_i =  a + bx_i + \epsilon_i\)</span>, with <span class="math inline">\(\epsilon_i\)</span> a residual error from a normal distribution.</li>
+<li>The correlation between <span class="math inline">\(y\)</span> and <span class="math inline">\(\hat{y}\)</span>, the latter being the predictions from the regression model under 2.</li>
+<li>The <span class="math inline">\(R^2\)</span> value of the regression model <span class="math inline">\(y_i = a&#39; + b&#39;\hat{y}_i + \epsilon&#39;_i\)</span>.</li>
+</ol>
+<div id="notation-2" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Notation<a href="r2-and-correlation.html#notation-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Assume we have an explanatory variable <span class="math inline">\(x\)</span> and a response variable <span class="math inline">\(y\)</span>. In total we have <span class="math inline">\(N\)</span> observations, with <span class="math inline">\(x_i\)</span> the value <span class="math inline">\(x\)</span> for individual <span class="math inline">\(i\)</span> and <span class="math inline">\(y_i\)</span> the value of <span class="math inline">\(y\)</span> for individual <span class="math inline">\(i\)</span>. The average values of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are given by <span class="math inline">\(\overline{x}\)</span> and <span class="math inline">\(\overline{y}\)</span> respectively. Throughout the following we use the following definitions for variance (<span class="math inline">\(\sigma_x^2\)</span>, <span class="math inline">\(\sigma_y^2\)</span>) and covariance (<span class="math inline">\(\sigma_{x,y}\)</span>):
+<span class="math display">\[\begin{align}
+\sigma_x^2 &amp;= \frac{\sum_{i=1}^N (x_i - \overline{x})^2}{N-1}\\
+\sigma_y^2 &amp;= \frac{\sum_{i=1}^N (y_i - \overline{y})^2}{N-1}\\
+\sigma_{x,y} &amp;= \frac{\sum_{i=1}^N (x_i - \overline{x})(y_i - \overline{y})}{N-1}\\
+\end{align}\]</span></p>
+</div>
+<div id="correlation-between-x-and-y" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Correlation between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span><a href="r2-and-correlation.html#correlation-between-x-and-y" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>the correlation coefficient <span class="math inline">\(r\)</span> equals <span class="citation">(<a href="#ref-whitlock2015">Whitlock and Schluter 2015</a>)</span>:
+<span class="math display">\[\begin{equation}
+r = \frac{\sum_{i=1}^N (x_i - \overline{x})(y_i - \overline{y})}{\sqrt{\sum_{i=1}^N (x_i - \overline{x})^2}\sqrt{\sum_{i=1}^N (y_i - \overline{y})^2}} = \frac{\sigma_{x,y}}{\sigma_x\sigma_y}
+\end{equation}\]</span></p>
+</div>
+<div id="r2-value-of-the-linear-model" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> <span class="math inline">\(R^2\)</span> value of the linear model<a href="r2-and-correlation.html#r2-value-of-the-linear-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Using the formula in <span class="citation">Whitlock and Schluter (<a href="#ref-whitlock2015">2015</a>)</span> , we can determine the intercept and slope for the regression line as:
+<span class="math display">\[\begin{align}
+b &amp;= \frac{\sum_{i=1}^N (x_i-\overline{x})(y_i-\overline{y})}{\sum_{i=1}^N (x_i - \overline{x})^2} &amp;= \frac{\sigma_{x,y}}{\sigma_x^2} \\
+a &amp;= \overline{y} - b \overline{x} &amp;= \overline{y} - \frac{\sigma_{x,y}}{\sigma_x^2} \overline{x}\\
+
+\end{align}\]</span>
+Next, we define the formula for <span class="math inline">\(R^2\)</span>, which is:
+<span class="math display">\[\begin{equation}
+R^2 = 1 - \frac{\sum_i (\hat{y_i}-y_i)^2}{\sum_i (\overline{y} - y_i)^2}
+\end{equation}\]</span>
+With <span class="math inline">\(\hat{y_i}=a + b x_i\)</span>, this formula becomes:
+<span class="math display">\[\begin{align}
+R^2 &amp;= 1 - \frac{\sum_i (a+b x_i-y_i)^2}{\sum_i (\overline{y} - y_i)^2}\\
+&amp;= 1 - \frac{\sum_i (\overline{y} - \frac{\sigma_{x,y}}{\sigma_x^2}\overline{x} + \frac{\sigma_{x,y}}{\sigma_x^2}  x_i-y_i)^2}{\sum_i (\overline{y} - y_i)^2}\\
+&amp;= 1 - \frac{\sum_i (\overline{y} -y_i  + \frac{\sigma_{x,y}}{\sigma_x^2}  (x_i-\overline{x}))^2}{\sum_i (\overline{y} - y_i)^2}\\
+&amp;= 1 - \frac{\sum_i (\overline{y} -y_i)^2  + 2\frac{\sigma_{x,y}}{\sigma_x^2}  (x_i-\overline{x})(\overline{y} -y_i) + \frac{\sigma_{x,y}^2}{\sigma_x^4}  (x_i-\overline{x})^2}{\sum_i (\overline{y} - y_i)^2}\\
+&amp;= - \frac{ 2\frac{\sigma_{x,y}}{\sigma_x^2}  \sum_i (x_i-\overline{x})(\overline{y} -y_i) + \frac{\sigma_{x,y}^2}{\sigma_x^4} \sum_i (x_i-\overline{x})^2}{\sum_i (\overline{y} - y_i)^2}\\
+&amp;= \frac{ 2\frac{\sigma_{x,y}}{\sigma_x^2}  \sum_i (x_i-\overline{x})(y_i - \overline{y}) - \frac{\sigma_{x,y}^2}{\sigma_x^4} \sum_i (x_i-\overline{x})^2}{\sum_i (\overline{y} - y_i)^2}
+
+\end{align}\]</span>
+Now we divide both numerator and denominator by <span class="math inline">\(N-1\)</span> to find:
+<span class="math display">\[\begin{align}
+R^2 &amp;= \frac{ 2\frac{\sigma_{x,y}}{\sigma_x^2}  \sigma_{x,y} - \frac{\sigma_{x,y}^2}{\sigma_x^4} \sigma_x^2}{\sigma_y^2}\\
+&amp;= \frac{ \sigma_{x,y}^2}{\sigma_x^2\sigma_y^2}\\
+&amp;= r^2
+\end{align}\]</span>
+Hence, for linear regression the <span class="math inline">\(R^2\)</span> value, is identical to the square of the correlation coefficient. This is a very commonly known result.</p>
+</div>
+<div id="correlation-between-y-and-haty" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Correlation between <span class="math inline">\(y\)</span> and <span class="math inline">\(\hat{y}\)</span><a href="r2-and-correlation.html#correlation-between-y-and-haty" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now, we focus on a slightly different correlation (<span class="math inline">\(r&#39;\)</span>), the one between the predictions of the linear model on one hand, and the actual y values on the other. The formula for this correlation should be:
+<span class="math display">\[\begin{equation}
+r&#39; = \frac{\sum_{i=1}^N (\hat{y}_i - \overline{\hat{y}})(y_i - \overline{y})}{\sqrt{\sum_{i=1}^N (\hat{y}_i - \overline{\hat{y}})^2}\sqrt{\sum_{i=1}^N (y_i - \overline{y})^2}}
+\end{equation}\]</span>
+Now we need to simplify this. We will first start by finding an expression for the average prediction, <span class="math inline">\(\overline{\hat{y}}\)</span>, which intuitively should be identical to the average value of <span class="math inline">\(y\)</span>. We write the expression out and simplify:
+<span class="math display">\[\begin{align}
+\overline{\hat{y}} &amp;= \frac{1}{N} \sum_i (a+bx_i)\\
+&amp;= \frac{1}{N} \sum_i (\overline{y} - \frac{\sigma_{x,y}}{\sigma_x^2}\overline{x}+\frac{\sigma_{x,y}}{\sigma_x^2} x_i) \\
+&amp;= \overline{y}
+\end{align}\]</span>
+And thus:
+<span class="math display">\[\begin{equation}
+r&#39; = \frac{\sum_{i=1}^N (\hat{y}_i - \overline{y})(y_i - \overline{y})}{\sqrt{\sum_{i=1}^N (\hat{y}_i - \overline{y})^2}\sqrt{\sum_{i=1}^N (y_i - \overline{y})^2}}
+\end{equation}\]</span>
+Now we use the earlier found expression that <span class="math inline">\(\hat{y_i} = a + bx_i = \overline{y} - \frac{\sigma_{x,y}}{\sigma_x^2}\overline{x}+\frac{\sigma_{x,y}}{\sigma_x^2} x_i = \overline{y} +\frac{\sigma_{x,y}}{\sigma_x^2} (x_i-\overline{x})\)</span> to rewrite the expression of <span class="math inline">\(r&#39;\)</span> to be:
+<span class="math display">\[\begin{align}
+r&#39; &amp;= \frac{\sum_{i=1}^N \frac{\sigma_{x,y}}{\sigma_x^2} (x_i-\overline{x})(y_i - \overline{y})}{\sqrt{\sum_{i=1}^N (\frac{\sigma_{x,y}}{\sigma_x^2} (x_i-\overline{x}))^2}\sqrt{\sum_{i=1}^N (y_i - \overline{y})^2}} \\
+&amp;= \frac{\sum_{i=1}^N (x_i-\overline{x})(y_i - \overline{y})}{\sqrt{\sum_{i=1}^N  (x_i-\overline{x})^2}\sqrt{\sum_{i=1}^N (y_i - \overline{y})^2}} \\
+&amp;= r
+\end{align}\]</span></p>
+</div>
+<div id="r2-of-a-linear-regression-of-y-on-haty" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> <span class="math inline">\(R^2\)</span> of a linear regression of <span class="math inline">\(y\)</span> on <span class="math inline">\(\hat{y}\)</span><a href="r2-and-correlation.html#r2-of-a-linear-regression-of-y-on-haty" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We have shown before that if the correlation coefficient of two variables is r, the <span class="math inline">\(R^2\)</span> value that is obtained by regressing one variable on the other is equal to <span class="math inline">\(r^2\)</span>. Therefore, the <span class="math inline">\(R^2\)</span> of the regression of <span class="math inline">\(y\)</span> on <span class="math inline">\(\hat{y}\)</span> is identical to <span class="math inline">\(r^2\)</span>. The result shown here holds for simple regressions. We can check these behaviours with a quick simulation:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r2-and-correlation.html#cb1-1" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="co"># number of data points</span></span>
+<span id="cb1-2"><a href="r2-and-correlation.html#cb1-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
+<span id="cb1-3"><a href="r2-and-correlation.html#cb1-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fl">2.1</span><span class="sc">*</span>x <span class="sc">+</span> <span class="fl">0.6</span> <span class="sc">+</span> <span class="fu">rnorm</span>(N)</span>
+<span id="cb1-4"><a href="r2-and-correlation.html#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="r2-and-correlation.html#cb1-5" tabindex="-1"></a><span class="co"># 1. correlation squared</span></span>
+<span id="cb1-6"><a href="r2-and-correlation.html#cb1-6" tabindex="-1"></a><span class="fu">cor</span>(x,y)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 0.3352486</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r2-and-correlation.html#cb3-1" tabindex="-1"></a><span class="co"># 2. r squared of linear model</span></span>
+<span id="cb3-2"><a href="r2-and-correlation.html#cb3-2" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span>x)</span>
+<span id="cb3-3"><a href="r2-and-correlation.html#cb3-3" tabindex="-1"></a><span class="fu">summary</span>(m1)<span class="sc">$</span>r.squared</span></code></pre></div>
+<pre><code>## [1] 0.3352486</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="r2-and-correlation.html#cb5-1" tabindex="-1"></a><span class="co"># 3. correlation predictions and real values for y:</span></span>
+<span id="cb5-2"><a href="r2-and-correlation.html#cb5-2" tabindex="-1"></a>ypred <span class="ot">&lt;-</span> <span class="fu">predict</span>(m1)</span>
+<span id="cb5-3"><a href="r2-and-correlation.html#cb5-3" tabindex="-1"></a><span class="fu">cor</span>(y,ypred)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 0.3352486</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r2-and-correlation.html#cb7-1" tabindex="-1"></a><span class="co"># 4. R squared linear model y~ypred</span></span>
+<span id="cb7-2"><a href="r2-and-correlation.html#cb7-2" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>ypred))<span class="sc">$</span>r.squared</span></code></pre></div>
+<pre><code>## [1] 0.3352486</code></pre>
+<p>We note that all values are identical.</p>
+</div>
+<div id="r2-for-multiple-regression" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> <span class="math inline">\(R^2\)</span> for multiple regression<a href="r2-and-correlation.html#r2-for-multiple-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Without proof, it seems that the <span class="math inline">\(R^2\)</span> value of a multiple regression is identical to the correlation between the response variables and their predicted values by the multiple regression. For example:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="r2-and-correlation.html#cb9-1" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb9-2"><a href="r2-and-correlation.html#cb9-2" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">runif</span>(N)</span>
+<span id="cb9-3"><a href="r2-and-correlation.html#cb9-3" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">runif</span>(N)</span>
+<span id="cb9-4"><a href="r2-and-correlation.html#cb9-4" tabindex="-1"></a>x3 <span class="ot">&lt;-</span> <span class="fu">runif</span>(N)</span>
+<span id="cb9-5"><a href="r2-and-correlation.html#cb9-5" tabindex="-1"></a>y <span class="ot">&lt;-</span> x1 <span class="sc">+</span> <span class="fl">2.1</span><span class="sc">*</span>x2 <span class="sc">-</span> <span class="fl">0.8</span><span class="sc">*</span>x3 <span class="sc">+</span> <span class="fl">4.47</span><span class="sc">*</span>x2<span class="sc">*</span>x3 <span class="sc">+</span> <span class="fl">5.6</span> <span class="sc">+</span> <span class="fu">rnorm</span>(N)</span>
+<span id="cb9-6"><a href="r2-and-correlation.html#cb9-6" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x2<span class="sc">:</span>x3)</span>
+<span id="cb9-7"><a href="r2-and-correlation.html#cb9-7" tabindex="-1"></a><span class="fu">summary</span>(m1)<span class="sc">$</span>r.squared</span></code></pre></div>
+<pre><code>## [1] 0.5579047</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r2-and-correlation.html#cb11-1" tabindex="-1"></a><span class="fu">cor</span>(y,<span class="fu">predict</span>(m1))<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 0.5579047</code></pre>
+<p>We can repeat this process many times to see how general it is:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="r2-and-correlation.html#cb13-1" tabindex="-1"></a>reps <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="fl">1e3</span>, {N <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb13-2"><a href="r2-and-correlation.html#cb13-2" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">runif</span>(N)</span>
+<span id="cb13-3"><a href="r2-and-correlation.html#cb13-3" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">runif</span>(N)</span>
+<span id="cb13-4"><a href="r2-and-correlation.html#cb13-4" tabindex="-1"></a>x3 <span class="ot">&lt;-</span> <span class="fu">runif</span>(N)</span>
+<span id="cb13-5"><a href="r2-and-correlation.html#cb13-5" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="r2-and-correlation.html#cb13-6" tabindex="-1"></a>y <span class="ot">&lt;-</span> x1 <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1</span>)<span class="sc">*</span>x2 <span class="sc">-</span> <span class="fu">rnorm</span>(<span class="dv">1</span>)<span class="sc">*</span>x3 <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1</span>)<span class="sc">*</span>x2<span class="sc">*</span>x3 <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">rnorm</span>(N)</span>
+<span id="cb13-7"><a href="r2-and-correlation.html#cb13-7" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="r2-and-correlation.html#cb13-8" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x2<span class="sc">:</span>x3)</span>
+<span id="cb13-9"><a href="r2-and-correlation.html#cb13-9" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">R2=</span><span class="fu">summary</span>(m1)<span class="sc">$</span>r.squared,<span class="at">r2=</span><span class="fu">cor</span>(y,<span class="fu">predict</span>(m1))<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb13-10"><a href="r2-and-correlation.html#cb13-10" tabindex="-1"></a>},<span class="at">simplify=</span><span class="cn">FALSE</span>)</span>
+<span id="cb13-11"><a href="r2-and-correlation.html#cb13-11" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind,reps)</span>
+<span id="cb13-12"><a href="r2-and-correlation.html#cb13-12" tabindex="-1"></a><span class="fu">max</span>(<span class="fu">abs</span>(df<span class="sc">$</span>R2<span class="sc">-</span>df<span class="sc">$</span>r2)) <span class="co"># biggest absolute difference</span></span></code></pre></div>
+<pre><code>## [1] 6.106227e-16</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="r2-and-correlation.html#cb15-1" tabindex="-1"></a><span class="fu">plot</span>(df<span class="sc">$</span>R2,df<span class="sc">$</span>r2)</span></code></pre></div>
+<p><img src="corlm_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="r2-value-of-more-general-models" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> <span class="math inline">\(R^2\)</span> value of more general models<a href="r2-and-correlation.html#r2-value-of-more-general-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Suppose we have results from a general model that returns predictions <span class="math inline">\(\hat{y_{*i}}\)</span> for data points with a true value <span class="math inline">\(y_{*i}\)</span>. The <span class="math inline">\(R_*^2\)</span> value for such a model would be:
+<span class="math display">\[\begin{equation}
+R_*^2 = 1 - \frac{\sum_i (\hat{y_{*i}}-y_{*i})^2}{\sum_i (\overline{y_*} - y_{*i})^2}
+\end{equation}\]</span>
+Now, we can not easily rewrite this as a correlation, because we do not have a closed expression for the predicted values. Let’s assume some made up data as well as some arbitrary predictions:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="r2-and-correlation.html#cb16-1" tabindex="-1"></a>ytrue <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb16-2"><a href="r2-and-correlation.html#cb16-2" tabindex="-1"></a>ypred <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span></code></pre></div>
+<p>For these values we can calculate the <span class="math inline">\(R^2\)</span> value as:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="r2-and-correlation.html#cb17-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">sum</span>((ytrue<span class="sc">-</span>ypred)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">sum</span>((ytrue<span class="sc">-</span><span class="fu">mean</span>(ytrue))<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 0.8786408</code></pre>
+<p>However, the square of the correlation between the two is:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="r2-and-correlation.html#cb19-1" tabindex="-1"></a><span class="fu">cor</span>(ytrue,ypred)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 0.9082639</code></pre>
+<p>Which is not the same!</p>
+
+</div>
+</div>
+<h3>Bibliography<a href="bibliography.html#bibliography" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-whitlock2015" class="csl-entry">
+Whitlock, Michael, and Dolph Schluter. 2015. <em>The Analysis of Biological Data</em>. Vol. 768. Roberts Publishers Greenwood Village, Colorado.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="correlation-test-and-t-test.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="survival-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  },
+  "toolbar": {
+    "position": "static"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
